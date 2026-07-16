@@ -28,8 +28,7 @@ const plans = [
     features: [
       "Señales de trading en tiempo real",
       "Entradas, stop loss y take profit",
-      "Análisis premium a diario",
-      "Sesiones en vivo semanales",
+      "Análisis Nq y Sp diario",
       "Soporte directo del equipo",
     ],
     cta: "Suscribirme al VIP",
