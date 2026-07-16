@@ -120,40 +120,50 @@ export function Pricing() {
                 ))}
               </ul>
 
-              {plan.name === "Telegram VIP" ? (
-  <div className="mt-8 space-y-3">
-    <input
-      type="email"
-      placeholder="Introduce tu email"
-      className="h-11 w-full rounded-lg border border-border bg-background px-4 text-sm"
-    />
-    <Button className="h-11 w-full">
-      Quiero formar parte
-    </Button>
-  </div>
-) : (
-  <Button
+              <Button
   className="mt-8 h-11 w-full text-sm"
   variant={plan.highlighted ? "default" : "outline"}
   render={
-    plan.name === "Telegram Gratuito"
-      ? (
-          <a
-            href="https://t.me/tradingproNQ"
-            target="_blank"
-            rel="noopener noreferrer"
-          />
-        )
-      : undefined
+    <a
+      href={
+        plan.name === "Telegram Gratuito"
+          ? "https://t.me/tradingproNQ"
+          : "https://buy.stripe.com/3cIaEQ7hMdL00Kr3Qg8so05"
+      }
+      target="_blank"
+      rel="noopener noreferrer"
+    />
   }
 >
   {plan.cta}
 </Button>
-)}
             </div>
           )
         })}
       </div>
+      <div className="mt-12 rounded-2xl border border-border bg-card p-6 text-center">
+  <h3 className="text-lg font-semibold">
+    ¿Tienes algún problema con el pago?
+  </h3>
+
+  <p className="mt-2 text-sm text-muted-foreground">
+    Si tienes cualquier duda o el pago no funciona correctamente, estaremos
+    encantados de ayudarte.
+  </p>
+
+  <Button
+    className="mt-6"
+    render={
+      <a href="mailto:traderrunsignals@gmail.com" />
+    }
+  >
+    Contacta con nosotros
+  </Button>
+
+  <p className="mt-4 text-sm text-primary font-medium">
+    traderrunsignals@gmail.com
+  </p>
+</div>
     </section>
   )
 }
