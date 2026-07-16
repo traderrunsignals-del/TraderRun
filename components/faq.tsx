@@ -14,15 +14,15 @@ const faqs = [
   },
   {
     q: "¿Cuánto tiempo necesito dedicarle?",
-    a: "Con 3 a 5 horas semanales puedes avanzar de forma constante. Todo el contenido queda grabado, así que aprendes a tu ritmo.",
+    a: "Con 3 a 5 horas semanales puedes avanzar de forma constante. Todo el contenido esta disponible, así que puede organizarte yaprendes a tu ritmo.",
   },
   {
     q: "¿Puedo cancelar cuando quiera?",
-    a: "Sí. Los planes son mensuales y puedes cancelar en cualquier momento. Además, los planes de pago incluyen 7 días de garantía de devolución.",
+    a: "Sí. Los planes son mensuales y puedes cancelar en cualquier momento.",
   },
   {
     q: "¿En qué mercados se enfoca la formación?",
-    a: "Cubrimos acciones, índices, forex y criptomonedas. Los principios de análisis y gestión de riesgo se aplican a todos ellos.",
+    a: "Cubrimos índices como el Nasdaq y Sp principalemente, forex y nuestra propia cartera de acciones. Los principios de análisis y gestión de riesgo se aplican a todos ellos.",
   },
 ]
 

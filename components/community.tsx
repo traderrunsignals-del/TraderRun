@@ -2,9 +2,9 @@ import { Button } from "@/components/ui/button"
 import { ArrowRight, Users, Video, Trophy } from "lucide-react"
 
 const stats = [
-  { icon: Users, value: "12k+", label: "Miembros activos" },
-  { icon: Video, value: "300+", label: "Sesiones en vivo" },
-  { icon: Trophy, value: "4.9/5", label: "Valoración media" },
+  { icon: Users, value: "800+", label: "Grupo gratuito" },
+  
+  
 ]
 
 export function Community() {
@@ -20,8 +20,8 @@ export function Community() {
           </h2>
           <p className="mt-4 text-pretty leading-relaxed text-muted-foreground">
             Detrás de TraderRun hay traders con años de experiencia que comparten
-            su proceso cada día. Recibe feedback sobre tus operaciones, participa
-            en retos y rodéate de gente que quiere lo mismo que tú: constancia.
+            su proceso cada día. Recibe feedback sobre tus operaciones 
+             y rodéate de gente que quiere lo mismo que tú: LIBERTAD
           </p>
 
           <div className="mt-8 grid grid-cols-3 gap-4">
@@ -44,9 +44,15 @@ export function Community() {
           <Button
             size="lg"
             className="mt-8 h-11 px-6 text-sm"
-            render={<a href="#precios" />}
+            render={
+  <a
+    href="https://t.me/tradingproNQ"
+    target="_blank"
+    rel="noopener noreferrer"
+  />
+}
           >
-            Unirme a la comunidad
+            Entrar en Telegram
             <ArrowRight className="size-4" />
           </Button>
         </div>
@@ -63,19 +69,19 @@ export function Community() {
               className="h-full w-full object-cover"
             />
             <div className="absolute inset-x-4 bottom-4 rounded-xl border border-border/60 bg-background/85 p-4 backdrop-blur">
-              <div className="flex items-center gap-2">
-                <span className="flex size-2 rounded-full bg-primary" />
-                <span className="text-xs font-medium text-primary">
-                  En directo ahora
-                </span>
-              </div>
-              <p className="mt-1 text-sm font-medium">
-                Análisis de apertura de mercado
-              </p>
-              <p className="text-xs text-muted-foreground">
-                842 traders conectados
-              </p>
-            </div>
+  <div className="flex items-center gap-2">
+    <span className="flex size-2 rounded-full bg-primary" />
+    <span className="text-xs font-medium text-primary">
+      Señales en tiempo real
+    </span>
+  </div>
+  <p className="mt-1 text-sm font-medium">
+    Recibe cada operación directamente en Telegram
+  </p>
+  <p className="text-xs text-muted-foreground">
+    Análisis, entrada, stop loss y objetivos.
+  </p>
+</div>
           </div>
         </div>
       </div>

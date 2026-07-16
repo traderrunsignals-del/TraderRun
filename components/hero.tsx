@@ -25,7 +25,7 @@ export function Hero() {
         <div className="mx-auto max-w-3xl text-center">
           <div className="mx-auto mb-6 inline-flex items-center gap-2 rounded-full border border-border/60 bg-secondary/50 px-3 py-1 text-xs text-muted-foreground">
             <span className="flex size-1.5 rounded-full bg-primary" />
-            +12.000 traders formándose con nosotros
+            +7 años de experiencia en los mercados
           </div>
 
           <h1 className="text-balance font-display text-4xl font-bold leading-[1.05] tracking-tight sm:text-6xl">
@@ -34,34 +34,32 @@ export function Hero() {
           </h1>
 
           <p className="mx-auto mt-6 max-w-2xl text-pretty text-base leading-relaxed text-muted-foreground sm:text-lg">
-            Formación estructurada, sesiones en vivo y acompañamiento diario.
-            Domina el análisis técnico, la gestión de riesgo y la psicología del
-            trading, paso a paso, sin promesas mágicas.
+            Análisis Nasdaq y Sp diarios, Portfolio de acciones y teoria disponible en el grupo.
+            Aprende gestión de riesgo y la importancia de la psicología en el
+            trading, con acompañamiento diario.
           </p>
 
           <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <Button
-              size="lg"
-              className="h-11 w-full px-6 text-sm sm:w-auto"
-              render={<a href="#precios" />}
-            >
-              Empezar ahora
-              <ArrowRight className="size-4" />
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="h-11 w-full px-6 text-sm sm:w-auto"
-              render={<a href="#programa" />}
-            >
-              <Play className="size-4" />
-              Ver el programa
-            </Button>
+           <Button
+  size="lg"
+  className="h-11 w-full px-6 text-sm sm:w-auto"
+  render={
+    <a
+      href="https://t.me/tradingproNQ"
+      target="_blank"
+      rel="noopener noreferrer"
+    />
+  }
+>
+  Unirme a Telegram
+  <ArrowRight className="size-4" />
+</Button>
+            
           </div>
 
           <div className="mt-6 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-muted-foreground">
             <span className="inline-flex items-center gap-1.5">
-              <ShieldCheck className="size-4 text-primary" />7 días de garantía
+              <ShieldCheck className="size-4 text-primary" />Empieza a ser libre
             </span>
             <span className="inline-flex items-center gap-1.5">
               <Users className="size-4 text-primary" />
@@ -69,7 +67,7 @@ export function Hero() {
             </span>
             <span className="inline-flex items-center gap-1.5">
               <Zap className="size-4 text-primary" />
-              Sesiones en vivo semanales
+              Análisis y señales diarios
             </span>
           </div>
         </div>

@@ -30,9 +30,25 @@ export function SiteFooter() {
               </span>
             </a>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted-foreground">
-              Formación de trading y comunidad para operar los mercados con
-              método y disciplina.
-            </p>
+  Señales de trading, análisis del mercado y una comunidad para traders que quieren mejorar cada día.
+</p>
+<div className="mt-5 space-y-2 text-sm">
+  <a
+    href="mailto:contacto@traderrun.com"
+    className="block text-muted-foreground transition-colors hover:text-primary"
+  >
+    📧 traderrunsignals@gmail.com
+  </a>
+
+  <a
+    href="https://t.me/tradingproNQ"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="block text-muted-foreground transition-colors hover:text-primary"
+  >
+    📲 Unirse a Telegram
+  </a>
+</div>
           </div>
 
           {columns.map((col) => (

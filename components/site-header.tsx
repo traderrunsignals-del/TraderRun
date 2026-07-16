@@ -1,7 +1,6 @@
 "use client"
 
 import { useState } from "react"
-import { Button } from "@/components/ui/button"
 import { Menu, X, TrendingUp } from "lucide-react"
 
 const navLinks = [
@@ -39,14 +38,7 @@ export function SiteHeader() {
           ))}
         </nav>
 
-        <div className="hidden items-center gap-3 md:flex">
-          <Button variant="ghost" size="sm">
-            Iniciar sesión
-          </Button>
-          <Button size="sm" render={<a href="#precios" />}>
-            Empezar ahora
-          </Button>
-        </div>
+        
 
         <button
           className="flex size-9 items-center justify-center rounded-md text-foreground md:hidden"
@@ -70,14 +62,7 @@ export function SiteHeader() {
                 {link.label}
               </a>
             ))}
-            <div className="mt-3 flex flex-col gap-2">
-              <Button variant="outline" size="sm">
-                Iniciar sesión
-              </Button>
-              <Button size="sm" render={<a href="#precios" />}>
-                Empezar ahora
-              </Button>
-            </div>
+            
           </nav>
         </div>
       )}

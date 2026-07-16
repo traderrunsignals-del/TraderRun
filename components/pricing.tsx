@@ -35,24 +35,7 @@ const plans = [
     cta: "Suscribirme al VIP",
     highlighted: true,
   },
-  {
-    name: "Curso Completo",
-    icon: GraduationCap,
-    price: "297",
-    period: "pago único",
-    badge: "Acceso de por vida",
-    desc: "Fórmate desde cero hasta operar con método propio.",
-    features: [
-      "120+ lecciones estructuradas",
-      "Análisis técnico y gestión de riesgo",
-      "Psicología del trading",
-      "Actualizaciones y nuevos módulos incluidos",
-      "Certificado de finalización",
-    ],
-    cta: "Comprar el curso",
-    highlighted: false,
-    lifetime: true,
-  },
+  
 ]
 
 export function Pricing() {
@@ -66,8 +49,10 @@ export function Pricing() {
           Elige cómo quieres empezar
         </h2>
         <p className="mt-4 text-pretty leading-relaxed text-muted-foreground">
-          Empieza gratis en Telegram, súbete al VIP para las señales en tiempo
-          real o fórmate a fondo con el curso de acceso de por vida.
+          Empieza en nuestro grupo gratuito de Telegram para ver nuestros resultados, noticias y testimonios 
+          o únete a nuestra comunidad VIP para empezar a aprender ya y tener acceso a nuestros análisis y señales
+          en tiempo real.
+      
         </p>
       </div>
 
@@ -135,12 +120,36 @@ export function Pricing() {
                 ))}
               </ul>
 
-              <Button
-                className="mt-8 h-11 w-full text-sm"
-                variant={plan.highlighted ? "default" : "outline"}
-              >
-                {plan.cta}
-              </Button>
+              {plan.name === "Telegram VIP" ? (
+  <div className="mt-8 space-y-3">
+    <input
+      type="email"
+      placeholder="Introduce tu email"
+      className="h-11 w-full rounded-lg border border-border bg-background px-4 text-sm"
+    />
+    <Button className="h-11 w-full">
+      Quiero formar parte
+    </Button>
+  </div>
+) : (
+  <Button
+  className="mt-8 h-11 w-full text-sm"
+  variant={plan.highlighted ? "default" : "outline"}
+  render={
+    plan.name === "Telegram Gratuito"
+      ? (
+          <a
+            href="https://t.me/tradingproNQ"
+            target="_blank"
+            rel="noopener noreferrer"
+          />
+        )
+      : undefined
+  }
+>
+  {plan.cta}
+</Button>
+)}
             </div>
           )
         })}

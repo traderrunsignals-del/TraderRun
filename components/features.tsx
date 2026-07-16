@@ -1,23 +1,13 @@
 import {
-  BookOpen,
   LineChart,
-  Radio,
   Bell,
   Brain,
   MessageSquare,
 } from "lucide-react"
 
 const features = [
-  {
-    icon: BookOpen,
-    title: "Programa estructurado",
-    desc: "Más de 120 lecciones organizadas por niveles, desde los fundamentos hasta estrategias avanzadas.",
-  },
-  {
-    icon: Radio,
-    title: "Sesiones en vivo",
-    desc: "Operamos el mercado en directo cada semana. Aprende viendo decisiones reales en tiempo real.",
-  },
+  
+  
   {
     icon: Bell,
     title: "Señales y alertas",
@@ -45,14 +35,13 @@ export function Features() {
     <section id="programa" className="mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-28">
       <div className="mx-auto max-w-2xl text-center">
         <p className="text-sm font-medium uppercase tracking-widest text-primary">
-          Todo en un solo lugar
+          ¿Por qué elegir TraderRun?
         </p>
         <h2 className="mt-3 text-balance font-display text-3xl font-bold tracking-tight sm:text-4xl">
-          Lo que necesitas para operar con método
+          Todo lo que necesitas para mejorar tu trading
         </h2>
         <p className="mt-4 text-pretty leading-relaxed text-muted-foreground">
-          Dejamos atrás los cursos que solo enseñan indicadores. Aquí construyes
-          un proceso completo y repetible.
+          Recibe señales de trading, análisis del mercado y el apoyo de una comunidad activa para ayudarte a tomar mejores decisiones.
         </p>
       </div>
 

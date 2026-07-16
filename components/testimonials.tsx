@@ -3,21 +3,21 @@ import { Star } from "lucide-react"
 const testimonials = [
   {
     quote:
-      "Pasé de operar por impulso a tener un plan claro. Lo que más valoro es la gestión de riesgo, cambió por completo mi forma de operar.",
-    name: "Laura M.",
-    role: "Miembro Pro · 8 meses",
+      "Gracias por compartir su conocimiento, por estar siempre presentes para apoyarnos, y por fomentar una comunidad de aprendizaje y compañerismo.",
+    name: "Racolo",
+    role: "Grupo Vip · 11 meses",
   },
   {
     quote:
-      "Las sesiones en vivo son oro puro. Ver cómo piensan antes de entrar a una operación me enseñó más que cualquier curso.",
-    name: "Diego R.",
-    role: "Miembro Elite · 1 año",
+      "En mas de 30 años currando (y en lo personal también) he dado con muy pocas personas que se entreguen a ayudar a los demás como lo hacéis vosotros...",
+    name: "Francisco.",
+    role: "Grupo Vip · 1 año",
   },
   {
     quote:
-      "La comunidad marca la diferencia. Siempre hay alguien dispuesto a revisar tu análisis y darte feedback honesto.",
-    name: "Carla V.",
-    role: "Miembro Pro · 5 meses",
+      "Cuando entré al grupo tenía la cuenta en cfd negativo y a día de hoy la lleno en +600",
+    name: "Cristian",
+    role: "Grupo Vip · 5 meses",
   },
 ]
 
