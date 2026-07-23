@@ -6,6 +6,7 @@ import { Menu, X, TrendingUp } from "lucide-react"
 const navLinks = [
   { label: "Programa", href: "#programa" },
   { label: "Comunidad", href: "#comunidad" },
+  { label: "Área Privada", href: "/login" },
   { label: "Precios", href: "#precios" },
   { label: "Testimonios", href: "#testimonios" },
   { label: "FAQ", href: "#faq" },
