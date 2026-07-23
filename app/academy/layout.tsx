@@ -3,18 +3,18 @@ export default function AcademyLayout({
 }: {
   children: React.ReactNode
 }) {
-  const modules = [
-    { name: "📘 Fundamentos del Trading", href: "/academy/modulo-1" },
-    { name: "🌍 Cómo funcionan los mercados", href: "/academy/modulo-2" },
-    { name: "💻 Plataforma de trading", href: "/academy/modulo-3" },
-    { name: "🕯️ Velas japonesas", href: "/academy/modulo-4" },
-    { name: "📈 Estructura del mercado", href: "/academy/modulo-5" },
-    { name: "🎯 Soportes y resistencias", href: "/academy/modulo-6" },
-    { name: "🛡️ Gestión del riesgo", href: "/academy/modulo-7" },
-    { name: "🧠 Psicología del trader", href: "/academy/modulo-8" },
-    { name: "🚀 Estrategia Trader Run", href: "/academy/modulo-9" },
-    { name: "📊 Casos prácticos", href: "/academy/modulo-10" },
-  ]
+ const modules = [
+  { icon: "📘", name: "Fundamentos del Trading", href: "/academy/modulo-1" },
+  { icon: "🌍", name: "Cómo funcionan los mercados", href: "/academy/modulo-2" },
+  { icon: "💻", name: "Plataforma de trading", href: "/academy/modulo-3" },
+  { icon: "🕯️", name: "Velas japonesas", href: "/academy/modulo-4" },
+  { icon: "📈", name: "Estructura del mercado", href: "/academy/modulo-5" },
+  { icon: "🎯", name: "Soportes y resistencias", href: "/academy/modulo-6" },
+  { icon: "🛡️", name: "Gestión del riesgo", href: "/academy/modulo-7" },
+  { icon: "🧠", name: "Psicología del trader", href: "/academy/modulo-8" },
+  { icon: "🚀", name: "Estrategia Trader Run", href: "/academy/modulo-9" },
+  { icon: "📊", name: "Casos prácticos", href: "/academy/modulo-10" },
+]
 
   return (
     <div className="flex min-h-screen bg-background">
@@ -39,17 +39,23 @@ export default function AcademyLayout({
           </div>
         </div>
 
-        <nav className="mt-8 space-y-2">
-          {modules.map((module) => (
-            <a
-              key={module.href}
-              href={module.href}
-              className="block rounded-lg px-3 py-2 text-sm hover:bg-primary hover:text-primary-foreground transition"
-            >
-              {module.name}
-            </a>
-          ))}
-        </nav>
+        <nav className="mt-8 space-y-3">
+  {modules.map((module, index) => (
+    <a
+      key={module.href}
+      href={module.href}
+      className="block rounded-xl border border-border p-3 hover:bg-primary hover:text-primary-foreground transition"
+    >
+      <p className="text-xs uppercase tracking-wider text-muted-foreground">
+        Módulo {index + 1}
+      </p>
+
+      <p className="mt-1 font-semibold">
+        {module.icon} {module.name}
+      </p>
+    </a>
+  ))}
+</nav>
 
       </aside>
 

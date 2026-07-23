@@ -17,7 +17,7 @@ export const modules = [
   { title: "Resumen del módulo 1", video: "", pdf: "", exercise: "", duration: "" },
   { title: "Ejercicio", video: "", pdf: "", exercise: "", duration: "" },
 ],
-
+ }, 
   {
     id: 2,
     title: "Cómo funcionan los mercados",
@@ -35,6 +35,7 @@ export const modules = [
   { title: "Resumen del módulo 2", video: "", pdf: "", exercise: "", duration: "" },
   { title: "Ejercicio", video: "", pdf: "", exercise: "", duration: "" },
 ],
+}, 
 {
   id: 3,
   title: "Conociendo tu plataforma de trading",
