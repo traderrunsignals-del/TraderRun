@@ -1,8 +1,37 @@
+"use client"
+
+import { LogOut } from "lucide-react"
+import { useEffect, useState } from "react"
+const handleLogout = async () => {
+  await supabase.auth.signOut()
+  router.push("/login")
+}
+import { useRouter } from "next/navigation"
+import { supabase } from "@/lib/supabase"
 export default function AcademyLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
+  const router = useRouter()
+const [loading, setLoading] = useState(true)
+
+useEffect(() => {
+  const checkUser = async () => {
+    const {
+      data: { session },
+    } = await supabase.auth.getSession()
+
+    if (!session) {
+      router.replace("/login")
+      return
+    }
+
+    setLoading(false)
+  }
+
+  checkUser()
+}, [router])
  const modules = [
   { icon: "📘", name: "Fundamentos del Trading", href: "/academy/modulo-1" },
   { icon: "🌍", name: "Cómo funcionan los mercados", href: "/academy/modulo-2" },
@@ -16,6 +45,13 @@ export default function AcademyLayout({
   { icon: "📊", name: "Casos prácticos", href: "/academy/modulo-10" },
 ]
 
+if (loading) {
+  return (
+    <div className="flex min-h-screen items-center justify-center">
+      Cargando...
+    </div>
+  )
+}
   return (
     <div className="flex min-h-screen bg-background">
       <aside className="w-80 border-r border-border bg-card p-6">
@@ -57,6 +93,17 @@ export default function AcademyLayout({
   ))}
 </nav>
 
+<div className="mt-10 border-t pt-6">
+
+  <button
+    onClick={handleLogout}
+    className="flex w-full items-center justify-center gap-2 rounded-xl border px-4 py-3 transition hover:bg-red-500 hover:text-white"
+  >
+    <LogOut size={18} />
+    Cerrar sesión
+  </button>
+
+</div>
       </aside>
 
       <main className="flex-1 p-10">
