@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button"
-import { Check, Send, Crown, GraduationCap, Infinity as InfinityIcon } from "lucide-react"
+import { Check, Send, Crown, Camera, Infinity as InfinityIcon } from "lucide-react"
 
 const plans = [
   {
@@ -34,7 +34,25 @@ const plans = [
     cta: "Suscribirme al VIP",
     highlighted: true,
   },
-  
+  {
+    name: "Instagram VIP",
+    icon: Camera,
+    price: "3,99",
+    period: "/mes",
+    badge: "Nuevo",
+    desc: "Contenido exclusivo para suscriptores de Instagram con análisis, directos y ventajas exclusivas.",
+    features: [
+      "Insignia de suscriptor VIP",
+      "Sesgo y análisis de los activos que revisamos cada semana",
+      "Contenido exclusivo para suscriptores",
+      "Pregúntanos lo que quieras",
+      "Lanzamientos y acceso anticipado",
+      "Descuentos en cuentas de fondeo",
+      "Vídeos en directo durante la sesión de Nueva York",
+    ],
+    cta: "Ver Instagram VIP",
+    highlighted: false,
+  },
 ]
 
 export function Pricing() {
@@ -127,7 +145,9 @@ export function Pricing() {
       href={
         plan.name === "Telegram Gratuito"
           ? "https://t.me/tradingproNQ"
-          : "https://buy.stripe.com/3cIaEQ7hMdL00Kr3Qg8so05"
+          : plan.name === "Instagram VIP"
+            ? "https://www.instagram.com/trader_run/"
+            : "https://buy.stripe.com/3cIaEQ7hMdL00Kr3Qg8so05"
       }
       target="_blank"
       rel="noopener noreferrer"
@@ -136,6 +156,15 @@ export function Pricing() {
 >
   {plan.cta}
 </Button>
+{plan.name === "Instagram VIP" && (
+  <p className="mt-3 text-center text-xs leading-relaxed text-muted-foreground">
+    Se abrirá nuestro perfil de Instagram.
+    <br />
+    Después pulsa{" "}
+    <span className="font-semibold text-primary">"Suscribirse"</span>
+    {" "}para activar tu membresía VIP.
+  </p>
+)}
             </div>
           )
         })}
