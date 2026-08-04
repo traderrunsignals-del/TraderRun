@@ -15,6 +15,8 @@ export default function AcademyLayout({
 }) {
   const router = useRouter()
 const [loading, setLoading] = useState(true)
+const [progress, setProgress] = useState(0)
+const [completedModules, setCompletedModules] = useState(0)
 
 useEffect(() => {
   const checkUser = async () => {
@@ -26,6 +28,17 @@ useEffect(() => {
       router.replace("/login")
       return
     }
+
+    const { data } = await supabase
+  .from("user_progress")
+  .select("module")
+  .eq("user_id", session.user.id)
+  .eq("completed", true)
+
+const completed = data?.length ?? 0
+
+setCompletedModules(completed)
+setProgress((completed / 10) * 100)
 
     setLoading(false)
   }
@@ -65,15 +78,23 @@ if (loading) {
         </p>
 
         <div className="mt-8">
-          <div className="flex justify-between text-sm">
-            <span>Progreso</span>
-            <span>10%</span>
-          </div>
+  <div className="flex justify-between text-sm">
+    <span>Progreso</span>
+    <span>{progress}%</span>
+  </div>
 
-          <div className="mt-2 h-2 rounded-full bg-secondary">
-            <div className="h-2 w-[10%] rounded-full bg-primary"></div>
-          </div>
-        </div>
+  <div className="mt-2 h-2 rounded-full bg-secondary">
+    <div
+      className="h-2 rounded-full bg-primary transition-all duration-500"
+      style={{ width: `${progress}%` }}
+    />
+  </div>
+
+  <p className="mt-2 text-xs text-green-500">
+    Módulos completados: {completedModules}
+  </p>
+</div>
+        
 
         <nav className="mt-8 space-y-3">
   {modules.map((module, index) => (

@@ -1,4 +1,6 @@
 import CourseVideo from "@/components/CourseVideo"
+import CourseNavigation from "@/components/CourseNavigation"
+import CompleteModuleButton from "@/components/CompleteModuleButton"
 
 export default function Modulo1Page() {
   return (
@@ -31,6 +33,9 @@ export default function Modulo1Page() {
           <li>✅ Mercados financieros</li>
           <li>✅ Cómo se gana dinero haciendo trading</li>
         </ul>
+
+        <CourseNavigation />
+        <CompleteModuleButton module={1} />
       </div>
 
     </div>

@@ -1,4 +1,5 @@
 import CourseVideo from "@/components/CourseVideo"
+import CourseNavigation from "@/components/CourseNavigation"
 
 export default function Modulo4Page() {
   return (
@@ -22,15 +23,18 @@ export default function Modulo4Page() {
 
       <div className="mt-10 rounded-2xl border p-6">
         <h2 className="text-2xl font-semibold">
-          Contenido de esta lección
-        </h2>
+  Contenido de esta lección
+</h2>
 
-        <ul className="mt-5 space-y-3 text-muted-foreground">
-          <li>✅ ¿Qué es una vela japonesa?</li>
-          <li>✅ Apertura, cierre, máximo y mínimo</li>
-          <li>✅ Velas alcistas y bajistas</li>
-          <li>✅ Cómo interpretar la información que transmite el precio</li>
-        </ul>
+<ul className="mt-5 space-y-3 text-muted-foreground">
+  <li>✅ ¿Qué es una vela japonesa?</li>
+  <li>✅ Apertura, cierre, máximo y mínimo</li>
+  <li>✅ Velas alcistas y bajistas</li>
+  <li>✅ Cómo interpretar la información que transmite el precio</li>
+</ul>
+
+<CourseNavigation />
+
       </div>
 
     </div>

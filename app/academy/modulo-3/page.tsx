@@ -1,4 +1,5 @@
 import CourseVideo from "@/components/CourseVideo"
+import CourseNavigation from "@/components/CourseNavigation"
 
 export default function Modulo3Page() {
   return (
@@ -9,11 +10,11 @@ export default function Modulo3Page() {
       </p>
 
       <h1 className="mt-2 text-4xl font-bold">
-        Plataforma de trading
+        Conociendo tu plataforma de trading
       </h1>
 
       <p className="mt-4 text-lg text-muted-foreground">
-        Aprende a utilizar la plataforma de trading, configurar los gráficos y conocer las herramientas esenciales para operar con seguridad.
+        Aprende a configurar tu plataforma, interpretar los gráficos y preparar tu espacio de trabajo para operar correctamente.
       </p>
 
       <div className="mt-10">
@@ -26,11 +27,13 @@ export default function Modulo3Page() {
         </h2>
 
         <ul className="mt-5 space-y-3 text-muted-foreground">
-          <li>✅ Introducción a la plataforma</li>
-          <li>✅ Configuración de gráficos</li>
+          <li>✅ Configuración de la plataforma</li>
           <li>✅ Herramientas principales</li>
-          <li>✅ Consejos para empezar a operar</li>
+          <li>✅ Tipos de gráficos</li>
+          <li>✅ Espacio de trabajo</li>
         </ul>
+
+        <CourseNavigation />
       </div>
 
     </div>

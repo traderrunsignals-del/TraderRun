@@ -1,23 +1,24 @@
 import CourseVideo from "@/components/CourseVideo"
+import CourseNavigation from "@/components/CourseNavigation"
 
-export default function Modulo2Page() {
+export default function Modulo3Page() {
   return (
     <div className="mx-auto max-w-5xl">
 
       <p className="text-sm font-semibold text-primary">
-        Módulo 2
+        Módulo 3
       </p>
 
       <h1 className="mt-2 text-4xl font-bold">
-        Cómo funcionan los mercados
+        Conociendo tu plataforma de trading
       </h1>
 
       <p className="mt-4 text-lg text-muted-foreground">
-        Descubrirás cómo se mueve el precio, qué es la oferta y la demanda y cómo piensan los traders profesionales.
+        Aprende a configurar tu plataforma, interpretar los gráficos y preparar tu espacio de trabajo para operar correctamente.
       </p>
 
       <div className="mt-10">
-        <CourseVideo videoId="n2IVmsdNIwU" />
+        <CourseVideo videoId="pnbn5LlGih0" />
       </div>
 
       <div className="mt-10 rounded-2xl border p-6">
@@ -26,11 +27,13 @@ export default function Modulo2Page() {
         </h2>
 
         <ul className="mt-5 space-y-3 text-muted-foreground">
-          <li>✅ Oferta y demanda</li>
-          <li>✅ Participantes del mercado</li>
-          <li>✅ Cómo se mueve el precio</li>
-          <li>✅ Conceptos básicos del mercado</li>
+          <li>✅ Configuración de la plataforma</li>
+          <li>✅ Herramientas principales</li>
+          <li>✅ Tipos de gráficos</li>
+          <li>✅ Espacio de trabajo</li>
         </ul>
+
+        <CourseNavigation />
       </div>
 
     </div>

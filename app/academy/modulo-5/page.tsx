@@ -1,4 +1,5 @@
 import CourseVideo from "@/components/CourseVideo"
+import CourseNavigation from "@/components/CourseNavigation"
 
 export default function Modulo5Page() {
   return (
@@ -31,6 +32,8 @@ export default function Modulo5Page() {
           <li>✅ Tendencia alcista y bajista</li>
           <li>✅ Cambios de estructura y zonas clave</li>
         </ul>
+
+       <CourseNavigation />
       </div>
 
     </div>
