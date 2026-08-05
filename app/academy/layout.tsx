@@ -6,7 +6,7 @@ const handleLogout = async () => {
   await supabase.auth.signOut()
   router.push("/login")
 }
-import { useRouter } from "next/navigation"
+import { usePathname, useRouter } from "next/navigation"
 import { supabase } from "@/lib/supabase"
 export default function AcademyLayout({
   children,
@@ -14,6 +14,7 @@ export default function AcademyLayout({
   children: React.ReactNode
 }) {
   const router = useRouter()
+  const pathname = usePathname()
 const [loading, setLoading] = useState(true)
 const [progress, setProgress] = useState(0)
 const [completedModules, setCompletedModules] = useState(0)
@@ -97,21 +98,39 @@ if (loading) {
         
 
         <nav className="mt-8 space-y-3">
-  {modules.map((module, index) => (
+  {modules.map((module, index) => {
+    const isCompleted = index + 1 <= completedModules
+    const isCurrent = pathname === module.href
+
+    return (
     <a
-      key={module.href}
-      href={module.href}
-      className="block rounded-xl border border-border p-3 hover:bg-primary hover:text-primary-foreground transition"
-    >
+  key={module.href}
+  href={module.href}
+  className={`block rounded-xl border p-3 transition
+  ${
+    isCompleted
+      ? "border-green-500 bg-green-500/10"
+      : isCurrent
+      ? "border-blue-500 bg-blue-500/10"
+      : "border-border hover:bg-primary hover:text-primary-foreground"
+  }`}
+>
       <p className="text-xs uppercase tracking-wider text-muted-foreground">
         Módulo {index + 1}
       </p>
 
-      <p className="mt-1 font-semibold">
-        {module.icon} {module.name}
-      </p>
+    <p className="mt-1 flex items-center gap-2 font-semibold">
+  {isCompleted ? (
+    <span className="text-green-500">✅</span>
+  ) : isCurrent ? (
+    <span className="text-blue-500">▶️</span>
+  ) : null}
+
+  {module.icon} {module.name}
+</p>
     </a>
-  ))}
+     )
+  })}
 </nav>
 
 <div className="mt-10 border-t pt-6">

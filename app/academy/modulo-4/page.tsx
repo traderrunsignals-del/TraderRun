@@ -23,9 +23,8 @@ export default function Modulo4Page() {
 
       <div className="mt-10 rounded-2xl border p-6">
        <h2 className="text-2xl font-semibold">
-  📚 En este módulo aprenderás
+  🎯 En este módulo aprenderás
 </h2>
-
 <ul className="mt-5 space-y-3 text-muted-foreground">
   <li>✅ ¿Qué son las velas japonesas?</li>
   <li>✅ Anatomía de una vela</li>

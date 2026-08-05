@@ -22,8 +22,8 @@ export default function Modulo3Page() {
       </div>
 
       <div className="mt-10 rounded-2xl border p-6">
-       <h2 className="text-2xl font-semibold">
-  📚 En este módulo aprenderás
+      <h2 className="text-2xl font-semibold">
+  🎯 En este módulo aprenderás
 </h2>
 
 <ul className="mt-5 space-y-3 text-muted-foreground">
