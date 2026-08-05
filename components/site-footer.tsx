@@ -1,4 +1,5 @@
 import { TrendingUp } from "lucide-react"
+import Link from "next/link"
 
 const columns = [
   {
@@ -55,16 +56,27 @@ export function SiteFooter() {
             <div key={col.title}>
               <h3 className="text-sm font-semibold">{col.title}</h3>
               <ul className="mt-4 space-y-2.5">
-                {col.links.map((link) => (
-                  <li key={link}>
-                    <a
-                      href="#"
-                      className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-                    >
-                      {link}
-                    </a>
-                  </li>
-                ))}
+                {col.links.map((link) => {
+  let href = "#"
+
+  if (link === "Términos") href = "/terminos"
+  if (link === "Privacidad") href = "/privacidad"
+  if (link === "Aviso de riesgo") href = "/aviso-riesgo"
+  if (link === "Cookies") href = "/cookies"
+  if (link === "Sobre nosotros") href = "/sobre-nosotros"
+  if (link === "Contacto") href = "/contacto"
+
+  return (
+    <li key={link}>
+      <Link
+        href={href}
+        className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+      >
+        {link}
+      </Link>
+    </li>
+  )
+})}
               </ul>
             </div>
           ))}
