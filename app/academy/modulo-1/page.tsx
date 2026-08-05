@@ -23,16 +23,32 @@ export default function Modulo1Page() {
       </div>
 
       <div className="mt-10 rounded-2xl border p-6">
-        <h2 className="text-2xl font-semibold">
-          Contenido de esta lección
-        </h2>
+      <h2 className="text-2xl font-semibold">
+  📚 En este módulo aprenderás
+</h2>
 
-        <ul className="mt-5 space-y-3 text-muted-foreground">
-          <li>✅ ¿Qué es el trading?</li>
-          <li>✅ ¿Qué activos podemos operar?</li>
-          <li>✅ Mercados financieros</li>
-          <li>✅ Cómo se gana dinero haciendo trading</li>
-        </ul>
+<ul className="mt-5 space-y-3 text-muted-foreground">
+  <li>✅ Fundamentos del trading</li>
+  <li>✅ ¿Qué activos podemos operar?</li>
+  <li>✅ ¿Qué es un activo financiero?</li>
+  <li>✅ Mercados financieros más conocidos</li>
+  <li>✅ ¿Quién participa en el mercado?</li>
+  <li>✅ ¿Cómo se gana dinero haciendo trading?</li>
+  <li>✅ ¿Qué necesitas para empezar?</li>
+  <li>✅ Conceptos y errores más comunes</li>
+</ul>
+
+<div className="mt-8 rounded-xl border border-emerald-500/30 bg-emerald-500/10 p-5">
+  <h3 className="font-semibold text-emerald-400">
+    💡 Consejo Trader Run
+  </h3>
+
+  <p className="mt-2 text-muted-foreground">
+    No intentes aprender todo de memoria. Lo importante es comprender cómo funciona el mercado antes de empezar a operar.
+  </p>
+</div>
+
+<CourseNavigation module={1} />
 
         <CourseNavigation />
         <CompleteModuleButton module={1} />

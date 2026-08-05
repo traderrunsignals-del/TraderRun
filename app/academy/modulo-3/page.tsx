@@ -22,16 +22,32 @@ export default function Modulo3Page() {
       </div>
 
       <div className="mt-10 rounded-2xl border p-6">
-        <h2 className="text-2xl font-semibold">
-          Contenido de esta lección
-        </h2>
+       <h2 className="text-2xl font-semibold">
+  📚 En este módulo aprenderás
+</h2>
 
-        <ul className="mt-5 space-y-3 text-muted-foreground">
-          <li>✅ Configuración de la plataforma</li>
-          <li>✅ Herramientas principales</li>
-          <li>✅ Tipos de gráficos</li>
-          <li>✅ Espacio de trabajo</li>
-        </ul>
+<ul className="mt-5 space-y-3 text-muted-foreground">
+  <li>✅ ¿Qué es una plataforma de trading?</li>
+  <li>✅ ¿Qué utilizaremos durante el curso?</li>
+  <li>✅ Conociendo la pantalla principal</li>
+  <li>✅ ¿Qué es un gráfico?</li>
+  <li>✅ Activo y temporalidad</li>
+  <li>✅ Herramientas que utilizaremos</li>
+  <li>✅ Organiza tu espacio de trabajo</li>
+  <li>✅ Errores comunes</li>
+</ul>
+
+<div className="mt-8 rounded-xl border border-emerald-500/30 bg-emerald-500/10 p-5">
+  <h3 className="font-semibold text-emerald-400">
+    💡 Consejo Trader Run
+  </h3>
+
+  <p className="mt-2 text-muted-foreground">
+    Dedica tiempo a configurar correctamente tu plataforma. Un buen entorno de trabajo evita muchos errores.
+  </p>
+</div>
+
+<CourseNavigation module={3} />
 
         <CourseNavigation />
       </div>

@@ -22,16 +22,29 @@ export default function Modulo6Page() {
       </div>
 
       <div className="mt-10 rounded-2xl border p-6">
-        <h2 className="text-2xl font-semibold">
-          Contenido de esta lección
-        </h2>
+       <h2 className="text-2xl font-semibold">
+  📚 En este módulo aprenderás
+</h2>
 
-        <ul className="mt-5 space-y-3 text-muted-foreground">
-          <li>✅ Qué son los soportes y las resistencias</li>
-          <li>✅ Cómo dibujarlos correctamente</li>
-          <li>✅ Zonas de reacción del precio</li>
-          <li>✅ Errores más comunes al utilizarlos</li>
-        </ul>
+<ul className="mt-5 space-y-3 text-muted-foreground">
+  <li>✅ ¿Qué son las zonas clave?</li>
+  <li>✅ ¿Qué es un soporte?</li>
+  <li>✅ ¿Qué es una resistencia?</li>
+  <li>✅ Cambio de polaridad</li>
+  <li>✅ Roturas de zona</li>
+</ul>
+
+<div className="mt-8 rounded-xl border border-emerald-500/30 bg-emerald-500/10 p-5">
+  <h3 className="font-semibold text-emerald-400">
+    💡 Consejo Trader Run
+  </h3>
+
+  <p className="mt-2 text-muted-foreground">
+    Un soporte o una resistencia nunca es una línea exacta. Piensa siempre en zonas donde el precio tiene mayor probabilidad de reaccionar.
+  </p>
+</div>
+
+<CourseNavigation module={6} />
 
         <CourseNavigation module={6} />
       </div>
