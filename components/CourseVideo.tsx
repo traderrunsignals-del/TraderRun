@@ -8,7 +8,7 @@ export default function CourseVideo({ videoId }: CourseVideoProps) {
       <div className="aspect-video">
         <iframe
           className="h-full w-full"
-          src={`https://www.youtube.com/embed/${videoId}`}
+          src={`https://www.youtube.com/embed/${videoId}?rel=0&modestbranding=1&cc_load_policy=0&iv_load_policy=3`}
           title="Curso Trader Run"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowFullScreen
