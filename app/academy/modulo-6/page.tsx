@@ -1,53 +1,94 @@
 import CourseVideo from "@/components/CourseVideo"
 import CourseNavigation from "@/components/CourseNavigation"
+import CompleteModuleButton from "@/components/CompleteModuleButton"
 
 export default function Modulo6Page() {
   return (
     <div className="mx-auto max-w-5xl">
 
-      <p className="text-sm font-semibold text-primary">
-        Módulo 6
+      <p className="text-sm font-semibold uppercase tracking-wider text-primary">
+        Módulo 6 de 10
       </p>
 
       <h1 className="mt-2 text-4xl font-bold">
         Soportes, resistencias y zonas clave
       </h1>
 
-      <p className="mt-4 text-lg text-muted-foreground">
-        Aprende a identificar las zonas donde el precio tiene mayor probabilidad de reaccionar y cómo utilizarlas dentro de la estrategia Trader Run.
+      <div className="mt-6 rounded-xl border border-border p-4">
+        <div className="grid grid-cols-3 gap-4 text-center">
+
+          <div>
+            <p className="text-xs text-muted-foreground">
+              ⏱ Duración
+            </p>
+
+            <p className="mt-1 font-semibold">
+              20 min
+            </p>
+          </div>
+
+          <div>
+            <p className="text-xs text-muted-foreground">
+              🎥 Vídeos
+            </p>
+
+            <p className="mt-1 font-semibold">
+              1
+            </p>
+          </div>
+
+          <div>
+            <p className="text-xs text-muted-foreground">
+              📊 Nivel
+            </p>
+
+            <p className="mt-1 font-semibold">
+              Principiante
+            </p>
+          </div>
+
+        </div>
+      </div>
+
+      <p className="mt-6 text-lg text-muted-foreground">
+        Aprenderás a identificar las zonas donde el precio tiene mayor probabilidad de reaccionar y cómo utilizarlas para encontrar operaciones con mayor probabilidad de éxito.
       </p>
 
       <div className="mt-10">
         <CourseVideo videoId="uJks612ePNc" />
       </div>
 
+      <CompleteModuleButton module={6} />
+
       <div className="mt-10 rounded-2xl border p-6">
-       <h2 className="text-2xl font-semibold">
-  🎯 En este módulo aprenderás
-</h2>
 
-<ul className="mt-5 space-y-3 text-muted-foreground">
-  <li>✅ ¿Qué son las zonas clave?</li>
-  <li>✅ ¿Qué es un soporte?</li>
-  <li>✅ ¿Qué es una resistencia?</li>
-  <li>✅ Cambio de polaridad</li>
-  <li>✅ Roturas de zona</li>
-</ul>
+        <h2 className="text-2xl font-semibold">
+          🎯 En este módulo aprenderás
+        </h2>
 
-<div className="mt-8 rounded-xl border border-emerald-500/30 bg-emerald-500/10 p-5">
-  <h3 className="font-semibold text-emerald-400">
-    💡 Consejo Trader Run
-  </h3>
+        <ul className="mt-5 space-y-3 text-muted-foreground">
+          <li>✅ ¿Qué son las zonas clave?</li>
+          <li>✅ ¿Qué es un soporte?</li>
+          <li>✅ ¿Qué es una resistencia?</li>
+          <li>✅ Cambio de polaridad</li>
+          <li>✅ Roturas de zona</li>
+        </ul>
 
-  <p className="mt-2 text-muted-foreground">
-    Un soporte o una resistencia nunca es una línea exacta. Piensa siempre en zonas donde el precio tiene mayor probabilidad de reaccionar.
-  </p>
-</div>
-
-<CourseNavigation module={6} />
-
-        <CourseNavigation module={6} />
       </div>
+
+      <div className="mt-8 rounded-xl border border-emerald-500/30 bg-emerald-500/10 p-5">
+
+        <h3 className="font-semibold text-emerald-400">
+          💡 Consejo Trader Run
+        </h3>
+
+        <p className="mt-2 text-muted-foreground">
+          No dibujes soportes y resistencias como líneas exactas. Piensa siempre en zonas donde el precio puede reaccionar, no en un único nivel.
+        </p>
+
+      </div>
+
+      <CourseNavigation module={6} />
 
     </div>
   )
