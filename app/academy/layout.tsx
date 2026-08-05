@@ -77,6 +77,12 @@ if (loading) {
         <p className="mt-1 text-sm text-muted-foreground">
           Área Privada
         </p>
+        <a
+  href="/academy/perfil"
+  className="mt-6 block rounded-xl border p-3 text-center hover:bg-primary hover:text-white transition"
+>
+  👤 Mi perfil
+</a>
 
         <div className="mt-8">
   <div className="flex justify-between text-sm">
