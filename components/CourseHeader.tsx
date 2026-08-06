@@ -14,15 +14,15 @@ export default function CourseHeader({
   return (
     <div>
 
-      <p className="text-sm font-semibold uppercase tracking-wider text-primary">
+      <span className="inline-flex items-center rounded-full border border-primary/20 bg-primary/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.25em] text-primary">
         Módulo {module} de {totalModules}
-      </p>
+      </span>
 
-      <h1 className="mt-2 text-4xl font-bold">
+      <h1 className="mt-6 text-5xl font-bold tracking-tight">
         {title}
       </h1>
 
-      <p className="mt-5 max-w-3xl text-lg leading-8 text-muted-foreground">
+      <p className="mt-5 max-w-3xl text-xl leading-9 text-muted-foreground">
         {description}
       </p>
 
