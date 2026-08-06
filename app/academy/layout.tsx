@@ -78,6 +78,12 @@ if (loading) {
           Área Privada
         </p>
         <a
+          href="/"
+         className="mt-4 block rounded-xl border p-3 text-center transition hover:bg-secondary"
+>
+  ← Volver a Trader Run
+</a>
+        <a
   href="/academy/perfil"
   className="mt-6 block rounded-xl border p-3 text-center hover:bg-primary hover:text-white transition"
 >

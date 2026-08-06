@@ -1,3 +1,4 @@
+import CourseStats from "@/components/CourseStats"
 import CourseVideo from "@/components/CourseVideo"
 import CourseNavigation from "@/components/CourseNavigation"
 import CompleteModuleButton from "@/components/CompleteModuleButton"
@@ -14,41 +15,12 @@ export default function Modulo1Page() {
         Fundamentos del Trading
       </h1>
 
-      <div className="mt-6 rounded-xl border border-border p-4">
-        <div className="grid grid-cols-3 gap-4 text-center">
-
-          <div>
-            <p className="text-xs text-muted-foreground">
-              ⏱ Duración
-            </p>
-
-            <p className="mt-1 font-semibold">
-              18 min
-            </p>
-          </div>
-
-          <div>
-            <p className="text-xs text-muted-foreground">
-              🎥 Vídeos
-            </p>
-
-            <p className="mt-1 font-semibold">
-              1
-            </p>
-          </div>
-
-          <div>
-            <p className="text-xs text-muted-foreground">
-              📊 Nivel
-            </p>
-
-            <p className="mt-1 font-semibold">
-              Principiante
-            </p>
-          </div>
-
-        </div>
-      </div>
+      <CourseStats
+  duration="18 minutos"
+  videos={1}
+  level="Principiante"
+/>
+         
 
       <p className="mt-6 text-lg text-muted-foreground">
         Aprenderás las bases del trading, los activos financieros, los mercados y los conceptos imprescindibles antes de comenzar a operar.
