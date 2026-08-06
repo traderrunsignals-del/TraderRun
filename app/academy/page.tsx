@@ -7,6 +7,8 @@ export default function AcademyPage() {
   const [completed, setCompleted] = useState(0)
 
   useEffect(() => {
+    const nextModule =
+  completed >= 10 ? 10 : completed + 1
     const loadData = async () => {
       const {
         data: { session },
@@ -30,7 +32,7 @@ export default function AcademyPage() {
     {
       title: "Módulo 1",
       subtitle: "Fundamentos del Trading",
-      href: "/academy/modulo-1",
+      href={`/academy/modulo-${nextModule}`}
     },
     {
       title: "Módulo 2",
@@ -147,6 +149,52 @@ export default function AcademyPage() {
             />
           </div>
         </div>
+        <div className="mt-10 grid gap-4 md:grid-cols-3">
+
+  <a
+    href="/academy/perfil"
+    className="rounded-2xl border p-6 transition hover:border-primary hover:shadow-lg"
+  >
+    <h3 className="text-xl font-semibold">
+      👤 Mi perfil
+    </h3>
+
+    <p className="mt-2 text-sm text-muted-foreground">
+      Consulta tu progreso y tu información personal.
+    </p>
+  </a>
+
+  <a
+    href="/academy/modulo-1"
+    className="rounded-2xl border p-6 transition hover:border-primary hover:shadow-lg"
+  >
+    <h3 className="text-xl font-semibold">
+      {completed === 10
+  ? "🎉 Academia completada"
+  : `▶ Continuar en Módulo ${nextModule}`}
+    </h3>
+
+    <p className="mt-2 text-sm text-muted-foreground">
+      Accede rápidamente a la academia.
+    </p>
+  </a>
+
+  <a
+    href="https://t.me/tradingproNQ"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="rounded-2xl border p-6 transition hover:border-primary hover:shadow-lg"
+  >
+    <h3 className="text-xl font-semibold">
+      📲 Telegram VIP
+    </h3>
+
+    <p className="mt-2 text-sm text-muted-foreground">
+      Accede al grupo privado de Telegram.
+    </p>
+  </a>
+
+</div>
 
         <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {modules.map((module) => (
