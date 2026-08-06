@@ -1,70 +1,30 @@
-import CourseStats from "@/components/CourseStats"
-import CourseVideo from "@/components/CourseVideo"
-import CourseNavigation from "@/components/CourseNavigation"
-import CompleteModuleButton from "@/components/CompleteModuleButton"
+import CoursePage from "@/components/CoursePage"
 
 export default function Modulo1Page() {
   return (
-    <div className="mx-auto max-w-5xl">
+    <CoursePage
+      module={1}
+      title="Fundamentos del Trading"
+      description="Aprenderás las bases del trading, los activos financieros, los mercados y los conceptos imprescindibles antes de comenzar a operar."
 
-      <p className="text-sm font-semibold uppercase tracking-wider text-primary">
-        Módulo 1 de 10
-      </p>
+      duration="18 minutos"
+      videos={1}
+      level="Principiante"
 
-      <h1 className="mt-2 text-4xl font-bold">
-        Fundamentos del Trading
-      </h1>
+      videoId="zIgTzV0kWko"
 
-      <CourseStats
-  duration="18 minutos"
-  videos={1}
-  level="Principiante"
-/>
-         
+      items={[
+        "Fundamentos del trading",
+        "¿Qué activos podemos operar?",
+        "¿Qué es un activo financiero?",
+        "Mercados financieros más conocidos",
+        "¿Quién participa en el mercado?",
+        "¿Cómo se gana dinero haciendo trading?",
+        "¿Qué necesitas para empezar?",
+        "Conceptos y errores más comunes",
+      ]}
 
-      <p className="mt-6 text-lg text-muted-foreground">
-        Aprenderás las bases del trading, los activos financieros, los mercados y los conceptos imprescindibles antes de comenzar a operar.
-      </p>
-
-      <div className="mt-10">
-        <CourseVideo videoId="zIgTzV0kWko" />
-      </div>
-
-      <CompleteModuleButton module={1} />
-
-      <div className="mt-10 rounded-2xl border p-6">
-
-        <h2 className="text-2xl font-semibold">
-          🎯 En este módulo aprenderás
-        </h2>
-
-        <ul className="mt-5 space-y-3 text-muted-foreground">
-          <li>✅ Fundamentos del trading</li>
-          <li>✅ ¿Qué activos podemos operar?</li>
-          <li>✅ ¿Qué es un activo financiero?</li>
-          <li>✅ Mercados financieros más conocidos</li>
-          <li>✅ ¿Quién participa en el mercado?</li>
-          <li>✅ ¿Cómo se gana dinero haciendo trading?</li>
-          <li>✅ ¿Qué necesitas para empezar?</li>
-          <li>✅ Conceptos y errores más comunes</li>
-        </ul>
-
-      </div>
-
-      <div className="mt-8 rounded-xl border border-emerald-500/30 bg-emerald-500/10 p-5">
-
-        <h3 className="font-semibold text-emerald-400">
-          💡 Consejo Trader Run
-        </h3>
-
-        <p className="mt-2 text-muted-foreground">
-          No intentes aprender todo de memoria. Lo importante es comprender cómo funciona el mercado antes de empezar a operar.
-        </p>
-
-      </div>
-
-      <CourseNavigation module={1} />
-
-    </div>
+      tip="No intentes aprender todo de memoria. Lo importante es comprender cómo funciona el mercado antes de empezar a operar."
+    />
   )
 }

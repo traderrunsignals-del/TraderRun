@@ -7,32 +7,33 @@ export default function AcademyPage() {
   const [completed, setCompleted] = useState(0)
 
   useEffect(() => {
-    const nextModule =
+  const loadData = async () => {
+    const {
+      data: { session },
+    } = await supabase.auth.getSession()
+
+    if (!session) return
+
+    const { data } = await supabase
+      .from("user_progress")
+      .select("module")
+      .eq("user_id", session.user.id)
+      .eq("completed", true)
+
+    setCompleted(data?.length ?? 0)
+  }
+
+  loadData()
+}, [])
+
+const nextModule =
   completed >= 10 ? 10 : completed + 1
-    const loadData = async () => {
-      const {
-        data: { session },
-      } = await supabase.auth.getSession()
-
-      if (!session) return
-
-      const { data } = await supabase
-        .from("user_progress")
-        .select("module")
-        .eq("user_id", session.user.id)
-        .eq("completed", true)
-
-      setCompleted(data?.length ?? 0)
-    }
-
-    loadData()
-  }, [])
 
   const modules = [
     {
       title: "Módulo 1",
       subtitle: "Fundamentos del Trading",
-      href={`/academy/modulo-${nextModule}`}
+      href: "/academy/modulo-1",
     },
     {
       title: "Módulo 2",
@@ -165,7 +166,7 @@ export default function AcademyPage() {
   </a>
 
   <a
-    href="/academy/modulo-1"
+    href={`/academy/modulo-${nextModule}`}
     className="rounded-2xl border p-6 transition hover:border-primary hover:shadow-lg"
   >
     <h3 className="text-xl font-semibold">

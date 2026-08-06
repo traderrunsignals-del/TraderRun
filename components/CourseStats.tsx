@@ -10,51 +10,51 @@ export default function CourseStats({
   level,
 }: CourseStatsProps) {
   return (
-    <div className="mt-8 grid gap-5 md:grid-cols-3">
+    <div className="mt-8 grid gap-6 md:grid-cols-3">
 
-      <div className="rounded-2xl border bg-primary/5 p-6">
+      <div className="rounded-2xl border border-blue-500/20 bg-blue-500/5 p-6 shadow-sm transition hover:shadow-lg">
 
-        <div className="text-3xl">
+        <div className="text-4xl">
           🕒
         </div>
 
-        <p className="mt-3 text-base font-semibold">
+        <p className="mt-4 text-sm uppercase tracking-wider text-blue-500 font-semibold">
           Duración
         </p>
 
-        <p className="mt-2 text-xl font-bold">
+        <p className="mt-2 text-2xl font-bold">
           {duration}
         </p>
 
       </div>
 
-      <div className="rounded-2xl border bg-primary/5 p-6">
+      <div className="rounded-2xl border border-red-500/20 bg-red-500/5 p-6 shadow-sm transition hover:shadow-lg">
 
-        <div className="text-3xl">
+        <div className="text-4xl">
           🎥
         </div>
 
-        <p className="mt-3 text-base font-semibold">
+        <p className="mt-4 text-sm uppercase tracking-wider text-red-500 font-semibold">
           Vídeos
         </p>
 
-        <p className="mt-2 text-xl font-bold">
+        <p className="mt-2 text-2xl font-bold">
           {videos}
         </p>
 
       </div>
 
-      <div className="rounded-2xl border bg-primary/5 p-6">
+      <div className="rounded-2xl border border-emerald-500/20 bg-emerald-500/5 p-6 shadow-sm transition hover:shadow-lg">
 
-        <div className="text-3xl">
+        <div className="text-4xl">
           📈
         </div>
 
-        <p className="mt-3 text-base font-semibold">
+        <p className="mt-4 text-sm uppercase tracking-wider text-emerald-500 font-semibold">
           Nivel
         </p>
 
-        <p className="mt-2 text-xl font-bold">
+        <p className="mt-2 text-2xl font-bold">
           {level}
         </p>
 
