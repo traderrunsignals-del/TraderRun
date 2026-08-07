@@ -117,8 +117,8 @@ export default function AreaPrivadaPage() {
               </div>
 
               <h3 className="mt-6 text-xl font-bold">
-                Trader Run Academy
-              </h3>
+  Oferta y Demanda Pro
+</h3>
 
               <p className="mt-3 text-sm leading-6 text-muted-foreground">
                 Curso completo de trading, desde los fundamentos hasta la
