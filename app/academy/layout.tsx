@@ -14,6 +14,7 @@ export default function AcademyLayout({
   const pathname = usePathname()
 
   const [loading, setLoading] = useState(true)
+  const [accessDenied, setAccessDenied] = useState(false)
   const [progress, setProgress] = useState(0)
   const [completedModules, setCompletedModules] = useState(0)
 
@@ -27,6 +28,52 @@ export default function AcademyLayout({
         router.replace("/login")
         return
       }
+
+      /*
+       * COMPROBAR ACCESO A TRADER RUN ACADEMY
+       */
+
+     const academyProductId =
+  "6fe51583-a729-41ac-89e4-e2c1e69a62db"
+
+const { data: access } = await supabase
+  .from("user_products")
+  .select("expires_at, active")
+  .eq("user_id", session.user.id)
+  .eq("product_id", academyProductId)
+  .eq("active", true)
+  .maybeSingle()
+
+if (!access) {
+  setAccessDenied(true)
+  setLoading(false)
+  return
+}
+
+      if (!access) {
+        setAccessDenied(true)
+        setLoading(false)
+        return
+      }
+
+      /*
+       * COMPROBAR CADUCIDAD
+       */
+
+      const now = new Date()
+
+      if (
+        access.expires_at &&
+        new Date(access.expires_at) <= now
+      ) {
+        setAccessDenied(true)
+        setLoading(false)
+        return
+      }
+
+      /*
+       * CARGAR PROGRESO
+       */
 
       const { data } = await supabase
         .from("user_progress")
@@ -51,22 +98,111 @@ export default function AcademyLayout({
   }
 
   const modules = [
-    { icon: "📘", name: "Fundamentos del Trading", href: "/academy/modulo-1" },
-    { icon: "🌍", name: "Cómo funcionan los mercados", href: "/academy/modulo-2" },
-    { icon: "💻", name: "Plataforma de trading", href: "/academy/modulo-3" },
-    { icon: "🕯️", name: "Velas japonesas", href: "/academy/modulo-4" },
-    { icon: "📈", name: "Estructura del mercado", href: "/academy/modulo-5" },
-    { icon: "🎯", name: "Soportes y resistencias", href: "/academy/modulo-6" },
-    { icon: "🛡️", name: "Gestión del riesgo", href: "/academy/modulo-7" },
-    { icon: "🧠", name: "Psicología del trader", href: "/academy/modulo-8" },
-    { icon: "🚀", name: "Estrategia Trader Run", href: "/academy/modulo-9" },
-    { icon: "📊", name: "Casos prácticos", href: "/academy/modulo-10" },
+    {
+      icon: "📘",
+      name: "Fundamentos del Trading",
+      href: "/academy/modulo-1",
+    },
+    {
+      icon: "🌍",
+      name: "Cómo funcionan los mercados",
+      href: "/academy/modulo-2",
+    },
+    {
+      icon: "💻",
+      name: "Plataforma de trading",
+      href: "/academy/modulo-3",
+    },
+    {
+      icon: "🕯️",
+      name: "Velas japonesas",
+      href: "/academy/modulo-4",
+    },
+    {
+      icon: "📈",
+      name: "Estructura del mercado",
+      href: "/academy/modulo-5",
+    },
+    {
+      icon: "🎯",
+      name: "Soportes y resistencias",
+      href: "/academy/modulo-6",
+    },
+    {
+      icon: "🛡️",
+      name: "Gestión del riesgo",
+      href: "/academy/modulo-7",
+    },
+    {
+      icon: "🧠",
+      name: "Psicología del trader",
+      href: "/academy/modulo-8",
+    },
+    {
+      icon: "🚀",
+      name: "Estrategia Trader Run",
+      href: "/academy/modulo-9",
+    },
+    {
+      icon: "📊",
+      name: "Casos prácticos",
+      href: "/academy/modulo-10",
+    },
   ]
 
   if (loading) {
     return (
-      <div className="flex min-h-screen items-center justify-center">
-        Cargando...
+      <div className="flex min-h-screen items-center justify-center bg-background">
+        <p className="text-sm text-muted-foreground">
+          Comprobando acceso...
+        </p>
+      </div>
+    )
+  }
+
+  /*
+   * ACCESO DENEGADO / CADUCADO
+   */
+
+  if (accessDenied) {
+    return (
+      <div className="flex min-h-screen items-center justify-center bg-background px-6">
+
+        <div className="w-full max-w-lg rounded-3xl border bg-card p-10 text-center shadow-sm">
+
+          <div className="mx-auto flex size-16 items-center justify-center rounded-2xl bg-primary/10 text-3xl">
+            🔒
+          </div>
+
+          <h1 className="mt-6 text-3xl font-bold">
+            Acceso a Academy no disponible
+          </h1>
+
+          <p className="mt-4 leading-7 text-muted-foreground">
+            Tu acceso a Trader Run Academy ha caducado o todavía no tienes
+            acceso a este curso.
+          </p>
+
+          <div className="mt-8 space-y-3">
+
+            <a
+              href="/"
+              className="block rounded-xl bg-primary px-5 py-3 font-semibold text-primary-foreground transition hover:opacity-90"
+            >
+              Volver a Trader Run
+            </a>
+
+            <button
+              onClick={handleLogout}
+              className="w-full rounded-xl border px-5 py-3 transition hover:bg-secondary"
+            >
+              Cerrar sesión
+            </button>
+
+          </div>
+
+        </div>
+
       </div>
     )
   }
@@ -74,13 +210,13 @@ export default function AcademyLayout({
   return (
     <div className="flex min-h-screen bg-background">
 
-      <aside className="w-80 border-r border-border bg-card p-6 flex flex-col">
+      <aside className="flex w-80 flex-col border-r border-border bg-card p-6">
 
-        {/* Logo */}
+        {/* LOGO */}
 
-        <div className="pb-8 border-b border-border">
+        <div className="border-b border-border pb-8">
 
-          <p className="text-xs uppercase tracking-[0.35em] text-primary font-semibold">
+          <p className="text-xs font-semibold uppercase tracking-[0.35em] text-primary">
             Trader Run
           </p>
 
@@ -94,7 +230,7 @@ export default function AcademyLayout({
 
         </div>
 
-        {/* Volver */}
+        {/* VOLVER A TRADER RUN */}
 
         <a
           href="/"
@@ -103,31 +239,31 @@ export default function AcademyLayout({
           ← Volver a Trader Run
         </a>
 
-        {/* Navegación */}
+        {/* NAVEGACIÓN */}
 
         <div className="mt-8 space-y-3">
 
           <a
             href="/academy"
-            className="rounded-xl border px-4 py-3 transition hover:bg-primary hover:text-primary-foreground"
+            className="block rounded-xl border px-4 py-3 transition hover:bg-primary hover:text-primary-foreground"
           >
             🏠 Dashboard
           </a>
 
           <a
             href="/academy/perfil"
-            className="rounded-xl border px-4 py-3 transition hover:bg-primary hover:text-primary-foreground"
+            className="block rounded-xl border px-4 py-3 transition hover:bg-primary hover:text-primary-foreground"
           >
             👤 Mi perfil
           </a>
 
         </div>
 
-        {/* Curso */}
+        {/* CURSO */}
 
         <div className="mt-10">
 
-          <p className="mb-4 text-xs uppercase tracking-[0.25em] text-muted-foreground font-semibold">
+          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-muted-foreground">
             Curso
           </p>
 
@@ -135,8 +271,11 @@ export default function AcademyLayout({
 
             {modules.map((module, index) => {
 
-              const isCompleted = index + 1 <= completedModules
-              const isCurrent = pathname === module.href
+              const isCompleted =
+                index + 1 <= completedModules
+
+              const isCurrent =
+                pathname === module.href
 
               return (
                 <a
@@ -159,11 +298,17 @@ export default function AcademyLayout({
                   <p className="mt-1 flex items-center gap-2 font-semibold">
 
                     {isCompleted ? (
-                      <span className="text-green-500">✅</span>
+                      <span className="text-green-500">
+                        ✅
+                      </span>
                     ) : isCurrent ? (
-                      <span className="text-blue-500">▶</span>
+                      <span className="text-blue-500">
+                        ▶
+                      </span>
                     ) : (
-                      <span>•</span>
+                      <span>
+                        •
+                      </span>
                     )}
 
                     {module.icon} {module.name}
@@ -178,15 +323,19 @@ export default function AcademyLayout({
 
         </div>
 
-        {/* Progreso */}
+        {/* PROGRESO */}
 
         <div className="mt-10 border-t pt-6">
 
           <div className="flex justify-between text-sm">
 
-            <span>Progreso</span>
+            <span>
+              Progreso
+            </span>
 
-            <span>{progress}%</span>
+            <span>
+              {progress}%
+            </span>
 
           </div>
 
@@ -207,7 +356,7 @@ export default function AcademyLayout({
 
         </div>
 
-        {/* Logout */}
+        {/* LOGOUT */}
 
         <div className="mt-auto pt-8">
 
@@ -215,8 +364,11 @@ export default function AcademyLayout({
             onClick={handleLogout}
             className="flex w-full items-center justify-center gap-2 rounded-xl border px-4 py-3 transition hover:bg-red-500 hover:text-white"
           >
+
             <LogOut size={18} />
+
             Cerrar sesión
+
           </button>
 
         </div>
