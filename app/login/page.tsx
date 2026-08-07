@@ -30,9 +30,9 @@ export default function LoginPage() {
       return
     }
 
-    router.push("/academy")
+    router.push("/area-privada")
   }
-
+router.push("/area-privada")
   return (
     <main className="flex min-h-screen items-center justify-center bg-background px-6">
       <div className="w-full max-w-md rounded-2xl border bg-card p-8 shadow-lg">
