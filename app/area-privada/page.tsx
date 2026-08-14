@@ -41,7 +41,6 @@ export default function AreaPrivadaPage() {
 
   return (
     <main className="min-h-screen bg-background px-6 py-12">
-
       <div className="mx-auto max-w-6xl">
 
         {/* CABECERA */}
@@ -49,7 +48,6 @@ export default function AreaPrivadaPage() {
         <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
 
           <div>
-
             <p className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">
               Trader Run
             </p>
@@ -61,11 +59,9 @@ export default function AreaPrivadaPage() {
             <p className="mt-3 text-muted-foreground">
               Bienvenido de nuevo. Aquí encontrarás tus productos y cursos.
             </p>
-
           </div>
 
           <div className="rounded-2xl border bg-card px-5 py-4">
-
             <p className="text-xs uppercase tracking-wider text-muted-foreground">
               Cuenta
             </p>
@@ -73,7 +69,6 @@ export default function AreaPrivadaPage() {
             <p className="mt-1 text-sm font-medium">
               {userEmail}
             </p>
-
           </div>
 
         </div>
@@ -83,7 +78,6 @@ export default function AreaPrivadaPage() {
         <section className="mt-12">
 
           <div>
-
             <p className="text-xs font-semibold uppercase tracking-[0.25em] text-muted-foreground">
               Mis productos
             </p>
@@ -91,24 +85,23 @@ export default function AreaPrivadaPage() {
             <h2 className="mt-2 text-2xl font-bold">
               Tu formación Trader Run
             </h2>
-
           </div>
 
-          <div className="mt-6 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-6 grid gap-6 md:grid-cols-2">
 
-            {/* ACADEMY */}
+            {/* OFERTA Y DEMANDA PRO */}
 
             <div className="rounded-3xl border bg-card p-7 shadow-sm">
 
               <div className="flex items-start justify-between">
 
                 <div className="flex size-12 items-center justify-center rounded-2xl bg-primary/10">
-  <ChartCandlestick
-    size={25}
-    strokeWidth={1.8}
-    className="text-primary"
-  />
-</div>
+                  <ChartCandlestick
+                    size={25}
+                    strokeWidth={1.8}
+                    className="text-primary"
+                  />
+                </div>
 
                 <span className="rounded-full bg-emerald-500/10 px-3 py-1 text-xs font-semibold text-emerald-500">
                   Activo
@@ -117,12 +110,11 @@ export default function AreaPrivadaPage() {
               </div>
 
               <h3 className="mt-6 text-xl font-bold">
-  Oferta y Demanda Pro
-</h3>
+                Curso de Oferta y Demanda
+              </h3>
 
-              <p className="mt-3 text-sm leading-6 text-muted-foreground">
-                Curso completo de trading, desde los fundamentos hasta la
-                estrategia Trader Run.
+              <p className="mt-4 text-sm leading-6 text-muted-foreground">
+                Curso de Oferta y Demanda con estrategia de indicador.
               </p>
 
               <a
@@ -134,38 +126,7 @@ export default function AreaPrivadaPage() {
 
             </div>
 
-            {/* INDICADOR */}
-
-            <div className="rounded-3xl border bg-card p-7 shadow-sm">
-
-              <div className="flex items-start justify-between">
-
-                <div className="flex size-12 items-center justify-center rounded-2xl bg-primary/10 text-2xl">
-                  📊
-                </div>
-
-                <span className="rounded-full bg-secondary px-3 py-1 text-xs font-semibold text-muted-foreground">
-                  Próximamente
-                </span>
-
-              </div>
-
-              <h3 className="mt-6 text-xl font-bold">
-                Indicador Trader Run
-              </h3>
-
-              <p className="mt-3 text-sm leading-6 text-muted-foreground">
-                Herramienta diseñada para ayudarte a aplicar la estrategia
-                Trader Run directamente en tus gráficos.
-              </p>
-
-              <div className="mt-6 rounded-xl border border-dashed px-4 py-3 text-center text-sm text-muted-foreground">
-                Disponible próximamente
-              </div>
-
-            </div>
-
-            {/* PRÓXIMO PRODUCTO */}
+            {/* PRÓXIMAMENTE */}
 
             <div className="rounded-3xl border border-dashed bg-card/50 p-7">
 
@@ -225,7 +186,6 @@ export default function AreaPrivadaPage() {
         </section>
 
       </div>
-
     </main>
   )
 }
