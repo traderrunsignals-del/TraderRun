@@ -1,6 +1,7 @@
 import { SiteHeader } from "@/components/site-header"
 import { Hero } from "@/components/hero"
 import { TickerBar } from "@/components/ticker-bar"
+import { Results } from "@/components/results"
 import { Features } from "@/components/features"
 import { Pricing } from "@/components/pricing"
 import { Testimonials } from "@/components/testimonials"
@@ -11,14 +12,17 @@ export default function Page() {
   return (
     <div className="min-h-screen bg-background">
       <SiteHeader />
+
       <main>
         <Hero />
         <TickerBar />
+        <Results />
         <Features />
         <Pricing />
         <Testimonials />
         <Faq />
       </main>
+
       <SiteFooter />
     </div>
   )

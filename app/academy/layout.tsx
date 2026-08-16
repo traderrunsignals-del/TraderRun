@@ -19,78 +19,66 @@ export default function AcademyLayout({
   const [completedModules, setCompletedModules] = useState(0)
 
   useEffect(() => {
-    const checkUser = async () => {
-      const {
-        data: { session },
-      } = await supabase.auth.getSession()
+  const checkUser = async () => {
+    const {
+      data: { session },
+    } = await supabase.auth.getSession()
 
-      if (!session) {
-        router.replace("/login")
-        return
-      }
-
-      /*
-       * COMPROBAR ACCESO A TRADER RUN ACADEMY
-       */
-
-     const academyProductId =
-  "6fe51583-a729-41ac-89e4-e2c1e69a62db"
-
-const { data: access } = await supabase
-  .from("user_products")
-  .select("expires_at, active")
-  .eq("user_id", session.user.id)
-  .eq("product_id", academyProductId)
-  .eq("active", true)
-  .maybeSingle()
-
-if (!access) {
-  setAccessDenied(true)
-  setLoading(false)
-  return
-}
-
-      if (!access) {
-        setAccessDenied(true)
-        setLoading(false)
-        return
-      }
-
-      /*
-       * COMPROBAR CADUCIDAD
-       */
-
-      const now = new Date()
-
-      if (
-        access.expires_at &&
-        new Date(access.expires_at) <= now
-      ) {
-        setAccessDenied(true)
-        setLoading(false)
-        return
-      }
-
-      /*
-       * CARGAR PROGRESO
-       */
-
-      const { data } = await supabase
-        .from("user_progress")
-        .select("module")
-        .eq("user_id", session.user.id)
-        .eq("completed", true)
-
-      const completed = data?.length ?? 0
-
-      setCompletedModules(completed)
-      setProgress((completed / 10) * 100)
-
-      setLoading(false)
+    if (!session) {
+      router.replace("/login")
+      return
     }
 
-    checkUser()
-  }, [router])
+    /*
+     * COMPROBAR ACCESO A TRADER RUN ACADEMY
+     */
+
+    const academyProductId =
+      "6fe51583-a729-41ac-89e4-e2c1e69a62db"
+
+    const { data: courseAccess } = await supabase
+      .from("user_products")
+      .select("expires_at, active")
+      .eq("user_id", session.user.id)
+      .eq("product_id", academyProductId)
+      .eq("active", true)
+      .maybeSingle()
+
+    /*
+     * COMPROBAR SI TIENE ACCESO Y SI NO HA CADUCADO
+     */
+
+    const hasAccess =
+      courseAccess &&
+      courseAccess.expires_at &&
+      new Date(courseAccess.expires_at) > new Date()
+
+    if (!hasAccess) {
+      setAccessDenied(true)
+      setLoading(false)
+      return
+    }
+
+    /*
+     * CARGAR PROGRESO
+     */
+
+    const { data } = await supabase
+      .from("user_progress")
+      .select("module")
+      .eq("user_id", session.user.id)
+      .eq("completed", true)
+
+    const completed = data?.length ?? 0
+
+    setCompletedModules(completed)
+    setProgress((completed / 10) * 100)
+
+    setLoading(false)
+  }
+
+  checkUser()
+}, [router])
 
   const handleLogout = async () => {
     await supabase.auth.signOut()
