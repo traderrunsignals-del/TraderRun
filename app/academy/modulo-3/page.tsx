@@ -22,7 +22,7 @@ export default function Modulo3Page() {
               ⏱ Duración
             </p>
             <p className="mt-1 font-semibold">
-              20 min
+              8 min
             </p>
           </div>
 

@@ -23,7 +23,7 @@ export default function Modulo6Page() {
             </p>
 
             <p className="mt-1 font-semibold">
-              20 min
+              6 min
             </p>
           </div>
 
@@ -43,7 +43,7 @@ export default function Modulo6Page() {
             </p>
 
             <p className="mt-1 font-semibold">
-              Principiante
+              Intermedio
             </p>
           </div>
 
