@@ -52,7 +52,7 @@ export default function Modulo4Page() {
       </p>
 
       <div className="mt-10">
-        <CourseVideo videoId="kIzEkd-SkFo" />
+        <CourseVideo videoUrl="https://player.mediadelivery.net/play/734236/8dbfce6e-9a11-42f7-9918-2d8aae5f7878" />
       </div>
 
       <CompleteModuleButton module={4} />
