@@ -55,7 +55,7 @@ export default function Modulo5Page() {
       </p>
 
       <div className="mt-10">
-       <CourseVideo videoId="L96vOqe8-4g" />
+      <CourseVideo videoUrl="https://player.mediadelivery.net/play/734236/c932133a-9f1b-412d-ba50-0c8aec56e068" />
       </div>
 
       <CompleteModuleButton module={5} />
