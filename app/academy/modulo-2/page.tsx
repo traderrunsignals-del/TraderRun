@@ -11,7 +11,7 @@ export default function Modulo2Page() {
       videos={1}
       level="Principiante"
 
-      videoId="AQUÍ_EL_ID_DEL_VIDEO"
+      videoUrl="https://player.mediadelivery.net/play/734236/fdc1dc2f-3e71-4e4a-ba65-ff4df1ab27cb"
 
       items={[
         "Qué es un mercado financiero",
