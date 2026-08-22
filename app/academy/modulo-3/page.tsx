@@ -52,7 +52,7 @@ export default function Modulo3Page() {
       </p>
 
       <div className="mt-10">
-        <CourseVideo videoId="pnbn5LlGih0" />
+       <CourseVideo videoUrl="https://player.mediadelivery.net/play/734236/29443fa9-8219-4998-ba5e-db8306fe293e" />
       </div>
 
       <CompleteModuleButton module={3} />
