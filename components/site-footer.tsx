@@ -2,13 +2,13 @@ import { TrendingUp } from "lucide-react"
 import Link from "next/link"
 
 const columns = [
- {
-  title: "Producto",
-  links: ["Programa", "Señales", "Precios"],
-},
+  {
+    title: "Producto",
+    links: ["Programa", "Results", "Precios"],
+  },
   {
     title: "Empresa",
-    links: ["Sobre nosotros", "Blog", "Contacto", "Afiliados"],
+    links: ["Sobre nosotros", "Contacto"],
   },
   {
     title: "Legal",
@@ -21,82 +21,103 @@ export function SiteFooter() {
     <footer className="border-t border-border/60 bg-secondary/20">
       <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6">
         <div className="grid gap-10 md:grid-cols-[1.5fr_1fr_1fr_1fr]">
+
           <div>
             <a href="#" className="flex items-center gap-2">
               <span className="flex size-8 items-center justify-center rounded-lg bg-primary text-primary-foreground">
                 <TrendingUp className="size-5" />
               </span>
+
               <span className="font-display text-lg font-bold tracking-tight">
                 Trader<span className="text-primary">Run</span>
               </span>
             </a>
-            <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted-foreground">
-  Señales de trading, análisis del mercado y una comunidad para traders que quieren mejorar cada día.
-</p>
-<div className="mt-5 space-y-2 text-sm">
-  <a
-    href="mailto:contacto@traderrun.com"
-    className="block text-muted-foreground transition-colors hover:text-primary"
-  >
-    📧 traderrunsignals@gmail.com
-  </a>
 
-  <a
-    href="https://t.me/tradingproNQ"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="block text-muted-foreground transition-colors hover:text-primary"
-  >
-    📲 Unirse a Telegram
-  </a>
-</div>
+            <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted-foreground">
+              Señales de trading, análisis del mercado y una comunidad para
+              traders que quieren mejorar cada día.
+            </p>
+
+            <div className="mt-5 space-y-2 text-sm">
+
+              <a
+                href="mailto:traderrunsignals@gmail.com"
+                className="block text-muted-foreground transition-colors hover:text-primary"
+              >
+                📧 traderrunsignals@gmail.com
+              </a>
+
+              <a
+                href="https://t.me/tradingproNQ"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block text-muted-foreground transition-colors hover:text-primary"
+              >
+                📲 Unirse a Telegram
+              </a>
+
+            </div>
           </div>
 
           {columns.map((col) => (
             <div key={col.title}>
-              <h3 className="text-sm font-semibold">{col.title}</h3>
+
+              <h3 className="text-sm font-semibold">
+                {col.title}
+              </h3>
+
               <ul className="mt-4 space-y-2.5">
-                {col.links.map((link) => {
+
+               {col.links.map((link) => {
   let href = "#"
 
-  if (link === "Programa") href = "#programa"
-  if (link === "Señales") href = "#testimonios"
-  if (link === "Precios") href = "#precios"
+  // PRODUCTO
+  if (link === "Programa") href = "/#programa"
+  if (link === "Results") href = "/#resultados"
+  if (link === "Precios") href = "/#precios"
 
+  // EMPRESA
+  if (link === "Sobre nosotros") href = "/sobre-nosotros"
+  if (link === "Contacto") href = "/contacto"
+
+  // LEGAL
   if (link === "Términos") href = "/terminos"
   if (link === "Privacidad") href = "/privacidad"
   if (link === "Aviso de riesgo") href = "/aviso-riesgo"
   if (link === "Cookies") href = "/cookies"
-  if (link === "Sobre nosotros") href = "/sobre-nosotros"
-  if (link === "Contacto") href = "/contacto"
 
   return (
     <li key={link}>
-      <Link
+      <a
         href={href}
         className="text-sm text-muted-foreground transition-colors hover:text-foreground"
       >
         {link}
-      </Link>
+      </a>
     </li>
   )
 })}
+
               </ul>
             </div>
           ))}
+
         </div>
 
         <div className="mt-12 border-t border-border/60 pt-6">
+
           <p className="text-xs leading-relaxed text-muted-foreground">
             El trading de instrumentos financieros conlleva un alto nivel de
             riesgo y puede no ser adecuado para todos los inversores. Los
             resultados pasados no garantizan resultados futuros. TraderRun
             ofrece contenido educativo y no constituye asesoramiento financiero.
           </p>
+
           <p className="mt-4 text-xs text-muted-foreground">
             &copy; {new Date().getFullYear()} TraderRun. Todos los derechos
             reservados.
           </p>
+
         </div>
       </div>
     </footer>

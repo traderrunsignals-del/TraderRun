@@ -27,8 +27,10 @@ const results = [
 
 export function Results() {
   return (
-    <section className="mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-28">
-
+    <section
+  id="resultados"
+  className="mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-28"
+>
       {/* CABECERA */}
 
       <div className="mx-auto max-w-2xl text-center">
