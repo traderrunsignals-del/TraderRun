@@ -23,7 +23,7 @@ export default function Modulo1Page() {
             </p>
 
             <p className="mt-1 font-semibold">
-              18 min
+              8 min
             </p>
           </div>
 
