@@ -14,7 +14,7 @@ type CoursePageProps = {
   duration: string
   videos: number
   level: string
-  videoId: string
+  videoUrl: string
   items: string[]
   tip: string
 }
@@ -27,7 +27,7 @@ export default function CoursePage({
   duration,
   videos,
   level,
-  videoId,
+  videoUrl,
   items,
   tip,
 }: CoursePageProps) {
@@ -58,7 +58,7 @@ export default function CoursePage({
   </p>
 
   <div className="mt-6">
-    <CourseVideo videoId={videoId} />
+    <CourseVideo videoUrl={videoUrl} />
   </div>
   <div className="mt-6 rounded-2xl border border-dashed border-primary/30 bg-primary/5 p-6">
 

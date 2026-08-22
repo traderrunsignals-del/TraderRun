@@ -11,7 +11,7 @@ export default function Modulo1Page() {
       videos={1}
       level="Principiante"
 
-      videoId="zIgTzV0kWko"
+      videoUrl="https://player.mediadelivery.net/play/734236/d607118d-1321-40ec-a9fc-d7ab6033d0d0"
 
       items={[
         "Fundamentos del trading",

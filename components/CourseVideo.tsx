@@ -1,14 +1,14 @@
 type CourseVideoProps = {
-  videoId: string
+  videoUrl: string
 }
 
-export default function CourseVideo({ videoId }: CourseVideoProps) {
+export default function CourseVideo({ videoUrl }: CourseVideoProps) {
   return (
     <div className="overflow-hidden rounded-2xl border shadow-lg">
       <div className="aspect-video">
         <iframe
           className="h-full w-full"
-          src={`https://www.youtube.com/embed/${videoId}?rel=0&modestbranding=1&cc_load_policy=0&iv_load_policy=3`}
+          src={videoUrl}
           title="Curso Trader Run"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowFullScreen
