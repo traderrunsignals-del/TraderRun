@@ -2,10 +2,10 @@ import { TrendingUp } from "lucide-react"
 import Link from "next/link"
 
 const columns = [
-  {
-    title: "Producto",
-    links: ["Programa", "Sesiones en vivo", "Señales", "Precios"],
-  },
+ {
+  title: "Producto",
+  links: ["Programa", "Señales", "Precios"],
+},
   {
     title: "Empresa",
     links: ["Sobre nosotros", "Blog", "Contacto", "Afiliados"],
@@ -58,6 +58,10 @@ export function SiteFooter() {
               <ul className="mt-4 space-y-2.5">
                 {col.links.map((link) => {
   let href = "#"
+
+  if (link === "Programa") href = "#programa"
+  if (link === "Señales") href = "#testimonios"
+  if (link === "Precios") href = "#precios"
 
   if (link === "Términos") href = "/terminos"
   if (link === "Privacidad") href = "/privacidad"
