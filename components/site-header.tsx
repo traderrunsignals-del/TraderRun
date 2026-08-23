@@ -4,12 +4,12 @@ import { useState } from "react"
 import { Menu, X, TrendingUp } from "lucide-react"
 
 const navLinks = [
-  { label: "Programa", href: "#programa" },
-  { label: "Comunidad", href: "#comunidad" },
+  { label: "Programa", href: "/#programa" },
+  { label: "Comunidad", href: "/#resultados" },
   { label: "Área Privada", href: "/login" },
-  { label: "Precios", href: "#precios" },
-  { label: "Testimonios", href: "#testimonios" },
-  { label: "FAQ", href: "#faq" },
+  { label: "Precios", href: "/#precios" },
+  { label: "Testimonios", href: "/#testimonios" },
+  { label: "FAQ", href: "/#faq" },
 ]
 
 export function SiteHeader() {
