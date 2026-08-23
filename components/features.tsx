@@ -1,42 +1,48 @@
 import {
   BarChart3,
-  Bell,
   Brain,
   MessageSquare,
   ShieldCheck,
   Target,
+  TrendingUp,
 } from "lucide-react"
 
 const features = [
   {
     icon: BarChart3,
-    title: "Formación estructurada",
-    desc: "Aprende a interpretar el mercado paso a paso, desde los fundamentos hasta la construcción de una operativa completa.",
+    number: "01",
+    title: "Lectura del mercado",
+    desc: "Aprende a interpretar el contexto, la estructura y el comportamiento del precio para entender qué está ocurriendo antes de tomar una decisión.",
   },
   {
     icon: Target,
-    title: "Estrategia Trader Run",
-    desc: "Una metodología clara para analizar el precio, identificar oportunidades y tomar decisiones con un plan definido.",
-  },
-  {
-    icon: Bell,
-    title: "Señales y análisis en tiempo real",
-    desc: "Accede a operaciones, entradas, stop loss y objetivos acompañados del razonamiento detrás de cada escenario.",
+    number: "02",
+    title: "Metodología Trader Run",
+    desc: "Una estructura de análisis definida para identificar escenarios, validar oportunidades y construir una operativa coherente.",
   },
   {
     icon: ShieldCheck,
+    number: "03",
     title: "Gestión del riesgo",
-    desc: "Aprende a proteger tu capital mediante reglas de riesgo, tamaño de posición, exposición y control del drawdown.",
+    desc: "Aprende a definir el riesgo antes de entrar, gestionar el tamaño de la posición y proteger tu capital de forma sistemática.",
   },
   {
     icon: Brain,
+    number: "04",
     title: "Psicología y disciplina",
-    desc: "Desarrolla la mentalidad necesaria para ejecutar tu estrategia sin dejar que el miedo, la codicia o la impulsividad condicionen tus decisiones.",
+    desc: "Trabaja la parte más difícil del trading: ejecutar tu plan con disciplina y evitar decisiones impulsivas.",
+  },
+  {
+    icon: TrendingUp,
+    number: "05",
+    title: "Análisis de operaciones",
+    desc: "Estudia escenarios reales y comprende el razonamiento detrás de las entradas, los stops, los objetivos y la gestión.",
   },
   {
     icon: MessageSquare,
-    title: "Acompañamiento y comunidad",
-    desc: "No tienes que aprender solo. Resuelve dudas, comparte análisis y avanza junto a una comunidad activa de traders.",
+    number: "06",
+    title: "Acompañamiento",
+    desc: "Resuelve dudas, comparte análisis y avanza acompañado dentro de una comunidad de traders.",
   },
 ]
 
@@ -44,91 +50,241 @@ export function Features() {
   return (
     <section
       id="programa"
-      className="mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-28"
+      className="relative overflow-hidden border-t border-border/40"
     >
 
-      {/* CABECERA */}
+      {/* =====================================================
+          FONDO
+      ===================================================== */}
 
-      <div className="mx-auto max-w-2xl text-center">
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute right-[-200px] top-[200px] h-[500px] w-[500px] rounded-full bg-primary/[0.035] blur-[130px]"
+      />
 
-        <p className="text-sm font-medium uppercase tracking-widest text-primary">
-          Más que señales
-        </p>
+      <div className="relative mx-auto max-w-7xl px-5 py-24 sm:px-6 sm:py-32">
 
-        <h2 className="mt-3 text-balance font-display text-3xl font-bold tracking-tight sm:text-4xl">
-          Un sistema completo para mejorar tu trading
-        </h2>
+        {/* =====================================================
+            CABECERA
+        ===================================================== */}
 
-        <p className="mt-4 text-pretty leading-relaxed text-muted-foreground">
-          Formación, estrategia, análisis, gestión del riesgo y
-          acompañamiento. Todo lo necesario para desarrollar una operativa
-          con criterio propio.
-        </p>
+        <div className="mx-auto max-w-3xl text-center">
 
-      </div>
+          <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-primary">
+            La metodología
+          </p>
 
-      {/* FEATURES */}
+          <h2 className="mt-4 text-balance font-display text-3xl font-semibold tracking-tight sm:text-4xl lg:text-5xl">
+            Una formación diseñada para
+            <span className="text-muted-foreground">
+              {" "}construir criterio.
+            </span>
+          </h2>
 
-      <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+          <p className="mx-auto mt-6 max-w-2xl text-pretty text-base leading-7 text-muted-foreground sm:text-lg">
+            No se trata de memorizar entradas. Se trata de entender el mercado,
+            seguir un proceso y aprender a tomar decisiones con una estructura
+            que puedas aplicar por ti mismo.
+          </p>
 
-        {features.map((feature, index) => {
-          const Icon = feature.icon
+        </div>
 
-          return (
-            <div
-              key={feature.title}
-              className={`group relative rounded-3xl border border-border/60 bg-card p-7 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-xl ${
-                index === 0
-                  ? "lg:shadow-primary/5"
-                  : ""
-              }`}
-            >
+        {/* =====================================================
+            BLOQUE PRINCIPAL
+        ===================================================== */}
 
-              {/* Número */}
+        <div className="relative mx-auto mt-16 max-w-5xl">
 
-              <div className="absolute right-6 top-6 text-xs font-semibold tracking-widest text-muted-foreground/30">
-                0{index + 1}
+          <div className="grid overflow-hidden rounded-3xl border border-border/60 bg-card/60 lg:grid-cols-[1.05fr_0.95fr]">
+
+            {/* LADO IZQUIERDO */}
+
+            <div className="relative overflow-hidden border-b border-border/50 p-8 sm:p-10 lg:border-b-0 lg:border-r lg:p-12">
+
+              {/* Decoración */}
+
+              <div
+                aria-hidden="true"
+                className="absolute -right-20 -top-20 size-64 rounded-full bg-primary/[0.06] blur-3xl"
+              />
+
+              <div className="relative">
+
+                <div className="flex size-12 items-center justify-center rounded-2xl border border-primary/20 bg-primary/5 text-primary">
+                  <BarChart3 className="size-5" />
+                </div>
+
+                <p className="mt-8 text-[10px] font-semibold uppercase tracking-[0.2em] text-primary">
+                  El objetivo
+                </p>
+
+                <h3 className="mt-3 max-w-lg font-display text-2xl font-semibold tracking-tight sm:text-3xl">
+                  Dejar de buscar entradas.
+                  <span className="block text-muted-foreground">
+                    Empezar a entender decisiones.
+                  </span>
+                </h3>
+
+                <p className="mt-5 max-w-lg text-sm leading-7 text-muted-foreground">
+                  Nuestra metodología busca que puedas analizar un escenario
+                  completo antes de pensar en abrir una operación: contexto,
+                  estructura, confirmación, riesgo e invalidación.
+                </p>
+
+                {/* Mini proceso */}
+
+                <div className="mt-8 flex flex-wrap gap-2">
+
+                  {[
+                    "Contexto",
+                    "Análisis",
+                    "Confirmación",
+                    "Riesgo",
+                    "Ejecución",
+                  ].map((item) => (
+                    <span
+                      key={item}
+                      className="rounded-full border border-border/60 bg-background/50 px-3 py-1.5 text-[11px] font-medium text-muted-foreground"
+                    >
+                      {item}
+                    </span>
+                  ))}
+
+                </div>
+
               </div>
 
-              {/* Icono */}
+            </div>
 
-              <span className="flex size-12 items-center justify-center rounded-2xl bg-primary/10 text-primary ring-1 ring-primary/20 transition-transform duration-300 group-hover:scale-105">
-                <Icon className="size-5" />
-              </span>
+            {/* LADO DERECHO */}
 
-              {/* Contenido */}
+            <div className="bg-secondary/[0.15] p-8 sm:p-10 lg:p-12">
 
-              <h3 className="mt-6 font-display text-lg font-semibold">
-                {feature.title}
-              </h3>
-
-              <p className="mt-3 text-sm leading-7 text-muted-foreground">
-                {feature.desc}
+              <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+                Un proceso definido
               </p>
 
+              <div className="mt-6 space-y-6">
+
+                {[
+                  {
+                    title: "Analizar",
+                    text: "Entender el contexto antes de buscar una oportunidad.",
+                  },
+                  {
+                    title: "Validar",
+                    text: "Esperar las condiciones que exige la metodología.",
+                  },
+                  {
+                    title: "Gestionar",
+                    text: "Definir riesgo, stop y objetivo antes de ejecutar.",
+                  },
+                  {
+                    title: "Revisar",
+                    text: "Aprender de cada operación para mejorar el proceso.",
+                  },
+                ].map((step, index) => (
+
+                  <div
+                    key={step.title}
+                    className="flex gap-4"
+                  >
+
+                    <div className="flex size-7 shrink-0 items-center justify-center rounded-full border border-border/70 bg-background text-[10px] font-semibold text-muted-foreground">
+                      0{index + 1}
+                    </div>
+
+                    <div>
+
+                      <h4 className="text-sm font-semibold">
+                        {step.title}
+                      </h4>
+
+                      <p className="mt-1 text-xs leading-5 text-muted-foreground">
+                        {step.text}
+                      </p>
+
+                    </div>
+
+                  </div>
+
+                ))}
+
+              </div>
+
             </div>
-          )
-        })}
 
-      </div>
+          </div>
 
-      {/* CIERRE */}
+        </div>
 
-      <div className="mx-auto mt-12 max-w-3xl rounded-3xl border border-primary/20 bg-primary/5 p-7 text-center">
+        {/* =====================================================
+            PILARES
+        ===================================================== */}
 
-        <p className="text-sm font-semibold uppercase tracking-widest text-primary">
-          El objetivo
-        </p>
+        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
 
-        <p className="mt-3 text-lg font-semibold leading-relaxed">
-          No queremos que dependas eternamente de una señal.
-        </p>
+          {features.map((feature) => {
+            const Icon = feature.icon
 
-        <p className="mt-2 text-sm leading-6 text-muted-foreground">
-          Queremos que entiendas por qué se toma una operación, aprendas a
-          gestionar el riesgo y desarrolles la capacidad de tomar tus propias
-          decisiones.
-        </p>
+            return (
+              <article
+                key={feature.number}
+                className="group relative rounded-2xl border border-border/50 bg-background/40 p-6 transition duration-300 hover:border-primary/25 hover:bg-card/60"
+              >
+
+                <div className="flex items-start justify-between">
+
+                  <div className="flex size-10 items-center justify-center rounded-xl border border-border/60 bg-secondary/30 text-primary">
+                    <Icon className="size-4" />
+                  </div>
+
+                  <span className="text-[10px] font-semibold tracking-[0.18em] text-muted-foreground/30">
+                    {feature.number}
+                  </span>
+
+                </div>
+
+                <h3 className="mt-6 font-display text-lg font-semibold tracking-tight">
+                  {feature.title}
+                </h3>
+
+                <p className="mt-3 text-sm leading-6 text-muted-foreground">
+                  {feature.desc}
+                </p>
+
+              </article>
+            )
+          })}
+
+        </div>
+
+        {/* =====================================================
+            CIERRE
+        ===================================================== */}
+
+        <div className="mx-auto mt-12 max-w-3xl text-center">
+
+          <div className="mx-auto mb-5 flex items-center justify-center gap-3">
+
+            <div className="h-px w-8 bg-border" />
+
+            <span className="size-1 rounded-full bg-primary" />
+
+            <div className="h-px w-8 bg-border" />
+
+          </div>
+
+          <p className="text-balance text-lg font-medium leading-relaxed sm:text-xl">
+            El objetivo no es que dependas eternamente de una señal.
+          </p>
+
+          <p className="mt-2 text-sm leading-6 text-muted-foreground">
+            El objetivo es que puedas entender el porqué de una operación y
+            desarrollar la capacidad de tomar tus propias decisiones.
+          </p>
+
+        </div>
 
       </div>
 

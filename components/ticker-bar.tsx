@@ -1,44 +1,43 @@
-import { ArrowDownRight, ArrowUpRight } from "lucide-react"
-
-const tickers = [
-  { symbol: "BTC/USD", price: "67.842", change: "+2.41%", up: true },
-  { symbol: "S&P 500", price: "5.487", change: "+0.63%", up: true },
-  { symbol: "EUR/USD", price: "1.0842", change: "-0.18%", up: false },
-  { symbol: "ETH/USD", price: "3.512", change: "+3.07%", up: true },
-  { symbol: "NASDAQ", price: "17.194", change: "+0.92%", up: true },
-  { symbol: "GOLD", price: "2.334", change: "-0.41%", up: false },
-  { symbol: "TSLA", price: "248.4", change: "+1.86%", up: true },
-  { symbol: "OIL/WTI", price: "78.9", change: "-0.74%", up: false },
+const markets = [
+  "NASDAQ",
+  "S&P 500",
+  "GOLD",
+  "EUR/USD",
+  "BTC/USD",
+  "OIL",
+  "DOW JONES",
+  "NQ",
 ]
 
 export function TickerBar() {
-  const row = [...tickers, ...tickers]
+  const row = [...markets, ...markets]
+
   return (
-    <div className="border-y border-border/60 bg-secondary/30 py-3">
-      <div className="relative flex overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
-        <div className="flex shrink-0 animate-[marquee_38s_linear_infinite] items-center gap-8 pr-8">
-          {row.map((t, i) => (
+    <div className="border-y border-border/40 bg-background/40">
+      <div className="relative flex overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
+        
+        <div className="flex shrink-0 animate-[marquee_38s_linear_infinite] items-center gap-7 py-3 pr-7">
+          
+          {row.map((market, i) => (
             <div
-              key={`${t.symbol}-${i}`}
-              className="flex items-center gap-2 whitespace-nowrap text-sm"
+              key={`${market}-${i}`}
+              className="flex items-center gap-7 whitespace-nowrap"
             >
-              <span className="font-medium text-foreground">{t.symbol}</span>
-              <span className="text-muted-foreground">{t.price}</span>
-              <span
-                className={`inline-flex items-center gap-0.5 text-xs font-medium ${
-                  t.up ? "text-primary" : "text-destructive"
-                }`}
-              >
-                {t.up ? (
-                  <ArrowUpRight className="size-3.5" />
-                ) : (
-                  <ArrowDownRight className="size-3.5" />
-                )}
-                {t.change}
+              
+              <span className="text-[11px] font-medium uppercase tracking-[0.16em] text-muted-foreground">
+                {market}
               </span>
+
+              <span
+                aria-hidden="true"
+                className="size-1 rounded-full bg-primary/50"
+              />
+
             </div>
           ))}
+
         </div>
+
       </div>
     </div>
   )

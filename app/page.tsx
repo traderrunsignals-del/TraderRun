@@ -1,8 +1,11 @@
 import { SiteHeader } from "@/components/site-header"
 import { Hero } from "@/components/hero"
 import { TickerBar } from "@/components/ticker-bar"
+import { TraderRunSystem } from "@/components/trader-run-system"
+import { AcademyPreview } from "@/components/academy-preview"
+import { Outcomes } from "@/components/Outcomes"
 import { Results } from "@/components/results"
-import { Features } from "@/components/features"
+import { ValueBridge } from "@/components/value-bridge"
 import { Pricing } from "@/components/pricing"
 import { Testimonials } from "@/components/testimonials"
 import { Faq } from "@/components/faq"
@@ -15,11 +18,22 @@ export default function Page() {
 
       <main>
         <Hero />
+
         <TickerBar />
+
+        <TraderRunSystem />
+
+        <AcademyPreview />
+
+        <Outcomes />
+
         <Results />
-        <Features />
-        <Pricing />
+
+       <ValueBridge />
+       <Pricing />
+
         <Testimonials />
+
         <Faq />
       </main>
 

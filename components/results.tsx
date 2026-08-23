@@ -1,127 +1,172 @@
 import Image from "next/image"
-import { CheckCircle2, TrendingUp } from "lucide-react"
+import { ArrowUpRight, CheckCircle2 } from "lucide-react"
 
 const results = [
   {
     image: "/testimonio-764.png",
-    label: "Operación XAUUSD",
+    symbol: "XAUUSD",
+    label: "Operación compartida",
     result: "+764,23 €",
     description:
-      "Operación compartida por un miembro de la comunidad siguiendo una gestión estructurada de la posición.",
+      "Ejemplo de una operación gestionada siguiendo una estructura definida de análisis y gestión de la posición.",
   },
   {
     image: "/testimonio-239.png",
-    label: "Operación GOLD",
+    symbol: "GOLD",
+    label: "Operación compartida",
     result: "+239,24 €",
     description:
-      "Entrada individual compartida dentro de la comunidad con resultado positivo.",
+      "Una operación real compartida dentro de la comunidad, mostrando el proceso seguido hasta el cierre.",
   },
   {
     image: "/testimonio-405.png",
+    symbol: "EURCAD · XAUUSD",
     label: "Dos operaciones",
     result: "+405,33 €",
     description:
-      "Resultado combinado de dos operaciones ganadoras: EURCAD y XAUUSD.",
+      "Resultado combinado de dos operaciones ganadoras compartidas dentro de la comunidad.",
   },
 ]
 
 export function Results() {
   return (
     <section
-  id="resultados"
-  className="mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-28"
->
-      {/* CABECERA */}
+      id="resultados"
+      className="relative overflow-hidden border-t border-border/40"
+    >
 
-      <div className="mx-auto max-w-2xl text-center">
+      {/* Glow muy sutil */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute left-1/2 top-0 h-[400px] w-[700px] -translate-x-1/2 rounded-full bg-primary/[0.035] blur-[120px]"
+      />
 
-        <p className="text-sm font-medium uppercase tracking-widest text-primary">
-          Resultados reales
-        </p>
+      <div className="relative mx-auto max-w-7xl px-5 py-24 sm:px-6 sm:py-32">
 
-        <h2 className="mt-3 text-balance font-display text-3xl font-bold tracking-tight sm:text-4xl">
-          El trabajo se demuestra con hechos
-        </h2>
+        {/* =====================================================
+            CABECERA
+        ===================================================== */}
 
-        <p className="mx-auto mt-4 max-w-2xl text-pretty leading-relaxed text-muted-foreground">
-          Compartimos operaciones y experiencias reales de miembros de nuestra
-          comunidad. Nuestro objetivo es mostrar cómo trabajamos, no prometer
-          resultados.
-        </p>
+        <div className="mx-auto max-w-3xl text-center">
 
-      </div>
+          <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-primary">
+            Operativa real
+          </p>
 
-      {/* RESULTADOS */}
+          <h2 className="mt-4 text-balance font-display text-3xl font-semibold tracking-tight sm:text-4xl lg:text-5xl">
+            Así se aplica la metodología
+            <span className="text-muted-foreground">
+              {" "}en el mercado.
+            </span>
+          </h2>
 
-      <div className="mt-14 grid gap-6 md:grid-cols-3">
+          <p className="mx-auto mt-6 max-w-2xl text-pretty text-base leading-7 text-muted-foreground sm:text-lg">
+            No enseñamos una estrategia basada en promesas. Analizamos
+            operaciones reales para mostrar cómo se estructura una decisión,
+            cómo se gestiona el riesgo y cuándo una operación deja de tener
+            sentido.
+          </p>
 
-        {results.map((result) => (
+        </div>
 
-          <article
-            key={result.image}
-            className="group overflow-hidden rounded-3xl border border-border/60 bg-card shadow-sm transition duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-xl"
-          >
+        {/* =====================================================
+            OPERACIONES
+        ===================================================== */}
 
-            {/* IMAGEN */}
+        <div className="mt-16 grid gap-6 lg:grid-cols-3">
 
-            <div className="relative flex h-[360px] items-center justify-center overflow-hidden bg-secondary/20 p-3">
+          {results.map((result) => (
 
-              <Image
-  src={result.image}
-  alt={`${result.label} - resultado compartido por la comunidad Trader Run`}
-  width={900}
-  height={650}
-  className="h-auto max-h-[420px] w-full object-contain transition duration-500 group-hover:scale-[1.02]"
-/>
+            <article
+              key={result.image}
+              className="group overflow-hidden rounded-2xl border border-border/60 bg-card/80 transition duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-2xl hover:shadow-black/10"
+            >
 
-            </div>
+              {/* Imagen */}
 
-            {/* INFORMACIÓN */}
+              <div className="relative h-[340px] overflow-hidden bg-secondary/20 p-3">
 
-            <div className="p-6">
+                <div className="relative h-full w-full overflow-hidden rounded-xl border border-border/40 bg-background">
 
-              <div className="flex items-center justify-between gap-4">
-
-                <div className="flex items-center gap-2">
-
-                  <span className="flex size-9 items-center justify-center rounded-xl bg-primary/10">
-                    <TrendingUp className="size-4 text-primary" />
-                  </span>
-
-                  <span className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
-                    {result.label}
-                  </span>
+                  <Image
+                    src={result.image}
+                    alt={`${result.symbol} - operación compartida por la comunidad Trader Run`}
+                    width={900}
+                    height={650}
+                    className="h-full w-full object-contain transition duration-500 group-hover:scale-[1.025]"
+                  />
 
                 </div>
 
               </div>
 
-              <p className="mt-5 font-display text-3xl font-bold tracking-tight text-primary">
-                {result.result}
-              </p>
+              {/* Información */}
 
-              <p className="mt-3 text-sm leading-6 text-muted-foreground">
-                {result.description}
-              </p>
+              <div className="p-6">
 
-            </div>
+                <div className="flex items-center justify-between">
 
-          </article>
+                  <div>
 
-        ))}
+                    <p className="text-xs font-semibold uppercase tracking-[0.16em] text-muted-foreground">
+                      {result.label}
+                    </p>
 
-      </div>
+                    <p className="mt-1 text-sm font-medium text-foreground">
+                      {result.symbol}
+                    </p>
 
-      {/* AVISO */}
+                  </div>
 
-      <div className="mx-auto mt-10 flex max-w-3xl items-start gap-3 rounded-2xl border border-border/60 bg-secondary/30 p-5">
+                  <div className="flex size-9 items-center justify-center rounded-full border border-primary/20 bg-primary/5">
+                    <ArrowUpRight className="size-4 text-primary" />
+                  </div>
 
-        <CheckCircle2 className="mt-0.5 size-5 shrink-0 text-primary" />
+                </div>
 
-        <p className="text-sm leading-6 text-muted-foreground">
-          Resultados compartidos por miembros de la comunidad. El rendimiento
-          pasado no garantiza resultados futuros.
-        </p>
+                <div className="mt-6 flex items-end justify-between gap-4">
+
+                  <div>
+
+                    <p className="text-[10px] font-medium uppercase tracking-[0.16em] text-muted-foreground">
+                      Resultado de la operación
+                    </p>
+
+                    <p className="mt-1 font-display text-2xl font-semibold tracking-tight text-primary">
+                      {result.result}
+                    </p>
+
+                  </div>
+
+                </div>
+
+                <p className="mt-4 border-t border-border/50 pt-4 text-sm leading-6 text-muted-foreground">
+                  {result.description}
+                </p>
+
+              </div>
+
+            </article>
+
+          ))}
+
+        </div>
+
+        {/* =====================================================
+            DISCLAIMER
+        ===================================================== */}
+
+        <div className="mx-auto mt-10 flex max-w-3xl items-start gap-3 rounded-xl border border-border/50 bg-secondary/20 px-5 py-4">
+
+          <CheckCircle2 className="mt-0.5 size-4 shrink-0 text-primary" />
+
+          <p className="text-xs leading-5 text-muted-foreground">
+            Las operaciones mostradas corresponden a experiencias reales
+            compartidas por miembros de la comunidad. El rendimiento pasado
+            no garantiza resultados futuros.
+          </p>
+
+        </div>
 
       </div>
 
