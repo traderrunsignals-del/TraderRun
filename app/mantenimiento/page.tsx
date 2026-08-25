@@ -1,4 +1,4 @@
-export default function HomePage() {
+export default function MantenimientoPage() {
   return (
     <main className="min-h-screen bg-background px-4 py-8 sm:px-6 lg:px-8">
       <div className="mx-auto flex min-h-[85vh] max-w-3xl items-center justify-center">

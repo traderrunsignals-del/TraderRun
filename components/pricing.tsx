@@ -117,8 +117,11 @@ const includedItems = [
 
 export function Pricing() {
   const [showCourseInfo, setShowCourseInfo] = useState(false)
-
+const mostrarAcademia = false
   return (
+
+
+
     <section
       id="precios"
       className="relative overflow-hidden border-t border-border/40"
@@ -533,9 +536,7 @@ export function Pricing() {
 
                     <ShieldCheck className="size-3.5 text-primary" />
 
-                    <span className="text-[10px] font-semibold uppercase tracking-wider text-primary">
-                      Acceso de por vida
-                    </span>
+                    
 
                   </div>
 
