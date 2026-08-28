@@ -1,186 +1,261 @@
 import {
+  ArrowRight,
   BarChart3,
   Brain,
   GraduationCap,
   ShieldCheck,
-  Target,
-  TrendingUp,
 } from "lucide-react"
 
-const pillars = [
+const principles = [
   {
-    icon: TrendingUp,
-    title: "+7 años de experiencia",
-    desc: "Años de experiencia operando y analizando los mercados financieros nos han permitido desarrollar una visión práctica y realista del trading.",
+    icon: BarChart3,
+    title: "Experiencia de mercado",
+    description:
+      "Nuestro enfoque nace de años analizando mercados, estudiando el comportamiento del precio y trabajando sobre operativa real.",
   },
   {
     icon: GraduationCap,
     title: "Formación continua",
-    desc: "El mercado evoluciona constantemente. Por eso seguimos formándonos, analizando y perfeccionando nuestra metodología para seguir avanzando.",
-  },
-  {
-    icon: Target,
-    title: "Una metodología propia",
-    desc: "Trabajamos con una metodología estructurada que combina análisis del precio, estrategia, contexto y toma de decisiones.",
+    description:
+      "El mercado evoluciona y nosotros también. Seguimos estudiando, revisando y mejorando nuestra forma de analizar y enseñar.",
   },
   {
     icon: ShieldCheck,
-    title: "Gestión del riesgo",
-    desc: "Entendemos el riesgo como una parte fundamental del trading. Aprender a proteger el capital es tan importante como encontrar una oportunidad.",
+    title: "Riesgo antes que resultado",
+    description:
+      "Una buena operación no se define únicamente por cómo termina. La gestión del riesgo forma parte de cada decisión.",
   },
   {
     icon: Brain,
-    title: "Psicología y disciplina",
-    desc: "Una buena estrategia necesita una correcta ejecución. Trabajamos también la disciplina y el control emocional que exige operar en los mercados.",
-  },
-  {
-    icon: BarChart3,
-    title: "Entender, no depender",
-    desc: "Nuestro objetivo es que aprendas a interpretar el mercado y desarrolles el criterio necesario para tomar tus propias decisiones.",
+    title: "Proceso y disciplina",
+    description:
+      "Trabajamos para que análisis, ejecución y psicología formen parte de un mismo proceso y no de decisiones aisladas.",
   },
 ]
 
 export function AboutUs() {
   return (
-    <section className="border-y border-border/60 bg-secondary/20">
+    <section
+      id="nosotros"
+      className="relative overflow-hidden border-b border-border/40 bg-secondary/[0.08]"
+    >
+      {/* =====================================================
+          FONDO
+      ===================================================== */}
 
-      <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-28">
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -left-40 top-0 size-[500px] rounded-full bg-primary/[0.035] blur-[140px]"
+      />
 
-        {/* CABECERA */}
+      <div className="relative mx-auto max-w-7xl px-5 py-24 sm:px-6 sm:py-32 lg:py-36">
 
-        <div className="mx-auto max-w-3xl text-center">
+        {/* =====================================================
+            PARTE PRINCIPAL
+        ===================================================== */}
 
-          <p className="text-sm font-medium uppercase tracking-widest text-primary">
-            Sobre Trader Run
-          </p>
+        <div className="grid gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
 
-          <h2 className="mt-3 text-balance font-display text-3xl font-bold tracking-tight sm:text-4xl">
-            Más de 7 años de experiencia detrás de una metodología propia
-          </h2>
+          {/* IZQUIERDA */}
 
-          <p className="mt-5 text-pretty leading-relaxed text-muted-foreground">
-            Trader Run nace de años de experiencia real en los mercados
-            financieros, formación continua y una búsqueda constante por
-            entender cómo se mueve el precio y cómo tomar mejores decisiones
-            frente al mercado.
-          </p>
+          <div>
+            <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/[0.045] px-4 py-2">
+              <span className="size-1.5 rounded-full bg-primary" />
 
-        </div>
-
-        {/* HISTORIA */}
-
-        <div className="mx-auto mt-12 max-w-4xl rounded-3xl border border-primary/20 bg-card p-8 shadow-xl shadow-primary/5 sm:p-10">
-
-          <div className="flex items-center gap-3">
-
-            <span className="flex size-11 items-center justify-center rounded-2xl bg-primary/10 text-primary ring-1 ring-primary/20">
-              <TrendingUp className="size-5" />
-            </span>
-
-            <div>
-              <p className="text-xs font-semibold uppercase tracking-widest text-primary">
-                Nuestra filosofía
-              </p>
-
-              <h3 className="mt-1 font-display text-xl font-semibold">
-                Trading con conocimiento, criterio y disciplina
-              </h3>
+              <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-primary">
+                Detrás de Trader Run
+              </span>
             </div>
 
+            <h2 className="mt-6 text-balance font-display text-4xl font-semibold leading-[1.02] tracking-[-0.04em] sm:text-5xl lg:text-6xl">
+              Primero fuimos
+              <span className="block text-muted-foreground">
+                traders.
+              </span>
+              <span className="block text-primary">
+                Después nació Trader Run.
+              </span>
+            </h2>
+
+            <p className="mt-6 max-w-xl text-pretty text-base leading-7 text-muted-foreground sm:text-lg">
+              Trader Run nace de nuestra propia experiencia intentando
+              entender el mercado, desarrollar una operativa y construir un
+              proceso que pudiéramos repetir con criterio.
+            </p>
+
+            <p className="mt-4 max-w-xl text-sm leading-7 text-muted-foreground sm:text-base">
+              Con el tiempo, ese proceso se convirtió en una metodología y en
+              una comunidad donde compartimos lo que hacemos, cómo lo hacemos
+              y qué hemos aprendido durante el camino.
+            </p>
           </div>
 
-          <div className="mt-7 space-y-4 text-sm leading-7 text-muted-foreground">
+          {/* DERECHA */}
 
-            <p>
-              Durante estos años nos hemos formado, hemos operado diferentes
-              mercados y hemos vivido en primera persona las distintas etapas
-              que atraviesa un trader. Todo ese aprendizaje nos ha llevado a
-              desarrollar una forma de trabajar basada en el análisis, la
-              estrategia, la gestión del riesgo y, sobre todo, la disciplina.
-            </p>
+          <div className="grid gap-3 sm:grid-cols-2">
+            {principles.map((principle) => {
+              const Icon = principle.icon
 
-            <p>
-              Nuestro objetivo como academia no es que dependas de nosotros
-              para operar. Queremos que aprendas a entender el mercado y
-              desarrolles tu propio criterio.
-            </p>
+              return (
+                <div
+                  key={principle.title}
+                  className="group rounded-[24px] border border-border/60 bg-card/50 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-primary/25"
+                >
+                  <div className="flex size-10 items-center justify-center rounded-xl bg-primary/10">
+                    <Icon className="size-4 text-primary" />
+                  </div>
 
-            <p>
-              Por eso combinamos formación estructurada, análisis de mercado,
-              estrategia, gestión del riesgo y psicología del trading.
-              Explicamos no solo qué hacemos, sino también por qué lo hacemos,
-              para que puedas comprender el proceso que hay detrás de cada
-              decisión.
-            </p>
+                  <h3 className="mt-5 font-display text-base font-semibold">
+                    {principle.title}
+                  </h3>
 
-          </div>
-
-        </div>
-
-        {/* PILARES */}
-
-        <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-
-          {pillars.map((pillar, index) => {
-
-            const Icon = pillar.icon
-
-            return (
-              <div
-                key={pillar.title}
-                className="group relative rounded-3xl border border-border/60 bg-card p-7 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-xl"
-              >
-
-                {/* Número */}
-
-                <div className="absolute right-6 top-6 text-xs font-semibold tracking-widest text-muted-foreground/30">
-                  0{index + 1}
+                  <p className="mt-2 text-xs leading-6 text-muted-foreground">
+                    {principle.description}
+                  </p>
                 </div>
+              )
+            })}
+          </div>
+        </div>
 
-                {/* Icono */}
+        {/* =====================================================
+            HISTORIA / POSICIONAMIENTO
+        ===================================================== */}
 
-                <span className="flex size-12 items-center justify-center rounded-2xl bg-primary/10 text-primary ring-1 ring-primary/20 transition-transform duration-300 group-hover:scale-105">
-                  <Icon className="size-5" />
+        <div className="relative mt-16 overflow-hidden rounded-[30px] border border-primary/20 bg-primary/[0.04] p-7 sm:p-10 lg:p-12">
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute -right-24 -top-24 size-[320px] rounded-full bg-primary/[0.08] blur-[110px]"
+          />
+
+          <div className="relative grid gap-10 lg:grid-cols-[1fr_0.9fr] lg:items-center">
+
+            <div>
+              <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-primary">
+                Nuestra forma de entender el trading
+              </p>
+
+              <h3 className="mt-4 max-w-2xl font-display text-2xl font-semibold leading-tight tracking-tight sm:text-3xl lg:text-4xl">
+                El objetivo nunca fue encontrar
+                <span className="text-muted-foreground">
+                  {" "}una entrada perfecta.
                 </span>
+              </h3>
 
-                {/* Contenido */}
+              <p className="mt-5 max-w-2xl text-sm leading-7 text-muted-foreground sm:text-base">
+                Fue entender qué necesitábamos ver antes de operar, cuándo
+                tenía sentido participar y cuánto estábamos dispuestos a
+                arriesgar cuando el escenario no salía como esperábamos.
+              </p>
+            </div>
 
-                <h3 className="mt-6 font-display text-lg font-semibold">
-                  {pillar.title}
-                </h3>
+            <div className="rounded-2xl border border-border/60 bg-background/35 p-6 sm:p-7">
+              <p className="font-display text-xl font-medium leading-relaxed sm:text-2xl">
+                “No podemos controlar lo que hará el mercado.
+                <span className="text-primary">
+                  {" "}Sí podemos controlar cómo tomamos nuestras decisiones.”
+                </span>
+              </p>
 
-                <p className="mt-3 text-sm leading-7 text-muted-foreground">
-                  {pillar.desc}
-                </p>
+              <div className="mt-6 flex items-center gap-3">
+                <div className="h-px w-8 bg-primary/50" />
 
+                <span className="text-[10px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+                  Trader Run
+                </span>
               </div>
-            )
-          })}
-
+            </div>
+          </div>
         </div>
 
-        {/* CIERRE */}
+        {/* =====================================================
+            QUÉ ES TRADER RUN
+        ===================================================== */}
 
-        <div className="mx-auto mt-12 max-w-3xl rounded-3xl border border-primary/20 bg-primary/5 p-7 text-center">
+        <div className="mt-16">
+          <div className="mx-auto max-w-3xl text-center">
+            <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-primary">
+              Hoy
+            </p>
 
-          <p className="text-sm font-semibold uppercase tracking-widest text-primary">
-            Nuestro objetivo
-          </p>
+            <h3 className="mt-4 font-display text-2xl font-semibold tracking-tight sm:text-3xl">
+              Trader Run es más que una sola forma de acompañarte.
+            </h3>
 
-          <p className="mt-3 text-lg font-semibold leading-relaxed">
-            No queremos que dependas de una señal.
-            Queremos que entiendas por qué se toma una operación.
-          </p>
+            <p className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-muted-foreground">
+              Hemos construido un ecosistema donde puedes conocer nuestro
+              trabajo, seguir nuestra operativa diaria o aprender la metodología
+              con la que analizamos el mercado.
+            </p>
+          </div>
 
-          <p className="mt-3 text-sm leading-6 text-muted-foreground">
-            Convertirse en un buen trader es un proceso. Se necesita
-            conocimiento, práctica, disciplina y una correcta gestión del
-            riesgo. En Trader Run queremos acompañarte durante ese proceso y
-            ayudarte a construir una operativa con criterio propio.
-          </p>
+          <div className="mx-auto mt-8 grid max-w-5xl gap-3 sm:grid-cols-3">
 
+            {/* GRATUITO */}
+
+            <div className="rounded-2xl border border-border/60 bg-card/40 p-5">
+              <span className="text-[9px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+                01
+              </span>
+
+              <h4 className="mt-5 font-display text-lg font-semibold">
+                Comunidad
+              </h4>
+
+              <p className="mt-2 text-xs leading-5 text-muted-foreground">
+                Noticias, contenido y resultados para conocer nuestro trabajo.
+              </p>
+            </div>
+
+            {/* VIP */}
+
+            <div className="rounded-2xl border border-primary/20 bg-primary/[0.04] p-5">
+              <span className="text-[9px] font-semibold uppercase tracking-[0.18em] text-primary">
+                02
+              </span>
+
+              <h4 className="mt-5 font-display text-lg font-semibold">
+                Trader Run VIP
+              </h4>
+
+              <p className="mt-2 text-xs leading-5 text-muted-foreground">
+                Análisis, señales, cartera y acompañamiento para seguir el
+                mercado con nosotros.
+              </p>
+            </div>
+
+            {/* ACADEMY */}
+
+            <div className="rounded-2xl border border-border/60 bg-card/40 p-5">
+              <span className="text-[9px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+                03
+              </span>
+
+              <h4 className="mt-5 font-display text-lg font-semibold">
+                Trader Run Academy
+              </h4>
+
+              <p className="mt-2 text-xs leading-5 text-muted-foreground">
+                Formación en oferta y demanda, metodología e indicador Trader
+                Run.
+              </p>
+            </div>
+          </div>
         </div>
 
+        {/* =====================================================
+            CIERRE
+        ===================================================== */}
+
+        <div className="mt-14 flex justify-center">
+          <a
+            href="#precios"
+            className="group inline-flex items-center gap-2 text-sm font-semibold text-foreground transition-colors hover:text-primary"
+          >
+            Descubre las opciones de Trader Run
+            <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-1" />
+          </a>
+        </div>
       </div>
     </section>
   )

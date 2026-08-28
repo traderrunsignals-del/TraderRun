@@ -1,4 +1,5 @@
 import {
+  ArrowRight,
   BarChart3,
   Crosshair,
   Search,
@@ -10,31 +11,36 @@ const steps = [
   {
     number: "01",
     title: "Contexto",
-    description: "Entender qué está haciendo el mercado.",
+    description:
+      "Entender qué está haciendo el mercado antes de buscar una oportunidad.",
     icon: Search,
   },
   {
     number: "02",
     title: "Zonas",
-    description: "Localizar niveles donde el precio puede reaccionar.",
+    description:
+      "Identificar los niveles donde el precio puede ofrecer una reacción relevante.",
     icon: BarChart3,
   },
   {
     number: "03",
     title: "Confirmación",
-    description: "Esperar que el precio valide la oportunidad.",
+    description:
+      "Esperar a que el precio valide el escenario antes de tomar una decisión.",
     icon: Crosshair,
   },
   {
     number: "04",
     title: "Entrada",
-    description: "Definir entrada, invalidación y objetivo.",
+    description:
+      "Definir el punto de entrada, la invalidación y el objetivo de la operación.",
     icon: Target,
   },
   {
     number: "05",
     title: "Riesgo",
-    description: "Gestionar el capital antes y después de ejecutar.",
+    description:
+      "Determinar cuánto capital estás dispuesto a arriesgar antes de ejecutar.",
     icon: ShieldCheck,
   },
 ]
@@ -43,7 +49,7 @@ export function Methodology() {
   return (
     <section
       id="metodologia"
-      className="relative overflow-hidden border-y border-border/40"
+      className="relative overflow-hidden border-b border-border/40"
     >
       {/* =====================================================
           FONDO
@@ -51,199 +57,163 @@ export function Methodology() {
 
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute left-1/2 top-0 h-[500px] w-[800px] -translate-x-1/2 rounded-full bg-primary/[0.045] blur-[150px]"
+        className="pointer-events-none absolute -left-40 top-1/3 size-[500px] rounded-full bg-primary/[0.035] blur-[140px]"
       />
 
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -right-40 top-[300px] size-[400px] rounded-full bg-primary/[0.025] blur-[120px]"
+        className="pointer-events-none absolute -right-40 bottom-0 size-[500px] rounded-full bg-primary/[0.03] blur-[140px]"
       />
 
-      <div className="relative mx-auto max-w-7xl px-5 py-20 sm:px-6 sm:py-28">
-
+      <div className="relative mx-auto max-w-7xl px-5 py-24 sm:px-6 sm:py-32 lg:py-36">
         {/* =====================================================
             CABECERA
         ===================================================== */}
 
-        <div className="mx-auto max-w-3xl text-center">
+        <div className="grid gap-8 lg:grid-cols-[1fr_420px] lg:items-end">
+          <div className="max-w-4xl">
+            <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/[0.045] px-4 py-2">
+              <span className="size-1.5 rounded-full bg-primary" />
 
-          <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-primary">
-            Metodología Trader Run
-          </p>
+              <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-primary">
+                Metodología Trader Run
+              </span>
+            </div>
 
-          <h2 className="mt-4 text-balance font-display text-3xl font-semibold tracking-tight sm:text-4xl lg:text-5xl">
-            Cinco pasos.
-            <span className="text-muted-foreground">
-              {" "}Una forma de decidir.
-            </span>
-          </h2>
+            <h2 className="mt-6 text-balance font-display text-4xl font-semibold leading-[1.02] tracking-[-0.04em] sm:text-5xl lg:text-6xl">
+              Cinco pasos.
+              <span className="block text-muted-foreground">
+                Una forma de decidir.
+              </span>
+            </h2>
+          </div>
 
-          <p className="mx-auto mt-5 max-w-xl text-sm leading-7 text-muted-foreground sm:text-base">
-            No buscamos anticipar el mercado. Seguimos un proceso definido
-            antes de tomar una decisión.
-          </p>
-
+          <div>
+            <p className="text-pretty text-sm leading-7 text-muted-foreground sm:text-base">
+              No buscamos anticipar cada movimiento del mercado. Seguimos un
+              proceso para analizar, esperar y actuar únicamente cuando el
+              escenario cumple nuestras condiciones.
+            </p>
+          </div>
         </div>
 
         {/* =====================================================
-            SISTEMA CENTRAL
+            PROCESO
         ===================================================== */}
 
-        <div className="relative mx-auto mt-14 max-w-6xl">
-
-          {/* LÍNEA DE CONEXIÓN */}
-
+        <div className="relative mt-16 sm:mt-20">
+          {/* Línea desktop */}
           <div
             aria-hidden="true"
-            className="absolute left-[32px] right-[32px] top-[32px] hidden h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent md:block"
+            className="absolute left-[10%] right-[10%] top-7 hidden h-px bg-border/70 lg:block"
           />
 
-          <div className="grid gap-3 md:grid-cols-5">
-
+          <div className="relative grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
             {steps.map((step, index) => {
               const Icon = step.icon
 
               return (
                 <div
                   key={step.number}
-                  className="group relative"
+                  className="group relative rounded-2xl border border-border/60 bg-card/50 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:bg-card/70"
                 >
+                  <div className="flex items-center justify-between">
+                    <span className="flex size-11 items-center justify-center rounded-xl bg-primary/10 ring-1 ring-primary/15">
+                      <Icon className="size-4.5 text-primary" />
+                    </span>
 
-                  {/* CARD */}
-
-                  <div className="relative h-full rounded-2xl border border-border/60 bg-card/80 p-5 transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:bg-card hover:shadow-xl hover:shadow-primary/5">
-
-                    {/* ICONO */}
-
-                    <div className="relative z-10 flex size-12 items-center justify-center rounded-2xl border border-primary/20 bg-primary/10 text-primary transition-transform duration-300 group-hover:scale-105">
-
-                      <Icon className="size-5" />
-
-                    </div>
-
-                    {/* NUMERO */}
-
-                    <p className="mt-6 text-[9px] font-semibold uppercase tracking-[0.2em] text-primary">
-                      Paso {step.number}
-                    </p>
-
-                    {/* TITULO */}
-
-                    <h3 className="mt-2 font-display text-lg font-semibold tracking-tight">
-                      {step.title}
-                    </h3>
-
-                    {/* TEXTO */}
-
-                    <p className="mt-2 text-xs leading-5 text-muted-foreground">
-                      {step.description}
-                    </p>
-
+                    <span className="font-display text-xs font-semibold tracking-[0.16em] text-muted-foreground/35">
+                      {step.number}
+                    </span>
                   </div>
 
+                  <h3 className="mt-7 font-display text-lg font-semibold">
+                    {step.title}
+                  </h3>
+
+                  <p className="mt-3 text-sm leading-6 text-muted-foreground">
+                    {step.description}
+                  </p>
+
+                  {index < steps.length - 1 && (
+                    <div className="mt-6 flex items-center gap-2 text-[10px] font-medium uppercase tracking-[0.15em] text-muted-foreground/50 lg:hidden">
+                      <span>Siguiente</span>
+                      <ArrowRight className="size-3" />
+                    </div>
+                  )}
                 </div>
               )
             })}
-
           </div>
-
         </div>
 
         {/* =====================================================
-            BLOQUE VISUAL CENTRAL
+            SISTEMA CENTRAL
         ===================================================== */}
 
-        <div className="mx-auto mt-10 max-w-5xl">
+        <div className="mx-auto mt-12 max-w-5xl overflow-hidden rounded-[30px] border border-primary/20 bg-primary/[0.04] p-7 sm:p-9">
+          <div className="grid gap-8 lg:grid-cols-[1fr_auto_1fr] lg:items-center">
+            {/* ANTES DE ENTRAR */}
+            <div>
+              <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-primary">
+                Antes de entrar
+              </p>
 
-          <div className="relative overflow-hidden rounded-3xl border border-primary/20 bg-primary/[0.035]">
+              <h3 className="mt-3 font-display text-2xl font-semibold">
+                Analiza
+              </h3>
 
-            {/* Glow */}
-
-            <div
-              aria-hidden="true"
-              className="pointer-events-none absolute left-1/2 top-1/2 size-[320px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/[0.07] blur-[100px]"
-            />
-
-            <div className="relative grid items-center gap-8 p-7 sm:p-9 lg:grid-cols-[1fr_auto_1fr]">
-
-              {/* IZQUIERDA */}
-
-              <div className="text-center lg:text-right">
-
-                <p className="text-[9px] font-semibold uppercase tracking-[0.2em] text-muted-foreground">
-                  Antes de entrar
-                </p>
-
-                <p className="mt-2 font-display text-lg font-semibold">
-                  Analizar
-                </p>
-
-                <p className="mt-1 text-xs leading-5 text-muted-foreground">
-                  Contexto · Zonas · Confirmación
-                </p>
-
-              </div>
-
-              {/* CENTRO */}
-
-              <div className="mx-auto flex size-20 items-center justify-center rounded-3xl border border-primary/25 bg-primary/10 shadow-lg shadow-primary/10">
-
-                <BarChart3 className="size-8 text-primary" />
-
-              </div>
-
-              {/* DERECHA */}
-
-              <div className="text-center lg:text-left">
-
-                <p className="text-[9px] font-semibold uppercase tracking-[0.2em] text-muted-foreground">
-                  Antes de arriesgar
-                </p>
-
-                <p className="mt-2 font-display text-lg font-semibold">
-                  Gestionar
-                </p>
-
-                <p className="mt-1 text-xs leading-5 text-muted-foreground">
-                  Entrada · Invalidación · Riesgo
-                </p>
-
-              </div>
-
+              <p className="mt-3 text-sm leading-6 text-muted-foreground">
+                Contexto, zonas y confirmación. Primero entiende qué está
+                ocurriendo y espera a que el precio valide tu escenario.
+              </p>
             </div>
 
-          </div>
+            {/* CENTRO */}
+            <div className="flex justify-center">
+              <div className="flex size-14 items-center justify-center rounded-2xl border border-primary/20 bg-background/50">
+                <Target className="size-5 text-primary" />
+              </div>
+            </div>
 
+            {/* ANTES DE ARRIESGAR */}
+            <div>
+              <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-primary">
+                Antes de arriesgar
+              </p>
+
+              <h3 className="mt-3 font-display text-2xl font-semibold">
+                Gestiona
+              </h3>
+
+              <p className="mt-3 text-sm leading-6 text-muted-foreground">
+                Entrada, invalidación y riesgo. La operación se define antes de
+                ejecutarla, no mientras el mercado está en movimiento.
+              </p>
+            </div>
+          </div>
         </div>
 
         {/* =====================================================
             CIERRE
         ===================================================== */}
 
-        <div className="mx-auto mt-12 max-w-2xl text-center">
-
-          <div className="inline-flex items-center gap-2 rounded-full border border-border/60 bg-secondary/20 px-4 py-2">
-
+        <div className="mx-auto mt-12 max-w-3xl text-center">
+          <div className="inline-flex items-center gap-2 rounded-full border border-primary/15 bg-primary/[0.045] px-4 py-2">
             <ShieldCheck className="size-3.5 text-primary" />
 
-            <span className="text-[10px] font-medium text-muted-foreground">
+            <span className="text-[10px] font-semibold uppercase tracking-[0.16em] text-primary">
               El riesgo forma parte del sistema
             </span>
-
           </div>
 
-          <p className="mt-5 text-lg font-medium tracking-tight sm:text-xl">
-
-            No necesitas acertar siempre.
-
-            <span className="text-muted-foreground">
-              {" "}Necesitas saber qué hacer cuando el mercado no hace lo que esperabas.
+          <p className="mt-6 text-sm leading-7 text-muted-foreground sm:text-base">
+            No necesitas acertar siempre. Necesitas saber
+            <span className="font-medium text-foreground">
+              {" "}qué estás buscando, dónde te equivocas y cuánto puedes perder.
             </span>
-
           </p>
-
         </div>
-
       </div>
     </section>
   )
