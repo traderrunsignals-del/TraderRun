@@ -14,7 +14,6 @@ import {
   MessageCircle,
   Newspaper,
   Send,
-  ShieldCheck,
   TrendingUp,
   Users,
   WalletCards,
@@ -146,7 +145,6 @@ export function Pricing() {
       />
 
       <div className="relative mx-auto max-w-7xl px-5 py-24 sm:px-6 sm:py-32 lg:py-36">
-
         {/* =====================================================
             CABECERA
         ===================================================== */}
@@ -156,11 +154,11 @@ export function Pricing() {
             <span className="size-1.5 rounded-full bg-primary" />
 
             <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-primary">
-              Acceso Trader Run
+              Elige tu forma de empezar
             </span>
           </div>
 
-          <h2 className="mt-6 text-balance font-display text-4xl font-semibold leading-[1.02] tracking-[-0.04em] sm:text-5xl lg:text-6xl">
+          <h2 className="mt-6 text-balance font-display text-4xl font-semibold leading-[1.03] tracking-[-0.04em] sm:text-5xl lg:text-6xl">
             Tres formas de
             <span className="block text-muted-foreground">
               formar parte de Trader Run.
@@ -168,8 +166,8 @@ export function Pricing() {
           </h2>
 
           <p className="mx-auto mt-6 max-w-2xl text-pretty text-base leading-7 text-muted-foreground sm:text-lg">
-            Empieza gratis, acompáñanos en nuestra operativa diaria o aprende
-            la metodología Trader Run con nuestra formación completa.
+            Empieza gratis, acompáñanos en nuestra operativa diaria o aprende la
+            metodología Trader Run con nuestra formación completa.
           </p>
         </div>
 
@@ -178,7 +176,6 @@ export function Pricing() {
         ===================================================== */}
 
         <div className="mt-16 grid gap-5 lg:grid-cols-3">
-
           {/* ===================================================
               GRATIS
           =================================================== */}
@@ -272,7 +269,7 @@ export function Pricing() {
               </div>
 
               <span className="rounded-full bg-primary px-3 py-1 text-[9px] font-bold uppercase tracking-[0.14em] text-primary-foreground">
-                Más completo
+                Seguimiento diario
               </span>
             </div>
 
@@ -319,7 +316,6 @@ export function Pricing() {
                 )
               })}
             </div>
-
 
             <div className="relative mt-auto pt-6">
               <Button
@@ -419,7 +415,7 @@ export function Pricing() {
                 className="h-12 w-full rounded-xl font-semibold"
                 onClick={() => setShowCourseInfo(true)}
               >
-                Ver programa completo
+                Descubrir la Academy
                 <ArrowRight className="ml-2 size-4" />
               </Button>
 
@@ -431,73 +427,38 @@ export function Pricing() {
         </div>
 
         {/* =====================================================
-            DIFERENCIA ENTRE PRODUCTOS
-        ===================================================== */}
-
-        <div className="mx-auto mt-10 max-w-5xl rounded-[26px] border border-border/60 bg-secondary/[0.10] p-6 sm:p-7">
-          <div className="grid gap-6 sm:grid-cols-3">
-            <div>
-              <p className="text-[9px] font-semibold uppercase tracking-[0.16em] text-muted-foreground">
-                Quiero empezar
-              </p>
-
-              <p className="mt-2 text-sm font-semibold">
-                Telegram gratuito
-              </p>
-            </div>
-
-            <div>
-              <p className="text-[9px] font-semibold uppercase tracking-[0.16em] text-muted-foreground">
-                Quiero seguimiento diario
-              </p>
-
-              <p className="mt-2 text-sm font-semibold text-primary">
-                Trader Run VIP
-              </p>
-            </div>
-
-            <div>
-              <p className="text-[9px] font-semibold uppercase tracking-[0.16em] text-muted-foreground">
-                Quiero aprender la metodología
-              </p>
-
-              <p className="mt-2 text-sm font-semibold">
-                Trader Run Academy
-              </p>
-            </div>
-          </div>
-        </div>
-
-        {/* =====================================================
             CONTACTO
         ===================================================== */}
 
-        <div className="mx-auto mt-12 max-w-2xl text-center">
-          <MessageCircle className="mx-auto size-5 text-primary" />
+        <div className="mx-auto mt-10 flex max-w-3xl flex-col items-center justify-between gap-5 rounded-2xl border border-border/50 bg-secondary/[0.10] px-6 py-5 text-center sm:flex-row sm:text-left">
+          <div className="flex items-center gap-4">
+            <div className="hidden size-10 shrink-0 items-center justify-center rounded-xl bg-primary/10 sm:flex">
+              <MessageCircle className="size-4 text-primary" />
+            </div>
 
-          <h3 className="mt-4 font-display text-lg font-semibold">
-            ¿No sabes qué opción elegir?
-          </h3>
+            <div>
+              <p className="text-sm font-semibold">
+                ¿No sabes qué opción elegir?
+              </p>
 
-          <p className="mt-2 text-sm leading-6 text-muted-foreground">
-            Escríbenos y te ayudaremos a entender qué opción encaja mejor con
-            lo que estás buscando.
-          </p>
+              <p className="mt-1 text-xs leading-5 text-muted-foreground">
+                Escríbenos y te ayudaremos a resolver tus dudas.
+              </p>
+            </div>
+          </div>
 
           <Button
-            className="mt-5"
             variant="outline"
-            render={
-              <a href="mailto:traderrunsignals@gmail.com" />
-            }
+            className="h-10 shrink-0 px-5 text-xs font-semibold"
+            render={<a href="mailto:traderrunsignals@gmail.com" />}
           >
-            Contactar con Trader Run
+            Contactar
           </Button>
         </div>
       </div>
 
       {/* =====================================================
-          ÚNICO MODAL — ACADEMY
+          MODAL ACADEMY
       ===================================================== */}
 
       {showCourseInfo && (
@@ -712,14 +673,9 @@ export function Pricing() {
                   <div className="flex flex-col gap-2 sm:items-end">
                     <Button
                       className="h-12 px-8 font-semibold"
-                      onClick={() =>
-                        alert(
-                          "La Academia Trader Run estará disponible en septiembre."
-                        )
-                      }
+                      disabled
                     >
-                      Unirme al curso
-                      <ArrowRight className="ml-2 size-4" />
+                      Disponible en septiembre
                     </Button>
 
                     <span className="text-[10px] text-muted-foreground">

@@ -1,6 +1,5 @@
 import { Button } from "@/components/ui/button"
 import {
-  ArrowDown,
   ArrowRight,
   BarChart3,
   Check,
@@ -38,7 +37,7 @@ export function Hero() {
         className="pointer-events-none absolute -right-72 top-[520px] h-[600px] w-[600px] rounded-full bg-primary/[0.04] blur-[150px]"
       />
 
-      <div className="relative mx-auto max-w-7xl px-5 pb-20 pt-16 sm:px-6 sm:pb-28 sm:pt-24 lg:pb-32 lg:pt-28">
+      <div className="relative mx-auto max-w-7xl px-5 pb-14 pt-16 sm:px-6 sm:pb-18 sm:pt-24 lg:pb-20 lg:pt-28">
 
         {/* =====================================================
             CONTENIDO PRINCIPAL
@@ -115,7 +114,7 @@ export function Hero() {
 
             <span className="inline-flex items-center gap-2 text-xs text-muted-foreground">
               <Check className="size-3.5 text-primary" />
-              Acceso de por vida
+              Acceso ilimitado
             </span>
           </div>
         </div>
@@ -230,24 +229,6 @@ export function Hero() {
           </div>
         </div>
 
-        {/* =====================================================
-            SCROLL
-        ===================================================== */}
-
-        <div className="mt-14 flex justify-center sm:mt-16">
-          <a
-            href="#academia"
-            className="group flex flex-col items-center gap-2 text-muted-foreground transition-colors hover:text-foreground"
-          >
-            <span className="text-[9px] font-semibold uppercase tracking-[0.22em]">
-              Descubre la Academia
-            </span>
-
-            <span className="flex size-8 items-center justify-center rounded-full border border-border/60 transition-all duration-300 group-hover:border-primary/40 group-hover:bg-primary/5">
-              <ArrowDown className="size-3.5 transition-transform duration-300 group-hover:translate-y-0.5" />
-            </span>
-          </a>
-        </div>
       </div>
     </section>
   )

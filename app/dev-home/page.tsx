@@ -5,7 +5,6 @@ import { Methodology } from "@/components/methodology"
 import { AcademyPreview } from "@/components/academy-preview"
 import { Results } from "@/components/results"
 import { Testimonials } from "@/components/testimonials"
-import { Community } from "@/components/community"
 import { AboutUs } from "@/components/about-us"
 import { Pricing } from "@/components/pricing"
 import { Faq } from "@/components/faq"
@@ -26,17 +25,11 @@ export default function DevHomePage() {
 
         <AcademyPreview />
 
-        <Results />
-
-        <Testimonials />
-
-        <Community />
-
-        <AboutUs />
-
-        <Pricing />
-
-        <Faq />
+       <Results />
+<Testimonials />
+<Pricing />
+<AboutUs />
+<Faq />
 
         <Cta />
       </main>

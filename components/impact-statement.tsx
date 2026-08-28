@@ -1,5 +1,4 @@
 import {
-  ArrowDown,
   BarChart3,
   ShieldCheck,
   Target,
@@ -38,7 +37,7 @@ export function ImpactStatement() {
         className="pointer-events-none absolute left-1/2 top-1/2 size-[700px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/[0.045] blur-[150px]"
       />
 
-      <div className="relative mx-auto max-w-7xl px-5 py-24 sm:px-6 sm:py-32 lg:py-36">
+      <div className="relative mx-auto max-w-7xl px-5 py-20 sm:px-6 sm:py-24 lg:py-28">
 
         {/* =====================================================
             CABECERA
@@ -139,21 +138,6 @@ export function ImpactStatement() {
               {" "}tomar decisiones con un proceso.
             </span>
           </p>
-
-          <div className="mt-10 flex justify-center">
-            <a
-              href="#metodologia"
-              className="group flex flex-col items-center gap-2 text-muted-foreground transition-colors hover:text-foreground"
-            >
-              <span className="text-[9px] font-semibold uppercase tracking-[0.22em]">
-                Descubre el método
-              </span>
-
-              <span className="flex size-8 items-center justify-center rounded-full border border-border/60 transition-all duration-300 group-hover:border-primary/40 group-hover:bg-primary/5">
-                <ArrowDown className="size-3.5 transition-transform duration-300 group-hover:translate-y-0.5" />
-              </span>
-            </a>
-          </div>
 
         </div>
       </div>
