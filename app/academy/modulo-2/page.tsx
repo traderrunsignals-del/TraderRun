@@ -11,7 +11,7 @@ export default function Modulo2Page() {
       videos={1}
       level="Principiante"
       description="Comprenderás cómo se mueven los mercados financieros, quién participa en ellos y por qué el precio cambia constantemente."
-      videoUrl="https://player.mediadelivery.net/play/734236/d607118d-1321-40ec-a9fc-d7ab6033d0d0"
+      videoUrl="https://player.mediadelivery.net/play/734236/fdc1dc2f-3e71-4e4a-ba65-ff4df1ab27cb"
       lessons={[
         "Qué es un mercado financiero",
         "Participantes del mercado",
