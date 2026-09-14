@@ -46,9 +46,12 @@ export default function AcademyLayout({
        */
 
       const hasAccess =
-        courseAccess &&
-        courseAccess.expires_at &&
-        new Date(courseAccess.expires_at) > new Date()
+  courseAccess &&
+  courseAccess.active &&
+  (
+    courseAccess.expires_at === null ||
+    new Date(courseAccess.expires_at) > new Date()
+  )
 
       if (!hasAccess) {
         setAccessDenied(true)
