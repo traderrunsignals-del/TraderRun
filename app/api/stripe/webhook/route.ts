@@ -1,10 +1,15 @@
 import Stripe from "stripe"
+import { Resend } from "resend"
 import { supabaseAdmin } from "@/lib/supabase-admin"
-
+import { buildAcademyWelcomeEmail } from "@/lib/academy-welcome-email"
 export const runtime = "nodejs"
 
 const stripe = new Stripe(
   process.env.STRIPE_SECRET_KEY as string
+)
+
+const resend = new Resend(
+  process.env.RESEND_API_KEY as string
 )
 
 export async function POST(request: Request) {
@@ -92,6 +97,45 @@ export async function POST(request: Request) {
       })
     }
 
+         /*
+     * VALIDAR PRODUCTO, IMPORTE Y MONEDA
+     * DE TRADER RUN ACADEMY
+     */
+
+    const ACADEMY_PRODUCT_CODE =
+      "trader_run_academy"
+
+    const ACADEMY_PRICE = 82500
+    const ACADEMY_CURRENCY = "eur"
+
+    if (
+      session.metadata?.productCode !==
+        ACADEMY_PRODUCT_CODE ||
+      session.amount_total !==
+        ACADEMY_PRICE ||
+      session.currency?.toLowerCase() !==
+        ACADEMY_CURRENCY
+    ) {
+      console.error(
+        "Checkout rechazado: producto, importe o moneda incorrectos",
+        {
+          sessionId: session.id,
+          productCode:
+            session.metadata?.productCode,
+          amountTotal:
+            session.amount_total,
+          currency:
+            session.currency,
+        }
+      )
+
+      return new Response(
+        "Checkout no válido para Trader Run Academy",
+        { status: 400 }
+      )
+    }
+      
+
     const email =
       session.customer_details?.email ??
       session.customer_email
@@ -106,11 +150,25 @@ export async function POST(request: Request) {
       session.metadata?.termsAccepted === "true"
 
     const termsVersion =
-      session.metadata?.termsVersion
+  session.metadata?.termsVersion
 
-    /*
-     * COMPROBAR DATOS NECESARIOS
-     */
+/*
+ * CALCULAR FIN DE LOS 2 MESES DE SOPORTE
+ */
+
+const purchaseDate =
+  new Date(session.created * 1000)
+
+const supportUntil =
+  new Date(purchaseDate)
+
+supportUntil.setUTCMonth(
+  supportUntil.getUTCMonth() + 2
+)
+
+/*
+ * COMPROBAR DATOS NECESARIOS
+ */
 
     if (
       !email ||
@@ -165,8 +223,11 @@ export async function POST(request: Request) {
             terms_accepted:
               termsAccepted,
 
-            terms_version:
-              termsVersion,
+           terms_version:
+  termsVersion,
+
+support_until:
+  supportUntil.toISOString(),
           },
           {
             onConflict:
@@ -288,11 +349,6 @@ if (!academyUser) {
     academyUser.id
   )
 }
-
-    console.log(
-      "✅ Usuario existente encontrado:",
-      academyUser.id
-    )
 
     /*
      * VINCULAR LA COMPRA AL USUARIO
@@ -430,6 +486,120 @@ if (!academyUser) {
       "✅ Acceso a Trader Run Academy activado:",
       academyUser.id
     )
+    /*
+ * ENVIAR EMAIL DE BIENVENIDA
+ */
+
+const {
+  data: purchase,
+  error: purchaseLookupError,
+} =
+  await supabaseAdmin
+    .from("academy_purchases")
+    .select("welcome_email_sent_at")
+    .eq(
+      "stripe_session_id",
+      session.id
+    )
+    .single()
+
+if (purchaseLookupError) {
+  console.error(
+    "❌ Error comprobando email de bienvenida:",
+    purchaseLookupError
+  )
+
+  return new Response(
+    "Error comprobando email de bienvenida",
+    { status: 500 }
+  )
+}
+
+if (!purchase.welcome_email_sent_at) {
+  const welcomeEmail =
+    buildAcademyWelcomeEmail({
+      name,
+      supportUntil,
+    })
+
+  const {
+  data: emailData,
+  error: emailError,
+} =
+  await resend.emails.send(
+    {
+      from:
+        "Trader Run Academy <no-reply@traderrun.com>",
+
+      to:
+        email,
+
+      replyTo:
+        "soporte@traderrun.com",
+
+      subject:
+        welcomeEmail.subject,
+
+      html:
+        welcomeEmail.html,
+    },
+    {
+      idempotencyKey:
+        `academy-welcome/${session.id}`,
+    }
+  )
+
+  if (emailError) {
+    console.error(
+      "❌ Error enviando email de bienvenida:",
+      emailError
+    )
+
+    return new Response(
+      "Error enviando email de bienvenida",
+      { status: 500 }
+    )
+  }
+
+  const {
+    error: markEmailError,
+  } =
+    await supabaseAdmin
+      .from("academy_purchases")
+      .update({
+        welcome_email_sent_at:
+          new Date().toISOString(),
+      })
+      .eq(
+        "stripe_session_id",
+        session.id
+      )
+
+  if (markEmailError) {
+    console.error(
+      "❌ Email enviado pero no se pudo registrar el envío:",
+      markEmailError
+    )
+
+    return new Response(
+      "Error registrando email de bienvenida",
+      { status: 500 }
+    )
+  }
+
+  console.log(
+    "✅ Email de bienvenida enviado:",
+    {
+      email,
+      resendId: emailData?.id,
+    }
+  )
+} else {
+  console.log(
+    "ℹ️ Email de bienvenida ya enviado anteriormente:",
+    session.id
+  )
+}
   }
 
   /*

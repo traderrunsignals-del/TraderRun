@@ -54,6 +54,7 @@ export async function POST(request: Request) {
       ],
 
       metadata: {
+        productCode: "trader_run_academy",
         name,
         email,
         tradingViewUser,
