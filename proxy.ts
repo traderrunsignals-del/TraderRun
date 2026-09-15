@@ -1,17 +1,25 @@
 import { NextResponse } from "next/server"
 import type { NextRequest } from "next/server"
+import { updateSupabaseSession } from "@/lib/supabase-proxy"
 
 const MANTENIMIENTO = true
 
-export function proxy(request: NextRequest) {
+export async function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl
+
+  // ============================================
+  // RENOVAR SESIÓN DE SUPABASE
+  // ============================================
+
+  const supabaseResponse =
+    await updateSupabaseSession(request)
 
   // ============================================
   // DESARROLLO LOCAL: DEJAR PASAR TODO
   // ============================================
 
   if (process.env.NODE_ENV === "development") {
-    return NextResponse.next()
+    return supabaseResponse
   }
 
   // ============================================
@@ -19,23 +27,23 @@ export function proxy(request: NextRequest) {
   // ============================================
 
   if (!MANTENIMIENTO) {
-    return NextResponse.next()
+    return supabaseResponse
   }
 
   // ============================================
-  // RUTAS QUE DEBEN FUNCIONAR EN MANTENIMIENTO
+  // RUTAS PERMITIDAS DURANTE MANTENIMIENTO
   // ============================================
 
   const rutasPermitidas = [
-  "/mantenimiento",
-  "/activar-cuenta",
-  "/reset-password",
-  "/api/stripe/webhook",
-  "/api/preview",
-]
+    "/mantenimiento",
+    "/activar-cuenta",
+    "/reset-password",
+    "/api/stripe/webhook",
+    "/api/preview",
+  ]
 
   if (rutasPermitidas.includes(pathname)) {
-    return NextResponse.next()
+    return supabaseResponse
   }
 
   // ============================================
@@ -47,7 +55,7 @@ export function proxy(request: NextRequest) {
     pathname === "/favicon.ico" ||
     /\.(png|jpg|jpeg|gif|svg|webp|ico)$/.test(pathname)
   ) {
-    return NextResponse.next()
+    return supabaseResponse
   }
 
   // ============================================
@@ -61,20 +69,32 @@ export function proxy(request: NextRequest) {
     previewAccess &&
     previewAccess === process.env.PREVIEW_SECRET
   ) {
-    return NextResponse.next()
+    return supabaseResponse
   }
 
   // ============================================
   // RESTO DE VISITANTES -> MANTENIMIENTO
   // ============================================
 
-  return NextResponse.redirect(
+  const redirectResponse = NextResponse.redirect(
     new URL("/mantenimiento", request.url)
   )
+
+  /*
+   * Conservamos cualquier cookie que Supabase
+   * haya renovado antes de realizar la redirección.
+   */
+  supabaseResponse.cookies.getAll().forEach(
+    (cookie) => {
+      redirectResponse.cookies.set(cookie)
+    }
+  )
+
+  return redirectResponse
 }
 
 export const config = {
   matcher: [
-    "/((?!_next/static|_next/image|favicon.ico).*)",
+    "/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)",
   ],
 }
