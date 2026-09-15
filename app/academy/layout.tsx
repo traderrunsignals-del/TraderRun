@@ -1,94 +1,61 @@
-"use client"
+import { redirect } from "next/navigation"
+import { createSupabaseServerClient } from "@/lib/supabase-server"
+import AcademyLogoutButton from "@/components/academy/academy-logout-button"
 
-import { useEffect, useState } from "react"
-import { useRouter } from "next/navigation"
-import { LogOut } from "lucide-react"
-import { supabase } from "@/lib/supabase"
+const ACADEMY_PRODUCT_ID =
+  "6fe51583-a729-41ac-89e4-e2c1e69a62db"
 
-export default function AcademyLayout({
+export default async function AcademyLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
-  const router = useRouter()
+  const supabase =
+    await createSupabaseServerClient()
 
-  const [loading, setLoading] = useState(true)
-  const [accessDenied, setAccessDenied] = useState(false)
+  /*
+   * COMPROBAR USUARIO AUTENTICADO
+   */
 
-  useEffect(() => {
-    const checkUser = async () => {
-      const {
-        data: { session },
-      } = await supabase.auth.getSession()
+  const {
+    data: { user },
+    error: userError,
+  } = await supabase.auth.getUser()
 
-      if (!session) {
-        router.replace("/login")
-        return
-      }
-
-      /*
-       * COMPROBAR ACCESO A TRADER RUN ACADEMY
-       */
-
-      const academyProductId =
-        "6fe51583-a729-41ac-89e4-e2c1e69a62db"
-
-      const { data: courseAccess } = await supabase
-        .from("user_products")
-        .select("expires_at, active")
-        .eq("user_id", session.user.id)
-        .eq("product_id", academyProductId)
-        .eq("active", true)
-        .maybeSingle()
-
-      /*
-       * COMPROBAR SI TIENE ACCESO Y SI NO HA CADUCADO
-       */
-
-      const hasAccess =
-  courseAccess &&
-  courseAccess.active &&
-  (
-    courseAccess.expires_at === null ||
-    new Date(courseAccess.expires_at) > new Date()
-  )
-
-      if (!hasAccess) {
-        setAccessDenied(true)
-        setLoading(false)
-        return
-      }
-
-      setLoading(false)
-    }
-
-    checkUser()
-  }, [router])
-
-  const handleLogout = async () => {
-    await supabase.auth.signOut()
-    router.push("/login")
+  if (userError || !user) {
+    redirect("/login")
   }
 
   /*
-   * CARGANDO
+   * COMPROBAR ACCESO A TRADER RUN ACADEMY
    */
 
-  if (loading) {
-    return (
-      <div className="flex min-h-screen items-center justify-center bg-background">
-        <p className="text-sm text-muted-foreground">
-          Comprobando acceso...
-        </p>
-      </div>
+  const {
+    data: courseAccess,
+    error: accessError,
+  } = await supabase
+    .from("user_products")
+    .select("active, expires_at")
+    .eq("user_id", user.id)
+    .eq("product_id", ACADEMY_PRODUCT_ID)
+    .eq("active", true)
+    .maybeSingle()
+
+  const hasAccess =
+    !accessError &&
+    courseAccess &&
+    courseAccess.active &&
+    (
+      courseAccess.expires_at === null ||
+      new Date(courseAccess.expires_at) >
+        new Date()
     )
-  }
 
   /*
-   * ACCESO DENEGADO / CADUCADO
+   * ACCESO DENEGADO
    */
 
-  if (accessDenied) {
+  if (!hasAccess) {
     return (
       <div className="flex min-h-screen items-center justify-center bg-background px-6">
         <div className="w-full max-w-lg rounded-3xl border bg-card p-10 text-center shadow-sm">
@@ -107,7 +74,6 @@ export default function AcademyLayout({
           </p>
 
           <div className="mt-8 space-y-3">
-
             <a
               href="/"
               className="block rounded-xl bg-primary px-5 py-3 font-semibold text-primary-foreground transition hover:opacity-90"
@@ -115,13 +81,7 @@ export default function AcademyLayout({
               Volver a Trader Run
             </a>
 
-            <button
-              onClick={handleLogout}
-              className="w-full rounded-xl border px-5 py-3 transition hover:bg-secondary"
-            >
-              Cerrar sesión
-            </button>
-
+            <AcademyLogoutButton />
           </div>
 
         </div>
@@ -130,17 +90,12 @@ export default function AcademyLayout({
   }
 
   /*
-   * ACADEMIA
-   *
-   * La navegación de módulos se muestra ahora
-   * dentro de CourseModuleLayout.
+   * ACCESO AUTORIZADO
    */
 
   return (
     <div className="min-h-screen bg-background">
-
       {children}
-
     </div>
   )
 }
