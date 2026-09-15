@@ -152,6 +152,9 @@ export async function POST(request: Request) {
     const termsVersion =
   session.metadata?.termsVersion
 
+  const termsAcceptedAt =
+  session.metadata?.termsAcceptedAt
+
 /*
  * CALCULAR FIN DE LOS 2 MESES DE SOPORTE
  */
@@ -171,14 +174,15 @@ supportUntil.setUTCMonth(
  */
 
     if (
-      !email ||
-      !name ||
-      !tradingViewUser ||
-      !termsAccepted ||
-      !termsVersion ||
-      session.amount_total === null ||
-      !session.currency
-    ) {
+  !email ||
+  !name ||
+  !tradingViewUser ||
+  !termsAccepted ||
+  !termsVersion ||
+  !termsAcceptedAt ||
+  session.amount_total === null ||
+  !session.currency
+) {
       console.error(
         "❌ Checkout pagado pero faltan datos:",
         session.id
@@ -220,11 +224,14 @@ supportUntil.setUTCMonth(
             payment_status:
               session.payment_status,
 
-            terms_accepted:
-              termsAccepted,
+           terms_accepted:
+  termsAccepted,
 
-           terms_version:
+terms_version:
   termsVersion,
+
+checkout_terms_accepted_at:
+  termsAcceptedAt,
 
 support_until:
   supportUntil.toISOString(),

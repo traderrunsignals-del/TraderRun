@@ -53,14 +53,15 @@ export async function POST(request: Request) {
         },
       ],
 
-      metadata: {
-        productCode: "trader_run_academy",
-        name,
-        email,
-        tradingViewUser,
-        termsAccepted: "true",
-        termsVersion: "academy-2026-09-v1",
-      },
+     metadata: {
+  productCode: "trader_run_academy",
+  name,
+  email,
+  tradingViewUser,
+  termsAccepted: "true",
+  termsVersion: "academy-2026-09-v1",
+  termsAcceptedAt: new Date().toISOString(),
+},
 
       success_url:
   `${process.env.NEXT_PUBLIC_SITE_URL}/compra-completada?session_id={CHECKOUT_SESSION_ID}`,
