@@ -27,11 +27,12 @@ export function proxy(request: NextRequest) {
   // ============================================
 
   const rutasPermitidas = [
-    "/mantenimiento",
-    "/activar-cuenta",
-    "/reset-password",
-    "/api/stripe/webhook",
-  ]
+  "/mantenimiento",
+  "/activar-cuenta",
+  "/reset-password",
+  "/api/stripe/webhook",
+  "/api/preview",
+]
 
   if (rutasPermitidas.includes(pathname)) {
     return NextResponse.next()
