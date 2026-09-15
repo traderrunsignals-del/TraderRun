@@ -12,6 +12,9 @@ const resend = new Resend(
   process.env.RESEND_API_KEY as string
 )
 
+const ACADEMY_PRODUCT_ID =
+  "6fe51583-a729-41ac-89e4-e2c1e69a62db"
+
 export async function POST(request: Request) {
   const signature =
     request.headers.get("stripe-signature")
@@ -254,6 +257,7 @@ support_until:
       )
     }
 
+
     console.log(
       "✅ Compra guardada en academy_purchases:",
       session.id
@@ -387,12 +391,9 @@ if (!academyUser) {
       )
     }
 
-    /*
+       /*
      * COMPROBAR SI YA EXISTE ACCESO A ACADEMY
      */
-
-    const academyProductId =
-      "6fe51583-a729-41ac-89e4-e2c1e69a62db"
 
     const {
       data: existingAccess,
@@ -407,7 +408,7 @@ if (!academyUser) {
         )
         .eq(
           "product_id",
-          academyProductId
+          ACADEMY_PRODUCT_ID
         )
         .maybeSingle()
 
@@ -464,7 +465,7 @@ if (!academyUser) {
               academyUser.id,
 
             product_id:
-              academyProductId,
+              ACADEMY_PRODUCT_ID,
 
             started_at:
               new Date().toISOString(),
@@ -609,12 +610,252 @@ if (!purchase.welcome_email_sent_at) {
 }
   }
 
+/*
+ * PROCESAR REEMBOLSOS
+ */
+
+if (event.type === "charge.refunded") {
+  const charge =
+    event.data.object as Stripe.Charge
+
+  const paymentIntentId =
+    typeof charge.payment_intent === "string"
+      ? charge.payment_intent
+      : charge.payment_intent?.id ?? null
+
+  if (!paymentIntentId) {
+    console.error(
+      "Reembolso sin payment_intent:",
+      charge.id
+    )
+
+    return new Response("ok", {
+      status: 200,
+    })
+  }
+
+   const {
+    data: purchase,
+    error: purchaseError,
+  } =
+    await supabaseAdmin
+      .from("academy_purchases")
+      .select(
+        "id, user_id, amount_total, stripe_session_id"
+      )
+      .eq(
+        "stripe_payment_intent_id",
+        paymentIntentId
+      )
+      .maybeSingle()
+
+  if (purchaseError) {
+    console.error(
+      "Error buscando compra para reembolso:",
+      purchaseError
+    )
+
+    return new Response(
+      "Error buscando compra",
+      { status: 500 }
+    )
+  }
+
+  if (!purchase) {
+    console.log(
+      "Reembolso sin compra Academy asociada:",
+      paymentIntentId
+    )
+
+    return new Response("ok", {
+      status: 200,
+    })
+  }
+
+
+  const isFullRefund =
+    charge.amount_refunded >=
+    purchase.amount_total
+
+  const {
+    error: refundUpdateError,
+  } =
+    await supabaseAdmin
+      .from("academy_purchases")
+      .update({
+        refunded_at:
+          new Date().toISOString(),
+
+        refund_amount:
+          charge.amount_refunded,
+
+        refund_status:
+          isFullRefund
+            ? "full"
+            : "partial",
+      })
+      .eq(
+        "id",
+        purchase.id
+      )
+
+  if (refundUpdateError) {
+    console.error(
+      "Error registrando reembolso:",
+      refundUpdateError
+    )
+
+    return new Response(
+      "Error registrando reembolso",
+      { status: 500 }
+    )
+  }
+
+
+  if (!isFullRefund) {
+    console.log(
+      "Reembolso parcial registrado. Se mantiene acceso Academy:",
+      {
+        sessionId:
+          purchase.stripe_session_id,
+        amountRefunded:
+          charge.amount_refunded,
+        amountTotal:
+          purchase.amount_total,
+      }
+    )
+
+    return new Response("ok", {
+      status: 200,
+    })
+  }
+
+  if (!purchase.user_id) {
+    console.error(
+      "Reembolso total sin user_id asociado:",
+      purchase.stripe_session_id
+    )
+
+    return new Response(
+      "Compra sin usuario asociado",
+      { status: 500 }
+    )
+  }
+
   /*
-   * PARA CUALQUIER OTRO EVENTO DE STRIPE
-   * RESPONDEMOS 200 SIN HACER NADA
+   * COMPROBAR SI EL USUARIO TIENE
+   * OTRA COMPRA VÁLIDA DE ACADEMY
    */
+
+  const {
+    data: otherValidPurchases,
+    error: otherPurchasesError,
+  } =
+    await supabaseAdmin
+      .from("academy_purchases")
+      .select("id")
+      .eq(
+        "user_id",
+        purchase.user_id
+      )
+      .eq(
+        "payment_status",
+        "paid"
+      )
+      .neq(
+        "id",
+        purchase.id
+      )
+      .or(
+        "refund_status.is.null,refund_status.neq.full"
+      )
+      .limit(1)
+
+  if (otherPurchasesError) {
+    console.error(
+      "Error comprobando otras compras Academy:",
+      otherPurchasesError
+    )
+
+    return new Response(
+      "Error comprobando otras compras",
+      { status: 500 }
+    )
+  }
+
+  if (
+    otherValidPurchases &&
+    otherValidPurchases.length > 0
+  ) {
+    console.log(
+      "Reembolso total registrado, pero se mantiene acceso Academy porque existe otra compra válida:",
+      {
+        userId:
+          purchase.user_id,
+        refundedSessionId:
+          purchase.stripe_session_id,
+      }
+    )
+
+    return new Response("ok", {
+      status: 200,
+    })
+  }
+
+  const {
+    error: revokeAccessError,
+  } =
+    await supabaseAdmin
+      .from("user_products")
+      .update({
+        active: false,
+      })
+      .eq(
+        "user_id",
+        purchase.user_id
+      )
+      .eq(
+        "product_id",
+        ACADEMY_PRODUCT_ID
+      )
+
+  if (revokeAccessError) {
+    console.error(
+      "Error retirando acceso Academy:",
+      revokeAccessError
+    )
+
+    return new Response(
+      "Error retirando acceso Academy",
+      { status: 500 }
+    )
+  }
+
+  console.log(
+    "Reembolso total procesado. Acceso Academy retirado:",
+    {
+      userId:
+        purchase.user_id,
+      sessionId:
+        purchase.stripe_session_id,
+      paymentIntentId,
+      amountRefunded:
+        charge.amount_refunded,
+    }
+  )
 
   return new Response("ok", {
     status: 200,
   })
+}
+
+
+/*
+ * PARA CUALQUIER OTRO EVENTO DE STRIPE
+ * RESPONDEMOS 200 SIN HACER NADA
+ */
+
+return new Response("ok", {
+  status: 200,
+})
 }
