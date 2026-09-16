@@ -2,6 +2,12 @@ import { NextResponse } from "next/server"
 import Stripe from "stripe"
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string)
+const ACADEMY_PRICE = 82500
+
+const ACADEMY_TEST_PRICE =
+  process.env.ACADEMY_LIVE_TEST === "true"
+    ? 100
+    : ACADEMY_PRICE
 
 export async function POST(request: Request) {
   try {
@@ -50,7 +56,7 @@ export async function POST(request: Request) {
                 "Formación Trader Run Academy + indicador Trader Run para TradingView",
             },
 
-            unit_amount: 82500,
+           unit_amount: ACADEMY_TEST_PRICE,
           },
 
           quantity: 1,

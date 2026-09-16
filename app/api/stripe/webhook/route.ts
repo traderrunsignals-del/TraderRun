@@ -109,13 +109,19 @@ export async function POST(request: Request) {
       "trader_run_academy"
 
     const ACADEMY_PRICE = 82500
+
+    const ACADEMY_EXPECTED_PRICE =
+      process.env.ACADEMY_LIVE_TEST === "true"
+        ? 100
+        : ACADEMY_PRICE
+
     const ACADEMY_CURRENCY = "eur"
 
     if (
       session.metadata?.productCode !==
         ACADEMY_PRODUCT_CODE ||
       session.amount_total !==
-        ACADEMY_PRICE ||
+        ACADEMY_EXPECTED_PRICE ||
       session.currency?.toLowerCase() !==
         ACADEMY_CURRENCY
     ) {
