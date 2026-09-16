@@ -110,10 +110,6 @@ export async function POST(request: Request) {
 
     const ACADEMY_PRICE = 82500
 
-    const ACADEMY_EXPECTED_PRICE =
-      process.env.ACADEMY_LIVE_TEST === "true"
-        ? 100
-        : ACADEMY_PRICE
 
     const ACADEMY_CURRENCY = "eur"
 
@@ -121,7 +117,7 @@ export async function POST(request: Request) {
       session.metadata?.productCode !==
         ACADEMY_PRODUCT_CODE ||
       session.amount_total !==
-        ACADEMY_EXPECTED_PRICE ||
+  ACADEMY_PRICE ||
       session.currency?.toLowerCase() !==
         ACADEMY_CURRENCY
     ) {
