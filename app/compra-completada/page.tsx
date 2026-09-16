@@ -11,6 +11,11 @@ const ACADEMY_PRODUCT_CODE =
 
 const ACADEMY_PRICE = 82500
 
+const ACADEMY_EXPECTED_PRICE =
+  process.env.ACADEMY_LIVE_TEST === "true"
+    ? 100
+    : ACADEMY_PRICE
+
 type PageProps = {
   searchParams: Promise<{
     session_id?: string
@@ -36,7 +41,7 @@ export default async function CompraCompletadaPage({
         session.metadata?.productCode ===
           ACADEMY_PRODUCT_CODE &&
         session.amount_total ===
-          ACADEMY_PRICE &&
+  ACADEMY_EXPECTED_PRICE &&
         session.currency === "eur"
     } catch (error) {
       console.error(
