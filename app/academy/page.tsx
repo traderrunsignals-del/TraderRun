@@ -6,6 +6,11 @@ import { supabase } from "@/lib/supabase"
 export default function AcademyPage() {
   const [completed, setCompleted] = useState(0)
 
+const handleLogout = async () => {
+  await supabase.auth.signOut()
+  window.location.href = "/login"
+}
+
   useEffect(() => {
     const loadData = async () => {
       const {
@@ -98,9 +103,22 @@ export default function AcademyPage() {
     ← Volver al inicio
   </a>
 
-  <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-    Trader Run Academy
-  </span>
+  <div className="flex items-center gap-4">
+  <a
+    href="/academy/perfil"
+    className="text-xs font-semibold uppercase tracking-wider text-muted-foreground transition hover:text-primary"
+  >
+    Mi perfil
+  </a>
+
+  <button
+    type="button"
+    onClick={handleLogout}
+    className="text-xs font-semibold uppercase tracking-wider text-muted-foreground transition hover:text-primary"
+  >
+    Cerrar sesión
+  </button>
+</div>
 </div>
 
         {/* CABECERA */}
