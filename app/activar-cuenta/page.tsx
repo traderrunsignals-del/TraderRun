@@ -53,7 +53,7 @@ function ActivarCuentaContent() {
         return
       }
 
-      router.replace("/reset-password")
+      router.replace("/reset-password?activation=1")
     } catch (err) {
       console.error(
         "Error activando cuenta:",

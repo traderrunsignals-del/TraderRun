@@ -303,7 +303,10 @@ support_until:
      * Más adelante añadiremos creación/invitación automática.
      */
 
-   let academyUser = existingUser
+  const userAlreadyExisted = Boolean(existingUser)
+
+let academyUser = existingUser
+
 
 if (!academyUser) {
   console.log(
@@ -403,7 +406,7 @@ if (!academyUser) {
     } =
       await supabaseAdmin
         .from("user_products")
-        .select("id")
+        .select("id, active, started_at, expires_at")
         .eq(
           "user_id",
           academyUser.id
@@ -430,6 +433,16 @@ if (!academyUser) {
      * ACTIVAR O CREAR ACCESO
      */
 
+const purchaseAccessStart =
+  new Date(session.created * 1000)
+
+const purchaseAccessExpires =
+  new Date(purchaseAccessStart)
+
+purchaseAccessExpires.setUTCMonth(
+  purchaseAccessExpires.getUTCMonth() + 3
+)
+
     if (existingAccess) {
       const {
         error: updateAccessError,
@@ -437,9 +450,8 @@ if (!academyUser) {
         await supabaseAdmin
           .from("user_products")
           .update({
-            active: true,
-            expires_at: null,
-          })
+  active: true,
+})
           .eq(
             "id",
             existingAccess.id
@@ -470,10 +482,12 @@ if (!academyUser) {
               ACADEMY_PRODUCT_ID,
 
             started_at:
-              new Date().toISOString(),
+  purchaseAccessStart.toISOString(),
 
-            expires_at:
-              null,
+           expires_at:
+  userAlreadyExisted
+    ? purchaseAccessExpires.toISOString()
+    : null,
 
             active:
               true,
