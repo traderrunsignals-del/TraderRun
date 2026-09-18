@@ -104,9 +104,9 @@ export function Cta() {
                 •
               </span>
 
-              <div>
-                Academy · lanzamiento en septiembre
-              </div>
+             <div>
+  Academy · curso de oferta y demanda
+</div>
             </div>
           </div>
         </div>

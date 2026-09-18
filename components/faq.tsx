@@ -6,49 +6,53 @@ import { Button } from "@/components/ui/button"
 
 const faqs = [
   {
-    q: "¿Qué diferencia hay entre el Telegram gratuito, Trader Run VIP y la Academy?",
-    a: "Son tres formas diferentes de formar parte de Trader Run. El Telegram gratuito es la puerta de entrada a la comunidad, donde compartimos noticias, contenido y resultados. Trader Run VIP está pensado para quienes quieren seguir nuestro trabajo diario, con análisis de Nasdaq y S&P, señales, cartera de acciones y acompañamiento. La Academy es nuestra formación completa para aprender la metodología Trader Run, basada en oferta y demanda, y utilizar el indicador incluido como apoyo sobre el gráfico.",
+  q: "¿Qué diferencia hay entre el Telegram gratuito, Trader Run VIP y Trader Run Academy?",
+ a: "Son tres formas diferentes de formar parte de Trader Run. En el Telegram gratuito compartimos noticias, contenido y resultados de nuestra operativa. Trader Run VIP está pensado para quienes quieren seguir nuestro trabajo diario, con análisis diarios de Nasdaq y S&P, señales diarias en diferentes activos, cartera de acciones, planificación y acompañamiento. Trader Run Academy es nuestro espacio de formación. Dentro de la Academy, el curso de oferta y demanda está diseñado para aprender a utilizar el Indicador + Estrategia Trader Run como un sistema basado en oferta y demanda, estructura y gestión del riesgo.",
   },
+ {
+  q: "¿Necesito experiencia previa para hacer el curso de oferta y demanda?",
+  a: "No. La formación está diseñada para que puedas empezar desde los fundamentos e ir avanzando progresivamente hasta comprender y aplicar la metodología Trader Run. Los primeros módulos trabajan las bases necesarias antes de avanzar hacia la lectura del precio, la estructura del mercado, la oferta y la demanda, la gestión del riesgo, la psicología y la estrategia.",
+},
+{
+  q: "¿Qué voy a aprender en el curso de oferta y demanda?",
+  a: "La formación está estructurada en 10 módulos para aprender a utilizar el Indicador + Estrategia Trader Run. Empezarás por los fundamentos del trading, el funcionamiento de los mercados y el uso de la plataforma. Después aprenderás a leer el precio, comprender la estructura del mercado e identificar soportes, resistencias y zonas clave. También trabajaremos la gestión del riesgo, la psicología y la disciplina, hasta llegar a la estrategia Trader Run basada en oferta y demanda y su aplicación mediante casos prácticos.",
+},
   {
-    q: "¿Necesito experiencia previa para entrar en la Academy?",
-    a: "No. La formación comienza desde los fundamentos y avanza progresivamente hasta la estrategia y los casos prácticos. Si ya tienes experiencia, los primeros módulos te servirán para entender las bases sobre las que construimos la metodología Trader Run antes de avanzar hacia su aplicación.",
-  },
+  q: "¿El indicador Trader Run está incluido en el curso de oferta y demanda?",
+a: "Sí. Al adquirir el curso de oferta y demanda tendrás acceso ilimitado al indicador Trader Run para TradingView. El indicador forma parte del sistema Trader Run junto con la estrategia que aprenderás durante la formación y permite llevar la metodología directamente al gráfico. Para darte acceso utilizaremos el nombre de usuario de TradingView que indiques durante la compra, por lo que no tendrás que descargar ni instalar ningún archivo.",
+},
+{
+  q: "¿Necesito una cuenta de TradingView o puedo utilizar otra plataforma?",
+  a: "Sí, necesitas una cuenta de TradingView, ya que el indicador Trader Run funciona exclusivamente en esta plataforma. Puedes utilizar una cuenta gratuita de TradingView; no es necesario contratar ningún plan de pago.",
+},
+{
+  q: "¿Durante cuánto tiempo tendré acceso al curso y al indicador Trader Run?",
+ a: "Tendrás acceso al curso de oferta y demanda durante 3 meses desde la primera activación de tu cuenta en Trader Run Academy. Deberás realizar esa primera activación dentro de los 30 días naturales siguientes a la fecha de compra. El acompañamiento y soporte incluidos tienen una duración de 2 meses desde la fecha de compra. El indicador Trader Run no tiene una fecha de caducidad predeterminada una vez concedido, por lo que podrás continuar utilizándolo después de finalizar tu periodo de acceso al curso.",
+},
+ {
+  q: "¿Qué incluyen los 2 meses de soporte?",
+ a: "Durante los 2 meses de soporte tendrás acceso a un grupo donde podrás ver entradas diarias relacionadas con la estrategia del curso y dispondrás de un correo exclusivo para resolver dudas sobre el contenido de la formación, la metodología Trader Run y la aplicación de los conceptos aprendidos. El objetivo es acompañarte durante el proceso de aprendizaje y ayudarte a comprender y aplicar la metodología de forma estructurada.",
+},
+ {
+  q: "¿Cuándo podré acceder al curso después de realizar la compra?",
+  a: "Una vez confirmado el pago, recibirás un correo electrónico para activar tu cuenta y crear tu contraseña. Deberás realizar la primera activación dentro de los 30 días naturales siguientes a la fecha de compra. A partir de esa primera activación comenzará tu periodo de 3 meses de acceso al curso. Utilizaremos también el nombre de usuario de TradingView indicado durante la compra para gestionar tu acceso al indicador Trader Run.",
+},
+ {
+  q: "¿Cómo funciona Trader Run VIP?",
+  a: "Trader Run VIP es una suscripción mensual a un grupo de Telegram enfocada en el seguimiento diario del mercado. Incluye análisis de Nasdaq y S&P, señales con entrada, Stop Loss y objetivos, cartera de acciones en seguimiento, planificación de mercado, contenido de psicotrading y acceso a la comunidad privada. Trader Run VIP no es un curso de formación y funciona de manera independiente a Trader Run Academy.",
+},
+ {
+  q: "¿Cuánto cuesta Trader Run VIP y puedo cancelarlo?",
+ a: "Trader Run VIP cuesta 49,95 € al mes y se renueva automáticamente cada mes. Puedes solicitar la cancelación en cualquier momento escribiendo a traderrunsignals@gmail.com. La cancelación evita las renovaciones posteriores y mantendrás el acceso durante el periodo mensual que ya tengas pagado. El curso de oferta y demanda de Trader Run Academy es un producto independiente y se adquiere mediante un único pago.",
+},
   {
-    q: "¿Qué voy a aprender exactamente en Trader Run Academy?",
-    a: "La Academy está estructurada en 10 módulos. Trabajaremos fundamentos, funcionamiento de los mercados, plataforma de trading, lectura del precio, estructura de mercado, zonas clave, gestión del riesgo, psicología y disciplina, hasta llegar a la estrategia Trader Run basada en oferta y demanda y su aplicación mediante casos prácticos.",
-  },
-  {
-    q: "¿El indicador Trader Run está incluido en la Academy?",
-    a: "Sí. La Academy incluye acceso al indicador Trader Run para TradingView. Está diseñado como una herramienta de apoyo visual para trasladar al gráfico los conceptos y la metodología trabajados durante la formación. No necesitas descargar ni instalar ningún archivo.",
-  },
-  {
-    q: "¿Durante cuánto tiempo tendré acceso a la Academy y al indicador?",
-    a: "El acceso a la formación y al indicador Trader Run es ilimitado. Podrás volver al contenido de la Academy y continuar utilizando el indicador después de completar la formación.",
-  },
-  {
-    q: "¿Qué incluyen los 2 meses de soporte de la Academy?",
-    a: "Durante los primeros 2 meses tendrás acompañamiento para resolver dudas relacionadas con el contenido de la formación, la metodología Trader Run y el uso del indicador. El objetivo es ayudarte durante el proceso de aprendizaje y aplicación de lo aprendido.",
-  },
-  {
-    q: "¿Cuándo estará disponible Trader Run Academy?",
-    a: "La Academy estará disponible en septiembre. El precio de lanzamiento será de 825 € en un único pago. Después del periodo de lanzamiento, el precio previsto será de 1.150 €.",
-  },
-  {
-    q: "¿Cómo funciona Trader Run VIP?",
-    a: "Trader Run VIP es una suscripción mensual para quienes quieren acompañarnos en el día a día del mercado. Incluye análisis diarios de Nasdaq y S&P, señales con entrada, Stop Loss y objetivos, cartera de acciones en seguimiento, planificación de mercado, comunidad privada y acompañamiento en psicotrading.",
-  },
-  {
-    q: "¿Cuánto cuesta Trader Run VIP y puedo cancelarlo?",
-    a: "Trader Run VIP cuesta 49,95 € al mes. Es una suscripción mensual y puedes cancelarla cuando quieras. La Academy es un producto diferente y se adquiere mediante un único pago.",
-  },
-  {
-    q: "¿Las señales y análisis de Trader Run son asesoramiento financiero?",
-    a: "No. El contenido, los análisis y las señales compartidas por Trader Run tienen carácter informativo y educativo y no constituyen asesoramiento financiero personalizado. Cada persona es responsable de sus propias decisiones y de la gestión del riesgo de sus operaciones.",
-  },
-  {
-    q: "¿Trader Run garantiza resultados o beneficios?",
-    a: "No. El trading implica riesgo y no podemos garantizar beneficios ni resultados concretos. La formación, el indicador, los análisis y las señales son herramientas para ayudarte a trabajar con un proceso más estructurado, pero ninguna metodología elimina el riesgo ni asegura operaciones rentables.",
-  },
+  q: "¿Las señales y análisis de Trader Run son asesoramiento financiero?",
+  a: "No. Los contenidos, análisis, señales y materiales formativos de Trader Run tienen una finalidad informativa y educativa y no constituyen asesoramiento financiero personalizado ni una recomendación individual de inversión. Cada usuario es responsable de sus propias decisiones, operaciones y gestión del riesgo.",
+},
+ {
+  q: "¿Trader Run garantiza resultados o beneficios?",
+  a: "No. El trading implica riesgo de pérdida y Trader Run no garantiza beneficios, rentabilidades ni resultados concretos. El curso, el indicador, los análisis y las señales son herramientas formativas e informativas destinadas a ayudarte a desarrollar un proceso de trabajo más estructurado, pero ninguna metodología, herramienta o señal elimina el riesgo ni garantiza operaciones rentables.",
+},
 ]
 
 export function Faq() {
@@ -197,7 +201,7 @@ export function Faq() {
             variant="outline"
             className="h-10 shrink-0 px-5 text-xs font-semibold"
             render={
-              <a href="mailto:traderrunsignals@gmail.com" />
+              <a href="mailto:soporte@traderrun.com" />
             }
           >
             Contactar

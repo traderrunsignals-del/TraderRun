@@ -88,10 +88,10 @@ export function AcademyPreview() {
   </span>
 </h2>
 
-<p className="mt-6 max-w-2xl text-pretty text-base leading-7 text-muted-foreground sm:text-lg">
-  Una formación de 10 módulos para aprender a interpretar el precio,
-  identificar zonas de oferta y demanda y aplicar la metodología
-  Trader Run con una gestión del riesgo definida.
+<p className="mx-auto mt-8 max-w-2xl text-pretty text-base leading-7 text-muted-foreground sm:text-lg">
+  Formación estructurada para aprender a analizar el mercado, gestionar
+  el riesgo y desarrollar tu operativa con metodología, criterio y
+  disciplina.
 </p>
           </div>
 
@@ -104,8 +104,8 @@ export function AcademyPreview() {
               </span>
 
               <span className="rounded-full bg-primary/10 px-3 py-1 text-[9px] font-semibold text-primary">
-                Septiembre
-              </span>
+  Curso disponible
+</span>
             </div>
 
             <div className="mt-6 grid grid-cols-2 gap-5">
@@ -133,21 +133,21 @@ export function AcademyPreview() {
             <div className="mt-6 h-px bg-border/60" />
 
             <div className="mt-5 space-y-3">
-              <div className="flex items-center gap-2.5 text-xs">
-                <Check className="size-3.5 text-primary" />
-                <span>Indicador Trader Run incluido</span>
-              </div>
+  <div className="flex items-center gap-2.5 text-xs">
+    <Check className="size-3.5 text-primary" />
+    <span>3 meses de acceso al curso</span>
+  </div>
 
-              <div className="flex items-center gap-2.5 text-xs">
-                <Check className="size-3.5 text-primary" />
-                <span>Acceso ilimitado</span>
-              </div>
+  <div className="flex items-center gap-2.5 text-xs">
+    <Check className="size-3.5 text-primary" />
+    <span>Indicador Trader Run · acceso ilimitado</span>
+  </div>
 
-              <div className="flex items-center gap-2.5 text-xs">
-                <Check className="size-3.5 text-primary" />
-                <span>2 meses de acompañamiento</span>
-              </div>
-            </div>
+  <div className="flex items-center gap-2.5 text-xs">
+    <Check className="size-3.5 text-primary" />
+    <span>2 meses de acompañamiento</span>
+  </div>
+</div>
           </div>
         </div>
 
@@ -485,10 +485,9 @@ export function AcademyPreview() {
 </h3>
 
 <p className="relative mt-3 max-w-2xl text-sm leading-6 text-muted-foreground">
-  La metodología no se queda en la teoría. El indicador Trader Run
-  traslada al gráfico los conceptos trabajados durante la formación
-  para ayudarte a identificar y analizar el mercado siguiendo el
-  mismo proceso.
+  El indicador Trader Run forma parte del sistema que aprenderás durante la
+  formación y lleva la metodología directamente al gráfico, ayudándote a
+  identificar y analizar el mercado siguiendo el proceso de la estrategia.
 </p>
 
             <div className="relative mt-5 flex flex-wrap gap-2">
@@ -513,13 +512,13 @@ export function AcademyPreview() {
               </div>
 
               <h4 className="mt-5 font-display text-lg font-semibold">
-  Aprende el concepto. Véalo en el gráfico.
+  Aprende el concepto. Llévalo al gráfico.
 </h4>
 
 <p className="mt-2 text-sm leading-6 text-muted-foreground">
-  Primero entiendes la lógica dentro de la formación. Después utilizas
-  el indicador como apoyo visual para trasladar ese conocimiento a tu
-  análisis.
+  Primero comprendes la lógica del sistema durante la formación. Después
+  aprendes a utilizar el indicador para llevar la metodología Trader Run
+  directamente al gráfico y aplicarla en tu análisis.
 </p>
             </div>
 
@@ -540,7 +539,7 @@ export function AcademyPreview() {
             </p>
 
             <p className="mt-1 text-xs text-muted-foreground">
-              Disponible en septiembre
+              Curso de oferta y demanda
             </p>
           </div>
 

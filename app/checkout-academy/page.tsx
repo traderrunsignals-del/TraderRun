@@ -9,12 +9,14 @@ export default function CheckoutAcademyPage() {
   const [email, setEmail] = useState("")
   const [tradingViewUser, setTradingViewUser] = useState("")
   const [accepted, setAccepted] = useState(false)
+  const [digitalContentConsent, setDigitalContentConsent] = useState(false)
 
   const canContinue =
     name.trim() !== "" &&
     email.trim() !== "" &&
     tradingViewUser.trim() !== "" &&
-    accepted
+    accepted &&
+    digitalContentConsent
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -32,6 +34,7 @@ export default function CheckoutAcademyPage() {
           email,
           tradingViewUser,
           accepted,
+          digitalContentConsent,
         }),
       })
 
@@ -81,33 +84,33 @@ export default function CheckoutAcademyPage() {
             Completa tus datos antes de continuar al pago
           </h1>
 
-          <p className="mt-5 max-w-2xl text-lg leading-8 text-muted-foreground">
-            Estos datos se utilizarán para gestionar tu acceso a Trader Run
-            Academy y al indicador de TradingView incluido en la formación.
-          </p>
+         <p className="mt-5 max-w-2xl text-lg leading-8 text-muted-foreground">
+  Estos datos se utilizarán para gestionar tu acceso a Trader Run
+  Academy y al indicador de TradingView incluido en la formación.
+</p>
 
-          <div className="mt-10 space-y-4">
-            {[
-              "Acceso a los 10 módulos de Trader Run Academy",
-              "Formación en oferta, demanda y lectura del mercado",
-              "Indicador Trader Run para TradingView",
-              "Acceso continuado según las condiciones del servicio",
-              "2 meses de acompañamiento",
-            ].map((item) => (
-              <div
-                key={item}
-                className="flex items-start gap-3"
-              >
-                <div className="mt-1 rounded-full bg-primary/10 p-1">
-                  <Check className="h-4 w-4 text-primary" />
-                </div>
+<div className="mt-10 space-y-4">
+  {[
+    "Curso de Oferta y Demanda · 10 módulos",
+    "3 meses de acceso al curso desde la primera activación",
+    "Primera activación disponible durante 30 días desde la compra",
+    "Indicador Trader Run para TradingView sin caducidad predeterminada una vez concedido",
+    "2 meses de soporte y acompañamiento desde la fecha de compra",
+  ].map((item) => (
+    <div
+      key={item}
+      className="flex items-start gap-3"
+    >
+      <div className="mt-1 rounded-full bg-primary/10 p-1">
+        <Check className="h-4 w-4 text-primary" />
+      </div>
 
-                <p className="text-sm text-muted-foreground">
-                  {item}
-                </p>
-              </div>
-            ))}
-          </div>
+      <p className="text-sm text-muted-foreground">
+        {item}
+      </p>
+    </div>
+  ))}
+</div>
 
           <div className="mt-10 rounded-2xl border bg-card p-6">
             <p className="text-sm text-muted-foreground">
@@ -125,8 +128,8 @@ export default function CheckoutAcademyPage() {
             </div>
 
             <p className="mt-3 text-sm text-muted-foreground">
-              Pago único.
-            </p>
+  Pago único · Precio final: 825 €
+</p>
           </div>
         </section>
 
@@ -214,9 +217,13 @@ export default function CheckoutAcademyPage() {
               </p>
 
               <p className="mt-3 text-sm leading-6 text-muted-foreground">
-                Dispones de 14 días naturales para ejercer tu derecho de
-                desistimiento conforme a la normativa aplicable.
-              </p>
+  Con carácter general, dispones de 14 días naturales para ejercer
+  el derecho de desistimiento cuando resulte aplicable. Si solicitas
+  expresamente el inicio del suministro del contenido digital durante
+  ese plazo, el derecho de desistimiento podrá perderse una vez
+  iniciada su ejecución, en los términos previstos por la normativa
+  aplicable.
+</p>
 
               <div className="mt-4 flex flex-wrap gap-x-4 gap-y-2 text-xs">
                 <Link
@@ -261,6 +268,28 @@ export default function CheckoutAcademyPage() {
                   He leído y acepto las condiciones de contratación, la licencia
                   de uso del indicador, la política de privacidad y el aviso de
                   riesgo.
+                </span>
+              </label>
+
+              <label className="mt-4 flex cursor-pointer items-start gap-3">
+                <input
+                  type="checkbox"
+                  checked={digitalContentConsent}
+                  onChange={(e) =>
+                    setDigitalContentConsent(
+                      e.target.checked
+                    )
+                  }
+                  required
+                  className="mt-1 h-4 w-4"
+                />
+
+                <span className="text-sm leading-6">
+                  Solicito expresamente que el suministro del contenido digital
+                  comience antes de que finalice el plazo legal de desistimiento
+                  y reconozco que, una vez iniciada su ejecución, perderé mi
+                  derecho de desistimiento cuando así lo establezca la normativa
+                  aplicable.
                 </span>
               </label>
             </div>

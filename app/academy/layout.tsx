@@ -94,8 +94,31 @@ export default async function AcademyLayout({
    */
 
   return (
-    <div className="min-h-screen bg-background">
-      {children}
-    </div>
-  )
+  <div className="min-h-screen bg-background">
+    {children}
+
+    <div className="mx-auto max-w-7xl px-6 pb-10 pt-4">
+      <div className="border-t border-border/60 pt-6">
+        <p className="text-xs leading-6 text-muted-foreground">
+          <strong className="font-semibold text-foreground/70">
+            Aviso de riesgo:
+          </strong>{" "}
+          Este contenido tiene finalidad exclusivamente educativa e informativa
+          y no constituye asesoramiento financiero ni una recomendación
+          personalizada de inversión. Operar en mercados financieros implica
+          riesgo de pérdida de capital. Los ejemplos, análisis y resultados
+          mostrados no garantizan resultados futuros.{" "}
+          <a
+            href="/aviso-riesgo"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-medium text-primary hover:underline"
+          >
+            Consulta el aviso de riesgo completo.
+          </a>
+        </p>
+      </div>
+        </div>
+  </div>
+)
 }

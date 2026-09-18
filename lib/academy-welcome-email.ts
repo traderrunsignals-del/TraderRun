@@ -35,15 +35,30 @@ export function buildAcademyWelcomeEmail({
           </p>
 
           <p style="margin:0 0 16px;font-size:16px;line-height:1.7;color:#c5d1c9;">
-            Gracias por confiar en Trader Run y formar parte de la Academy.
+           Gracias por confiar en Trader Run y formar parte de la Academy.
           </p>
 
-          <p style="margin:0 0 28px;font-size:16px;line-height:1.7;color:#c5d1c9;">
-            A partir de ahora tendrás acceso a la formación de Trader Run Academy.
-            Te recomendamos avanzar por los módulos en orden y a tu ritmo.
-            Revisa cada lección las veces que necesites, toma notas y practica
-            los conceptos antes de continuar.
-          </p>
+          <p style="margin:0 0 16px;font-size:16px;line-height:1.7;color:#c5d1c9;">
+  Tu compra del curso de Oferta y Demanda se ha completado correctamente.
+  El curso incluye 3 meses de acceso a la formación, 2 meses de
+  acompañamiento y el acceso al Indicador Trader Run para TradingView.
+</p>
+
+<div style="background:#102319;border:1px solid #21442f;border-radius:12px;padding:22px;margin:0 0 28px;">
+  <div style="font-size:17px;font-weight:700;color:#ffffff;margin-bottom:10px;">
+    Tus 3 meses de acceso al curso
+  </div>
+
+  <p style="margin:0 0 12px;font-size:15px;line-height:1.7;color:#b9c8be;">
+    El periodo de 3 meses no comienza con la compra. Empezará cuando
+    actives por primera vez tu acceso a Trader Run Academy.
+  </p>
+
+  <p style="margin:0;font-size:15px;line-height:1.7;color:#ffffff;">
+    Recuerda realizar esa primera activación dentro de los
+<strong>30 días naturales siguientes a la fecha de compra</strong>.
+  </p>
+</div>
 
           <div style="background:#102319;border:1px solid #21442f;border-radius:12px;padding:22px;margin:0 0 28px;">
             <div style="font-size:17px;font-weight:700;color:#ffffff;margin-bottom:10px;">
@@ -51,9 +66,11 @@ export function buildAcademyWelcomeEmail({
             </div>
 
             <p style="margin:0 0 12px;font-size:15px;line-height:1.7;color:#b9c8be;">
-              Durante este periodo podrás consultarnos las dudas relacionadas
-              con la formación y con la aplicación del método.
-            </p>
+  El periodo de acompañamiento comienza desde la fecha de compra
+  y tiene una duración de 2 meses. Durante este tiempo podrás
+  consultarnos las dudas relacionadas con la formación y con la
+  aplicación del método.
+</p>
 
             <p style="margin:0;font-size:15px;line-height:1.7;color:#ffffff;">
               Tu periodo de soporte estará disponible hasta el
@@ -71,10 +88,10 @@ export function buildAcademyWelcomeEmail({
             </a>
           </p>
 
-          <p style="margin:0 0 28px;font-size:14px;line-height:1.7;color:#8fa098;">
-            Para que podamos ayudarte mejor, explica tu duda con el mayor
-            detalle posible y adjunta capturas de pantalla cuando sean útiles.
-          </p>
+           <p style="margin:0 0 28px;font-size:14px;line-height:1.7;color:#8fa098;">
+  Para que podamos ayudarte mejor, explica tu duda con el mayor
+  detalle posible y adjunta capturas de pantalla cuando sean útiles.
+</p>
 
           <div style="border-top:1px solid #24372c;padding-top:24px;">
             <div style="font-size:17px;font-weight:700;color:#ffffff;margin-bottom:10px;">
@@ -82,16 +99,18 @@ export function buildAcademyWelcomeEmail({
             </div>
 
             <p style="margin:0 0 24px;font-size:15px;line-height:1.7;color:#b9c8be;">
-              Tu acceso al indicador Trader Run para TradingView está incluido
-              con la Academy. Revisaremos el usuario de TradingView que
-              indicaste durante la compra para gestionar tu acceso.
-            </p>
+  El Indicador Trader Run para TradingView está incluido con tu
+  compra del curso de Oferta y Demanda. Revisaremos el usuario de
+  TradingView que indicaste durante la compra para gestionar tu acceso.
+  Una vez concedido, el acceso al indicador no tiene una fecha de
+  caducidad predeterminada.
+</p>
           </div>
 
           <div style="border-top:1px solid #24372c;padding-top:24px;">
             <p style="margin:0 0 14px;font-size:15px;line-height:1.7;color:#c5d1c9;">
               El objetivo de Trader Run Academy es que aprendas a comprender
-              y aplicar el método por ti mismo, no que dependas de copiar operaciones.
+y aplicar el método por ti mismo, no que dependas de copiar operaciones.
             </p>
 
             <p style="margin:0;font-size:13px;line-height:1.7;color:#7f9186;">

@@ -99,24 +99,24 @@ export function Hero() {
             </a>
           </div>
 
-          {/* MICRO CONFIANZA */}
+         {/* MICRO CONFIANZA */}
 
-          <div className="mt-9 flex flex-wrap items-center justify-center gap-x-7 gap-y-3">
-            <span className="inline-flex items-center gap-2 text-xs text-muted-foreground">
-              <Check className="size-3.5 text-primary" />
-              10 módulos
-            </span>
+<div className="mt-9 flex flex-wrap items-center justify-center gap-x-7 gap-y-3">
+  <span className="inline-flex items-center gap-2 text-xs text-muted-foreground">
+    <Check className="size-3.5 text-primary" />
+    10 módulos
+  </span>
 
-            <span className="inline-flex items-center gap-2 text-xs text-muted-foreground">
-              <Check className="size-3.5 text-primary" />
-              Indicador Trader Run incluido
-            </span>
+  <span className="inline-flex items-center gap-2 text-xs text-muted-foreground">
+    <Check className="size-3.5 text-primary" />
+    Curso de oferta y demanda con indicador incluido
+  </span>
 
-            <span className="inline-flex items-center gap-2 text-xs text-muted-foreground">
-              <Check className="size-3.5 text-primary" />
-              Acceso ilimitado
-            </span>
-          </div>
+  <span className="inline-flex items-center gap-2 text-xs text-muted-foreground">
+    <Check className="size-3.5 text-primary" />
+    2 meses de soporte
+  </span>
+</div>
         </div>
 
         {/* =====================================================

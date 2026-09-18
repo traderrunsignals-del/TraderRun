@@ -14,6 +14,7 @@ import {
   MessageCircle,
   Newspaper,
   Send,
+  Target,
   TrendingUp,
   Users,
   WalletCards,
@@ -39,12 +40,12 @@ const modules = [
   {
     number: "04",
     title: "Aprende a leer el precio",
-    desc: "Interpreta las velas y comienza a leer el comportamiento del precio de forma estructurada.",
+   desc: "Interpreta las velas y comienza a leer el comportamiento del precio de forma estructurada.",
   },
   {
     number: "05",
     title: "La estructura del mercado",
-    desc: "Identifica tendencias, impulsos y retrocesos y comprende cómo se estructura el movimiento.",
+   desc: "Identifica tendencias, impulsos y retrocesos y comprende cómo se estructura el movimiento.",
   },
   {
     number: "06",
@@ -122,9 +123,8 @@ const academyFeatures = [
   "Estrategia completa paso a paso",
   "Gestión del riesgo y psicología",
   "Casos prácticos sobre el gráfico",
-  "Indicador Trader Run para TradingView",
-  "Acceso ilimitado al indicador",
-  "2 meses de soporte",
+  "Indicador propio con acceso ilimitado",
+  "2 meses de soporte y acompañamiento",
 ]
 
 export function Pricing() {
@@ -349,7 +349,7 @@ export function Pricing() {
               </div>
 
               <span className="rounded-full border border-primary/20 bg-primary/[0.06] px-3 py-1 text-[9px] font-semibold uppercase tracking-[0.14em] text-primary">
-                Septiembre
+                Precio de lanzamiento
               </span>
             </div>
 
@@ -375,15 +375,15 @@ export function Pricing() {
               </div>
 
               <p className="mt-4 min-h-[72px] text-sm leading-6 text-muted-foreground">
-                Formación de oferta y demanda, metodología Trader Run e
-                indicador para aprender a construir tu propia operativa.
-              </p>
+  Indicador + Estrategia Trader Run, con una formación completa en oferta y
+  demanda para aprender a utilizar el sistema paso a paso.
+</p>
             </div>
 
             <div className="my-6 h-px bg-border/60" />
 
             <div className="space-y-3">
-              {academyFeatures.slice(0, 6).map((feature) => (
+             {academyFeatures.map((feature) => (
                 <div
                   key={feature}
                   className="flex items-start gap-3"
@@ -400,16 +400,18 @@ export function Pricing() {
             </div>
 
             <div className="mt-6 rounded-2xl border border-primary/15 bg-primary/[0.035] p-4">
-              <p className="text-[9px] font-semibold uppercase tracking-[0.16em] text-primary">
-                Incluido
-              </p>
+  <p className="text-[9px] font-semibold uppercase tracking-[0.16em] text-primary">
+    Incluido
+  </p>
 
-              <p className="mt-2 text-xs font-medium">
-                Indicador Trader Run + 2 meses de soporte
-              </p>
-            </div>
+  <div className="mt-2 space-y-1.5 text-xs font-medium">
+    <p>3 meses de acceso al curso</p>
+    <p>Indicador Trader Run para TradingView · acceso ilimitado</p>
+    <p>2 meses de soporte y acompañamiento</p>
+  </div>
+</div>
 
-            <div className="mt-auto pt-6">
+<div className="mt-auto pt-6">
               <Button
                 variant="outline"
                 className="h-12 w-full rounded-xl font-semibold"
@@ -420,7 +422,7 @@ export function Pricing() {
               </Button>
 
               <p className="mt-3 text-center text-[10px] text-muted-foreground">
-                Promoción de lanzamiento · Disponible en septiembre
+                Precio especial de lanzamiento
               </p>
             </div>
           </article>
@@ -450,7 +452,7 @@ export function Pricing() {
           <Button
             variant="outline"
             className="h-10 shrink-0 px-5 text-xs font-semibold"
-            render={<a href="mailto:traderrunsignals@gmail.com" />}
+            render={<a href="mailto:soporte@traderrun.com" />}
           >
             Contactar
           </Button>
@@ -481,55 +483,56 @@ export function Pricing() {
               <X className="size-5" />
             </button>
 
-            {/* CABECERA */}
+ {/* CABECERA */}
 
-            <div className="relative overflow-hidden border-b border-border/60 bg-primary/[0.04] p-7 sm:p-10">
-              <div
-                aria-hidden="true"
-                className="pointer-events-none absolute -right-32 -top-32 size-[400px] rounded-full bg-primary/[0.08] blur-[120px]"
-              />
+<div className="relative overflow-hidden border-b border-border/60 bg-primary/[0.04] p-7 sm:p-10">
+  <div
+    aria-hidden="true"
+    className="pointer-events-none absolute -right-32 -top-32 size-[400px] rounded-full bg-primary/[0.08] blur-[120px]"
+  />
 
-              <div className="relative max-w-3xl">
-                <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-3 py-1.5">
-                  <GraduationCap className="size-3.5 text-primary" />
+  <div className="relative max-w-3xl">
+    <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-3 py-1.5">
+      <GraduationCap className="size-3.5 text-primary" />
 
-                  <span className="text-[10px] font-semibold uppercase tracking-[0.18em] text-primary">
-                    Trader Run Academy
-                  </span>
-                </div>
+      <span className="text-[10px] font-semibold uppercase tracking-[0.18em] text-primary">
+        Curso Oferta y Demanda · Trader Run Academy
+      </span>
+    </div>
 
-                <h2 className="mt-5 font-display text-3xl font-semibold tracking-tight sm:text-4xl">
-                  Aprende a leer la oferta y la demanda.
-                  <span className="block text-muted-foreground">
-                    Construye tu propia operativa.
-                  </span>
-                </h2>
+    <h2 className="mt-5 font-display text-3xl font-semibold tracking-tight sm:text-4xl">
+      Indicador + Estrategia Trader Run.
+      <span className="block text-muted-foreground">
+        Aprende a utilizarlos con nuestra formación.
+      </span>
+    </h2>
 
-                <p className="mt-5 max-w-2xl text-sm leading-7 text-muted-foreground sm:text-base">
-                  Diez módulos para avanzar desde los fundamentos hasta la
-                  aplicación de la metodología Trader Run, con nuestro
-                  indicador como herramienta de apoyo sobre el gráfico.
-                </p>
+    <p className="mt-5 max-w-2xl text-sm leading-7 text-muted-foreground sm:text-base">
+  Aprende a utilizar el Indicador + Estrategia Trader Run como un sistema
+  basado en oferta y demanda, estructura y gestión del riesgo. Una formación
+  estructurada en 10 módulos para comprender la metodología y aprender a
+  aplicarla paso a paso.
+</p>
 
-                <div className="mt-6 flex flex-wrap gap-2">
-                  <span className="rounded-full border border-border/60 bg-background/50 px-3 py-1.5 text-[10px]">
-                    10 módulos
-                  </span>
+    <div className="mt-6 flex flex-wrap gap-2">
+      <span className="rounded-full border border-border/60 bg-background/50 px-3 py-1.5 text-[10px]">
+        Indicador Trader Run
+      </span>
 
-                  <span className="rounded-full border border-border/60 bg-background/50 px-3 py-1.5 text-[10px]">
-                    Oferta y demanda
-                  </span>
+      <span className="rounded-full border border-border/60 bg-background/50 px-3 py-1.5 text-[10px]">
+        Estrategia Trader Run
+      </span>
 
-                  <span className="rounded-full border border-border/60 bg-background/50 px-3 py-1.5 text-[10px]">
-                    Indicador incluido
-                  </span>
+      <span className="rounded-full border border-border/60 bg-background/50 px-3 py-1.5 text-[10px]">
+        10 módulos de formación
+      </span>
 
-                  <span className="rounded-full border border-border/60 bg-background/50 px-3 py-1.5 text-[10px]">
-                    Acceso ilimitado
-                  </span>
-                </div>
-              </div>
-            </div>
+      <span className="rounded-full border border-border/60 bg-background/50 px-3 py-1.5 text-[10px]">
+        2 meses de soporte
+      </span>
+    </div>
+  </div>
+</div>
 
             {/* CONTENIDO */}
 
@@ -576,71 +579,108 @@ export function Pricing() {
                 ))}
               </div>
 
-              {/* INDICADOR + SOPORTE */}
+              {/* ESTRATEGIA + INDICADOR + SOPORTE */}
 
-              <div className="mt-8 grid gap-4 md:grid-cols-2">
-                <div className="rounded-3xl border border-primary/20 bg-primary/[0.04] p-6">
-                  <BarChart3 className="size-5 text-primary" />
+<div className="mt-8 grid gap-4 md:grid-cols-3">
+  {/* ESTRATEGIA */}
 
-                  <h3 className="mt-5 font-display text-xl font-semibold">
-                    Indicador Trader Run
-                  </h3>
+  <div className="rounded-3xl border border-primary/20 bg-primary/[0.04] p-6">
+    <Target className="size-5 text-primary" />
 
-                  <p className="mt-3 text-sm leading-6 text-muted-foreground">
-                    Acceso desde TradingView a la herramienta diseñada para
-                    acompañar visualmente los conceptos trabajados durante la
-                    formación.
-                  </p>
+    <h3 className="mt-5 font-display text-xl font-semibold">
+      Estrategia Trader Run
+    </h3>
 
-                  <div className="mt-5 space-y-2">
-                    <div className="flex items-center gap-2 text-xs">
-                      <Check className="size-3.5 text-primary" />
-                      TradingView
-                    </div>
+    <p className="mt-3 text-sm leading-6 text-muted-foreground">
+      Una metodología basada en oferta y demanda, estructura y gestión
+      del riesgo, organizada en un proceso operativo definido que
+      aprenderás a aplicar paso a paso.
+    </p>
 
-                    <div className="flex items-center gap-2 text-xs">
-                      <Check className="size-3.5 text-primary" />
-                      Sin instalaciones
-                    </div>
+    <div className="mt-5 space-y-2">
+      <div className="flex items-center gap-2 text-xs">
+        <Check className="size-3.5 text-primary" />
+        Oferta y demanda
+      </div>
 
-                    <div className="flex items-center gap-2 text-xs">
-                      <Check className="size-3.5 text-primary" />
-                      Acceso ilimitado
-                    </div>
-                  </div>
-                </div>
+      <div className="flex items-center gap-2 text-xs">
+        <Check className="size-3.5 text-primary" />
+        Lectura de estructura
+      </div>
 
-                <div className="rounded-3xl border border-border/60 bg-secondary/[0.10] p-6">
-                  <MessageCircle className="size-5 text-primary" />
+      <div className="flex items-center gap-2 text-xs">
+        <Check className="size-3.5 text-primary" />
+        Proceso operativo paso a paso
+      </div>
+    </div>
+  </div>
 
-                  <h3 className="mt-5 font-display text-xl font-semibold">
-                    2 meses de soporte
-                  </h3>
+  {/* INDICADOR */}
 
-                  <p className="mt-3 text-sm leading-6 text-muted-foreground">
-                    Durante los primeros dos meses tendrás soporte para resolver
-                    dudas relacionadas con la formación, la metodología y el
-                    uso del indicador.
-                  </p>
+  <div className="rounded-3xl border border-primary/20 bg-primary/[0.04] p-6">
+    <BarChart3 className="size-5 text-primary" />
 
-                  <div className="mt-5 space-y-2">
-                    <div className="flex items-center gap-2 text-xs">
-                      <Check className="size-3.5 text-primary" />
-                      Resolución de dudas
-                    </div>
+    <h3 className="mt-5 font-display text-xl font-semibold">
+      Indicador Trader Run
+    </h3>
 
-                    <div className="flex items-center gap-2 text-xs">
-                      <Check className="size-3.5 text-primary" />
-                      Acompañamiento
-                    </div>
+    <p className="mt-3 text-sm leading-6 text-muted-foreground">
+  Nuestro indicador propio para TradingView lleva la metodología Trader Run
+  directamente al gráfico y forma parte del sistema que aprenderás a utilizar
+  paso a paso durante la formación.
+</p>
 
-                    <div className="flex items-center gap-2 text-xs">
-                      <Check className="size-3.5 text-primary" />
-                      Aplicación de la metodología
-                    </div>
-                  </div>
-                </div>
-              </div>
+    <div className="mt-5 space-y-2">
+      <div className="flex items-center gap-2 text-xs">
+        <Check className="size-3.5 text-primary" />
+        TradingView
+      </div>
+
+      <div className="flex items-center gap-2 text-xs">
+        <Check className="size-3.5 text-primary" />
+        Sin instalaciones
+      </div>
+
+      <div className="flex items-center gap-2 text-xs">
+        <Check className="size-3.5 text-primary" />
+        Acceso ilimitado
+      </div>
+    </div>
+  </div>
+
+  {/* SOPORTE */}
+
+  <div className="rounded-3xl border border-border/60 bg-secondary/[0.10] p-6">
+    <MessageCircle className="size-5 text-primary" />
+
+    <h3 className="mt-5 font-display text-xl font-semibold">
+      2 meses de soporte
+    </h3>
+
+    <p className="mt-3 text-sm leading-6 text-muted-foreground">
+      Durante los primeros dos meses tendrás soporte para resolver
+      dudas relacionadas con la formación, la metodología y el
+      uso del indicador.
+    </p>
+
+    <div className="mt-5 space-y-2">
+      <div className="flex items-center gap-2 text-xs">
+        <Check className="size-3.5 text-primary" />
+        Resolución de dudas
+      </div>
+
+      <div className="flex items-center gap-2 text-xs">
+        <Check className="size-3.5 text-primary" />
+        Acompañamiento
+      </div>
+
+      <div className="flex items-center gap-2 text-xs">
+        <Check className="size-3.5 text-primary" />
+        Aplicación de la metodología
+      </div>
+    </div>
+  </div>
+</div>
 
               {/* PRECIO */}
 
@@ -665,18 +705,24 @@ export function Pricing() {
                       </span>
                     </div>
 
-                    <p className="mt-2 text-xs text-muted-foreground">
-                      Disponible en septiembre
-                    </p>
+                    <div className="mt-2 space-y-1">
+  <p className="text-xs text-muted-foreground">
+    Indicador + Estrategia Trader Run · Formación completa
+  </p>
+
+  <p className="text-[10px] text-muted-foreground">
+    3 meses de acceso al curso · 2 meses de soporte · Indicador con acceso ilimitado
+  </p>
+</div>
                   </div>
 
                   <div className="flex flex-col gap-2 sm:items-end">
                     <Button
-                      className="h-12 px-8 font-semibold"
-                      disabled
-                    >
-                      Disponible en septiembre
-                    </Button>
+  className="h-12 px-8 font-semibold"
+  disabled
+>
+  Acceder al curso
+</Button>
 
                     <span className="text-[10px] text-muted-foreground">
                       Lanzamiento: 825 € · Después: 1.150 €

@@ -29,7 +29,7 @@ const valueItems = [
     icon: BarChart3,
     number: "04",
     title: "Herramientas",
-    text: "Utiliza el indicador Trader Run como apoyo visual para aplicar lo aprendido sobre el gráfico.",
+    text: "Aprende a utilizar el indicador Trader Run junto con la estrategia para llevar la metodología al gráfico.",
   },
 ]
 

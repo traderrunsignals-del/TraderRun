@@ -31,7 +31,7 @@ const outcomes = [
   {
     icon: TrendingUp,
     title: "Aplicar una metodología",
-    desc: "Aprenderás nuestra forma de analizar el mercado y cómo utilizar el indicador Trader Run como herramienta de apoyo.",
+    desc: "Aprenderás nuestra forma de analizar el mercado y cómo utilizar el indicador Trader Run junto con la estrategia para aplicar la metodología sobre el gráfico.",
   },
   {
     icon: Check,

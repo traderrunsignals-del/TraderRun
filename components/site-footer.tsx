@@ -29,14 +29,15 @@ const columns = [
     ],
   },
   {
-    title: "Legal",
-    links: [
-      { label: "Términos", href: "/terminos" },
-      { label: "Privacidad", href: "/privacidad" },
-      { label: "Aviso de riesgo", href: "/aviso-riesgo" },
-      { label: "Cookies", href: "/cookies" },
-    ],
-  },
+  title: "Legal",
+  links: [
+    { label: "Aviso Legal", href: "/aviso-legal" },
+    { label: "Términos", href: "/terminos" },
+    { label: "Privacidad", href: "/privacidad" },
+    { label: "Aviso de riesgo", href: "/aviso-riesgo" },
+    { label: "Cookies", href: "/cookies" },
+  ],
+},
 ]
 
 export function SiteFooter() {
@@ -108,13 +109,13 @@ export function SiteFooter() {
 
             <div className="mt-7 space-y-3">
               <a
-                href="mailto:traderrunsignals@gmail.com"
+                href="mailto:soporte@traderrun.com"
                 className="group flex w-fit items-center gap-2.5 text-xs text-muted-foreground transition-colors hover:text-foreground"
               >
                 <Mail className="size-3.5 text-primary" />
 
                 <span>
-                  traderrunsignals@gmail.com
+                  soporte@traderrun.com
                 </span>
               </a>
 

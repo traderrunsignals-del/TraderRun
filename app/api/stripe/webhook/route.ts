@@ -160,6 +160,15 @@ export async function POST(request: Request) {
   const termsAcceptedAt =
   session.metadata?.termsAcceptedAt
 
+  const digitalContentConsent =
+  session.metadata?.digitalContentConsent === "true"
+
+const digitalContentConsentVersion =
+  session.metadata?.digitalContentConsentVersion
+
+const digitalContentConsentAt =
+  session.metadata?.digitalContentConsentAt
+
 /*
  * CALCULAR FIN DE LOS 2 MESES DE SOPORTE
  */
@@ -178,13 +187,16 @@ supportUntil.setUTCMonth(
  * COMPROBAR DATOS NECESARIOS
  */
 
-    if (
+  if (
   !email ||
   !name ||
   !tradingViewUser ||
   !termsAccepted ||
   !termsVersion ||
   !termsAcceptedAt ||
+  !digitalContentConsent ||
+  !digitalContentConsentVersion ||
+  !digitalContentConsentAt ||
   session.amount_total === null ||
   !session.currency
 ) {
@@ -199,9 +211,10 @@ supportUntil.setUTCMonth(
       )
     }
 
-    /*
-     * GUARDAR COMPRA EN SUPABASE
-     */
+
+/*
+ * GUARDAR COMPRA EN SUPABASE
+ */
 
     const { error: purchaseError } =
       await supabaseAdmin
@@ -237,6 +250,15 @@ terms_version:
 
 checkout_terms_accepted_at:
   termsAcceptedAt,
+
+digital_content_consent:
+  digitalContentConsent,
+
+digital_content_consent_version:
+  digitalContentConsentVersion,
+
+digital_content_consent_at:
+  digitalContentConsentAt,
 
 support_until:
   supportUntil.toISOString(),
@@ -303,7 +325,7 @@ support_until:
      * Más adelante añadiremos creación/invitación automática.
      */
 
-  const userAlreadyExisted = Boolean(existingUser)
+
 
 let academyUser = existingUser
 
@@ -436,26 +458,34 @@ if (!academyUser) {
 const purchaseAccessStart =
   new Date(session.created * 1000)
 
-const purchaseAccessExpires =
-  new Date(purchaseAccessStart)
-
-purchaseAccessExpires.setUTCMonth(
-  purchaseAccessExpires.getUTCMonth() + 3
-)
-
     if (existingAccess) {
-      const {
-        error: updateAccessError,
-      } =
-        await supabaseAdmin
-          .from("user_products")
-          .update({
-  active: true,
-})
-          .eq(
-            "id",
-            existingAccess.id
-          )
+  const existingStartedAt =
+    existingAccess.started_at
+      ? new Date(existingAccess.started_at).getTime()
+      : null
+
+  const isSamePurchase =
+    existingStartedAt ===
+    purchaseAccessStart.getTime()
+
+  let updateAccessError = null
+
+  if (!isSamePurchase) {
+    const { error } =
+      await supabaseAdmin
+        .from("user_products")
+        .update({
+          active: true,
+          started_at: purchaseAccessStart.toISOString(),
+          expires_at: null,
+        })
+        .eq(
+          "id",
+          existingAccess.id
+        )
+
+    updateAccessError = error
+  }
 
       if (updateAccessError) {
         console.error(
@@ -484,10 +514,7 @@ purchaseAccessExpires.setUTCMonth(
             started_at:
   purchaseAccessStart.toISOString(),
 
-           expires_at:
-  userAlreadyExisted
-    ? purchaseAccessExpires.toISOString()
-    : null,
+          expires_at: null,
 
             active:
               true,

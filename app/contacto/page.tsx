@@ -7,7 +7,7 @@ export default function ContactoPage() {
       </h1>
 
       <p className="mt-6 text-lg text-muted-foreground">
-        Si tienes cualquier duda sobre la academia, la suscripción o el funcionamiento de Trader Run, estaremos encantados de ayudarte.
+       Si tienes cualquier duda sobre la academia, la suscripción o el funcionamiento de Trader Run, estaremos encantados de ayudarte.
       </p>
 
       <div className="mt-12 space-y-8">
@@ -18,7 +18,7 @@ export default function ContactoPage() {
           </h2>
 
           <p className="mt-4 text-muted-foreground">
-            traderrunsignals@gmail.com
+            soporte@traderrun.com
           </p>
         </div>
 
@@ -43,7 +43,7 @@ export default function ContactoPage() {
           </h2>
 
           <p className="mt-4 text-muted-foreground">
-            Intentamos responder todas las consultas en un plazo de 24 a 48 horas laborables.
+           Intentamos responder todas las consultas en un plazo de 24 a 48 horas laborables.
           </p>
         </div>
 

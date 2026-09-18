@@ -37,7 +37,7 @@ export async function POST() {
       error: accessError,
     } = await supabaseAdmin
       .from("user_products")
-      .select("id, expires_at, active")
+     .select("id, started_at, expires_at, active")
       .eq("user_id", user.id)
       .eq("product_id", ACADEMY_PRODUCT_ID)
       .maybeSingle()
@@ -77,6 +77,38 @@ export async function POST() {
         expiresAt: access.expires_at,
       })
     }
+
+    /*
+ * LA PRIMERA ACTIVACIÓN DEBE REALIZARSE
+ * DENTRO DE LOS 30 DÍAS DESDE LA COMPRA
+ */
+
+if (!access.started_at) {
+  return NextResponse.json(
+    {
+      error:
+        "No se ha podido determinar la fecha de compra asociada a este acceso. Contacta con soporte.",
+    },
+    { status: 409 }
+  )
+}
+
+const purchaseDate = new Date(access.started_at)
+
+const activationDeadline = new Date(purchaseDate)
+activationDeadline.setUTCDate(
+  activationDeadline.getUTCDate() + 30
+)
+
+if (new Date() > activationDeadline) {
+  return NextResponse.json(
+    {
+      error:
+        "El plazo de 30 días para activar el acceso a Academy ha finalizado.",
+    },
+    { status: 403 }
+  )
+}
 
     /*
      * CALCULAR 3 MESES DESDE LA ACTIVACIÓN

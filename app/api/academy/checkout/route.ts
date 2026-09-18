@@ -4,7 +4,6 @@ import Stripe from "stripe"
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string)
 const ACADEMY_PRICE = 82500
 
-
 export async function POST(request: Request) {
   try {
     const body = await request.json()
@@ -14,17 +13,19 @@ export async function POST(request: Request) {
       email,
       tradingViewUser,
       accepted,
+      digitalContentConsent,
     } = body
 
     if (
       !name ||
       !email ||
       !tradingViewUser ||
-      accepted !== true
+      accepted !== true ||
+      digitalContentConsent !== true
     ) {
       return NextResponse.json(
         {
-          error: "Faltan datos obligatorios.",
+          error: "Faltan datos obligatorios o consentimientos requeridos.",
         },
         {
           status: 400,
@@ -32,45 +33,53 @@ export async function POST(request: Request) {
       )
     }
 
-   const session = await stripe.checkout.sessions.create({
-  mode: "payment",
+    const acceptedAt = new Date().toISOString()
 
-  branding_settings: {
-    display_name: "Trader Run Academy",
-  },
+    const session = await stripe.checkout.sessions.create({
+      mode: "payment",
 
-  customer_email: email,
+      branding_settings: {
+        display_name: "Trader Run Academy",
+      },
+
+      customer_email: email,
 
       line_items: [
         {
           price_data: {
             currency: "eur",
 
-            product_data: {
-              name: "Trader Run Academy",
-              description:
-                "Formación Trader Run Academy + indicador Trader Run para TradingView",
-            },
+          product_data: {
+  name: "Curso de Oferta y Demanda · Trader Run Academy",
+  description:
+    "Curso de 10 módulos + indicador Trader Run para TradingView + 2 meses de soporte",
+},
 
-          unit_amount: ACADEMY_PRICE,
+            unit_amount: ACADEMY_PRICE,
           },
 
           quantity: 1,
         },
       ],
 
-     metadata: {
-  productCode: "trader_run_academy",
-  name,
-  email,
-  tradingViewUser,
-  termsAccepted: "true",
-  termsVersion: "academy-2026-09-v1",
-  termsAcceptedAt: new Date().toISOString(),
-},
+      metadata: {
+        productCode: "trader_run_academy",
+        name,
+        email,
+        tradingViewUser,
+
+        termsAccepted: "true",
+        termsVersion: "academy-2026-09-v2",
+        termsAcceptedAt: acceptedAt,
+
+        digitalContentConsent: "true",
+        digitalContentConsentVersion: "academy-2026-09-v2",
+        digitalContentConsentAt: acceptedAt,
+      },
 
       success_url:
-  `${process.env.NEXT_PUBLIC_SITE_URL}/compra-completada?session_id={CHECKOUT_SESSION_ID}`,
+        `${process.env.NEXT_PUBLIC_SITE_URL}/compra-completada?session_id={CHECKOUT_SESSION_ID}`,
+
       cancel_url:
         `${process.env.NEXT_PUBLIC_SITE_URL}/checkout-academy`,
     })

@@ -327,8 +327,8 @@ export function Community() {
                 </span>
 
                 <span className="rounded-full border border-primary/20 bg-primary/[0.06] px-3 py-1 text-[9px] font-semibold text-primary">
-                  Septiembre
-                </span>
+  Curso disponible
+</span>
               </div>
 
               <h3 className="mt-4 font-display text-2xl font-semibold tracking-tight sm:text-3xl">
@@ -336,10 +336,10 @@ export function Community() {
               </h3>
 
               <p className="mt-3 max-w-2xl text-sm leading-7 text-muted-foreground sm:text-base">
-                En septiembre llega nuestra formación de oferta y demanda:
-                un curso estructurado para aprender la metodología Trader Run
-                y llevarla al gráfico con nuestro indicador.
-              </p>
+  Aprende a utilizar el Indicador + Estrategia Trader Run como un sistema
+  basado en oferta y demanda, estructura y gestión del riesgo, con una formación
+  paso a paso para comprender la metodología y aplicarla sobre el gráfico.
+</p>
 
               <div className="mt-6 flex flex-wrap gap-2">
                 <span className="rounded-full border border-border/60 bg-background/30 px-3 py-1.5 text-[10px] font-medium">
@@ -351,7 +351,7 @@ export function Community() {
                 </span>
 
                 <span className="rounded-full border border-border/60 bg-background/30 px-3 py-1.5 text-[10px] font-medium">
-                  Indicador incluido
+                  Indicador + Estrategia
                 </span>
               </div>
             </div>
