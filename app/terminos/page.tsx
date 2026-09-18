@@ -53,27 +53,8 @@ export default function TerminosPage() {
           </section>
 
           <section>
-  <h2 className="mb-3 text-xl font-semibold text-foreground">
-    2. Identificación del prestador
-  </h2>
-
-  <p>
-    Los productos y servicios ofrecidos bajo la marca Trader Run son
-    prestados por el titular identificado en el{" "}
-    <Link
-      href="/aviso-legal"
-      className="text-foreground underline underline-offset-4"
-    >
-      Aviso Legal
-    </Link>
-    , donde puede consultarse de forma permanente la información legal
-    completa del prestador.
-  </p>
-</section>
-
-          <section>
             <h2 className="mb-3 text-xl font-semibold text-foreground">
-              3. Requisitos de contratación
+              2. Requisitos de contratación
             </h2>
 
             <p>
@@ -93,7 +74,7 @@ export default function TerminosPage() {
 
           <section>
             <h2 className="mb-3 text-xl font-semibold text-foreground">
-              4. Trader Run VIP
+              3. Trader Run VIP
             </h2>
 
             <p>
@@ -127,7 +108,7 @@ export default function TerminosPage() {
 
           <section>
             <h2 className="mb-3 text-xl font-semibold text-foreground">
-              5. Cancelación de Trader Run VIP
+              4. Cancelación de Trader Run VIP
             </h2>
 
             <p>
@@ -163,7 +144,7 @@ export default function TerminosPage() {
 
           <section>
             <h2 className="mb-3 text-xl font-semibold text-foreground">
-              6. Renovaciones y pagos fallidos de Trader Run VIP
+              5. Renovaciones y pagos fallidos de Trader Run VIP
             </h2>
 
             <p>
@@ -187,7 +168,7 @@ export default function TerminosPage() {
 
           <section>
             <h2 className="mb-3 text-xl font-semibold text-foreground">
-              7. Trader Run Academy
+              6. Trader Run Academy
             </h2>
 
             <p>
@@ -207,7 +188,7 @@ export default function TerminosPage() {
 
           <section>
             <h2 className="mb-3 text-xl font-semibold text-foreground">
-              8. Curso de Oferta y Demanda
+              7. Curso de Oferta y Demanda
             </h2>
 
             <p>
@@ -239,7 +220,7 @@ export default function TerminosPage() {
 
           <section>
             <h2 className="mb-3 text-xl font-semibold text-foreground">
-              9. Activación y duración del acceso al curso
+              8. Activación y duración del acceso al curso
             </h2>
 
             <p>
@@ -273,7 +254,7 @@ export default function TerminosPage() {
 
           <section>
             <h2 className="mb-3 text-xl font-semibold text-foreground">
-              10. Soporte incluido con el curso
+              9. Soporte incluido con el curso
             </h2>
 
             <p>
@@ -303,7 +284,7 @@ export default function TerminosPage() {
 
           <section>
             <h2 className="mb-3 text-xl font-semibold text-foreground">
-              11. Indicador Trader Run
+              10. Indicador Trader Run
             </h2>
 
             <p>
@@ -343,7 +324,7 @@ export default function TerminosPage() {
 
           <section>
             <h2 className="mb-3 text-xl font-semibold text-foreground">
-              12. Derecho de desistimiento y contenido digital
+              11. Derecho de desistimiento y contenido digital
             </h2>
 
             <p>
@@ -385,7 +366,7 @@ export default function TerminosPage() {
 
           <section>
             <h2 className="mb-3 text-xl font-semibold text-foreground">
-              13. Contratación electrónica
+              12. Contratación electrónica
             </h2>
 
             <p>
@@ -412,7 +393,7 @@ export default function TerminosPage() {
 
           <section>
             <h2 className="mb-3 text-xl font-semibold text-foreground">
-              14. Uso personal de los servicios
+              13. Uso personal de los servicios
             </h2>
 
             <p>
@@ -440,7 +421,7 @@ export default function TerminosPage() {
 
           <section>
             <h2 className="mb-3 text-xl font-semibold text-foreground">
-              15. Propiedad intelectual e industrial
+              14. Propiedad intelectual e industrial
             </h2>
 
             <p>
@@ -461,7 +442,7 @@ export default function TerminosPage() {
 
           <section>
             <h2 className="mb-3 text-xl font-semibold text-foreground">
-              16. Naturaleza educativa y riesgos
+              15. Naturaleza educativa y riesgos
             </h2>
 
             <p>
@@ -498,7 +479,7 @@ export default function TerminosPage() {
 
           <section>
             <h2 className="mb-3 text-xl font-semibold text-foreground">
-              17. Servicios y plataformas de terceros
+              16. Servicios y plataformas de terceros
             </h2>
 
             <p>
@@ -519,7 +500,7 @@ export default function TerminosPage() {
 
           <section>
             <h2 className="mb-3 text-xl font-semibold text-foreground">
-              18. Protección de datos
+              17. Protección de datos
             </h2>
 
             <p>
@@ -529,20 +510,27 @@ export default function TerminosPage() {
             </p>
 
             <p className="mt-3">
-              Puede consultarse la información correspondiente en la{" "}
-              <Link
-                href="/privacidad"
-                className="text-foreground underline underline-offset-4"
-              >
-                Política de Privacidad
-              </Link>
-              .
-            </p>
+  Puede consultarse la información correspondiente en la{" "}
+  <Link
+    href="/privacidad"
+    className="text-foreground underline underline-offset-4"
+  >
+    Política de Privacidad
+  </Link>{" "}
+  y en el{" "}
+  <Link
+    href="/aviso-legal"
+    className="text-foreground underline underline-offset-4"
+  >
+    Aviso Legal
+  </Link>
+  .
+</p>
           </section>
 
           <section>
             <h2 className="mb-3 text-xl font-semibold text-foreground">
-              19. Incidencias y atención al usuario
+              18. Incidencias y atención al usuario
             </h2>
 
             <p>
@@ -567,7 +555,7 @@ export default function TerminosPage() {
 
           <section>
             <h2 className="mb-3 text-xl font-semibold text-foreground">
-              20. Modificación de los servicios y de estas condiciones
+              19. Modificación de los servicios y de estas condiciones
             </h2>
 
             <p>
@@ -591,7 +579,7 @@ export default function TerminosPage() {
 
           <section>
             <h2 className="mb-3 text-xl font-semibold text-foreground">
-              21. Legislación aplicable y resolución de controversias
+              20. Legislación aplicable y resolución de controversias
             </h2>
 
             <p>
@@ -609,7 +597,7 @@ export default function TerminosPage() {
 
           <section>
             <h2 className="mb-3 text-xl font-semibold text-foreground">
-              22. Contacto
+              21. Contacto
             </h2>
 
             <p>
