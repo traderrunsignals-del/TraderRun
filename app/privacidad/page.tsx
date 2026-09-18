@@ -27,18 +27,6 @@ export default function PrivacidadPage() {
             </p>
 
             <p>
-              La identidad y los datos legales completos del responsable
-              pueden consultarse de forma permanente en el{" "}
-              <Link
-                href="/aviso-legal"
-                className="font-medium text-primary hover:underline"
-              >
-                Aviso Legal
-              </Link>
-              .
-            </p>
-
-            <p>
               Para cuestiones relacionadas con protección de datos puede
               contactar con Trader Run mediante el correo electrónico{" "}
               <strong className="font-semibold text-foreground/80">
