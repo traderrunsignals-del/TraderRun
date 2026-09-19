@@ -304,7 +304,7 @@ export default function AvisoLegalPage() {
 
           <section>
             <h2 className="mb-3 text-base font-medium text-foreground">
-              4. Información legal y contacto
+              4. Información legal
             </h2>
 
             <p>
