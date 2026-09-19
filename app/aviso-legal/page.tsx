@@ -330,7 +330,7 @@ export default function AvisoLegalPage() {
   aplicable a los servicios de la sociedad de la información, se
   facilita la información identificativa del prestador. La razón
   social del titular es Rap-3 green S.L., con NIF B22855654 y
-  domicilio social en C/ Capitulaciones 28, puerta A, 18194
+  domicilio social en C/ Capitulaciones 28, 18194
   Churriana de la Vega (Granada). La sociedad consta inscrita en
   el Registro Mercantil de Granada, al folio electrónico, hoja
   GR-63669, IRUS 1000457725368, inscripción 1.ª. El correo

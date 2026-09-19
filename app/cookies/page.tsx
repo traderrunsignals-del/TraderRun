@@ -2,20 +2,20 @@ import Link from "next/link"
 
 export default function CookiesPage() {
   return (
-    <div className="mx-auto max-w-4xl px-6 py-16">
-      <h1 className="text-4xl font-bold">
-        Política de Cookies
-      </h1>
+    <div className="mx-auto max-w-3xl px-6 py-12 sm:py-16">
+     <h1 className="text-2xl font-semibold">
+  Política de Cookies
+</h1>
 
       <p className="mt-6 text-muted-foreground">
         Última actualización: septiembre de 2026
       </p>
 
-      <section className="mt-12 space-y-10">
+     <section className="mt-8 space-y-7 text-sm leading-7">
 
         {/* 1 */}
         <div>
-          <h2 className="text-2xl font-semibold">
+          <h2 className="text-base font-medium">
             1. ¿Qué son las cookies y tecnologías similares?
           </h2>
 
@@ -56,9 +56,9 @@ export default function CookiesPage() {
 
         {/* 3 */}
         <div>
-          <h2 className="text-2xl font-semibold">
-            3. Cookies de autenticación y sesión
-          </h2>
+          <h2 className="text-base font-medium">
+  3. Cookies de autenticación y sesión
+</h2>
 
           <div className="mt-3 space-y-3 text-muted-foreground">
             <p>
@@ -83,9 +83,9 @@ export default function CookiesPage() {
 
         {/* 4 */}
         <div>
-          <h2 className="text-2xl font-semibold">
-            4. Cookie técnica de acceso de previsualización
-          </h2>
+          <h2 className="text-base font-medium">
+  4. Cookie técnica de acceso de previsualización
+</h2>
 
           <div className="mt-3 space-y-3 text-muted-foreground">
             <p>
@@ -107,9 +107,9 @@ export default function CookiesPage() {
 
         {/* 5 */}
         <div>
-          <h2 className="text-2xl font-semibold">
-            5. Reproductor de vídeo de Bunny / MediaDelivery
-          </h2>
+          <h2 className="text-base font-medium">
+  5. Reproductor de vídeo de Bunny / MediaDelivery
+</h2>
 
           <div className="mt-3 space-y-3 text-muted-foreground">
             <p>
@@ -138,7 +138,7 @@ export default function CookiesPage() {
 
         {/* 6 */}
         <div>
-          <h2 className="text-2xl font-semibold">
+          <h2 className="text-base font-medium">
             6. Analítica de la web
           </h2>
 
@@ -164,7 +164,7 @@ export default function CookiesPage() {
 
         {/* 7 */}
         <div>
-          <h2 className="text-2xl font-semibold">
+          <h2 className="text-base font-medium">
             7. Cookies publicitarias y seguimiento comercial
           </h2>
 
@@ -179,7 +179,7 @@ export default function CookiesPage() {
 
         {/* 8 */}
         <div>
-          <h2 className="text-2xl font-semibold">
+          <h2 className="text-base font-medium">
             8. Tecnologías de terceros
           </h2>
 
@@ -208,7 +208,7 @@ export default function CookiesPage() {
 
         {/* 9 */}
         <div>
-          <h2 className="text-2xl font-semibold">
+          <h2 className="text-base font-medium">
             9. Gestión desde el navegador
           </h2>
 
@@ -230,7 +230,7 @@ export default function CookiesPage() {
 
         {/* 10 */}
         <div>
-          <h2 className="text-2xl font-semibold">
+          <h2 className="text-base font-medium">
             10. Consentimiento y cambios futuros
           </h2>
 
@@ -252,7 +252,7 @@ export default function CookiesPage() {
 
         {/* 11 */}
         <div>
-          <h2 className="text-2xl font-semibold">
+          <h2 className="text-base font-medium">
             11. Modificaciones de esta Política de Cookies
           </h2>
 
@@ -268,34 +268,26 @@ export default function CookiesPage() {
 
         {/* 12 */}
         <div>
-          <h2 className="text-2xl font-semibold">
+          <h2 className="text-base font-medium">
             12. Información adicional
           </h2>
 
           <p className="mt-3 text-muted-foreground">
-            Para obtener más información sobre el tratamiento de datos
-            personales puede consultar nuestra{" "}
-            <Link
-              href="/privacidad"
-              className="font-medium text-primary hover:underline"
-            >
-              Política de Privacidad
-            </Link>
-            . Para información sobre el titular del sitio puede consultar
-            también el{" "}
-            <Link
-              href="/aviso-legal"
-              className="font-medium text-primary hover:underline"
-            >
-              Aviso Legal
-            </Link>
-            .
-          </p>
+  Para obtener más información sobre el tratamiento de datos
+  personales puede consultar nuestra{" "}
+  <Link
+    href="/privacidad"
+    className="font-medium text-primary hover:underline"
+  >
+    Política de Privacidad
+  </Link>
+  .
+</p>
         </div>
 
         {/* 13 */}
         <div>
-          <h2 className="text-2xl font-semibold">
+          <h2 className="text-base font-medium">
             13. Contacto
           </h2>
 
