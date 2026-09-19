@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { Menu, X, TrendingUp, ArrowRight } from "lucide-react"
+import { Menu, X, ArrowRight } from "lucide-react"
 
 const navLinks = [
   { label: "Programa", href: "/#academia" },
@@ -19,20 +19,26 @@ export function SiteHeader() {
     <header className="sticky top-0 z-50 border-b border-border/50 bg-background/80 backdrop-blur-xl">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 sm:px-6 lg:h-[72px]">
         
-        {/* LOGO */}
-        <a
-          href="/"
-          className="group flex items-center gap-2.5"
-          aria-label="Trader Run"
-        >
-          <span className="flex size-9 items-center justify-center rounded-xl bg-primary/10 ring-1 ring-primary/20 transition-all duration-300 group-hover:bg-primary/15">
-            <TrendingUp className="size-4.5 text-primary" />
-          </span>
+       {/* LOGO */}
+<a
+  href="/"
+  className="group flex items-center gap-3"
+  aria-label="Trader Run"
+>
+  <span className="flex h-16 w-20 items-center justify-center">
+  <img
+    src="/trader-run-sin-letras.png"
+    alt=""
+    className="h-16 w-20 object-contain"
+  />
+</span>
+<span className="h-6 w-px bg-border/80" />
 
-          <span className="font-display text-lg font-semibold tracking-tight">
-            Trader<span className="text-primary">Run</span>
-          </span>
-        </a>
+<span className="font-display text-lg font-semibold tracking-tight">
+  Trader<span className="text-primary">_run</span>
+</span>
+
+</a>
 
         {/* NAVEGACIÓN DESKTOP */}
         <nav className="hidden items-center gap-7 lg:flex">
