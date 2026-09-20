@@ -125,6 +125,7 @@ const academyFeatures = [
   "Casos prácticos sobre el gráfico",
   "Indicador propio con acceso ilimitado",
   "2 meses de soporte y acompañamiento",
+  "Grupo privado de Telegram con ejemplos reales durante los 2 meses de soporte",
 ]
 
 export function Pricing() {
@@ -410,6 +411,7 @@ export function Pricing() {
     <p>3 meses de acceso al curso</p>
     <p>Indicador Trader Run para TradingView · acceso ilimitado</p>
     <p>2 meses de soporte y acompañamiento</p>
+    <p>Grupo privado de Telegram con ejemplos reales durante el periodo de soporte</p>
   </div>
 </div>
 
