@@ -216,76 +216,131 @@ supportUntil.setUTCMonth(
  * GUARDAR COMPRA EN SUPABASE
  */
 
-    const { error: purchaseError } =
-      await supabaseAdmin
-        .from("academy_purchases")
-        .upsert(
-          {
-            stripe_session_id: session.id,
+const {
+  data: savedPurchase,
+  error: purchaseError,
+} =
+  await supabaseAdmin
+    .from("academy_purchases")
+    .upsert(
+      {
+        stripe_session_id: session.id,
 
-            stripe_payment_intent_id:
-              typeof session.payment_intent === "string"
-                ? session.payment_intent
-                : session.payment_intent?.id ?? null,
+        stripe_payment_intent_id:
+          typeof session.payment_intent === "string"
+            ? session.payment_intent
+            : session.payment_intent?.id ?? null,
 
-            name,
-            email,
-            tradingview_user:
-              tradingViewUser,
+        name,
+        email,
 
-            amount_total:
-              session.amount_total,
+        tradingview_user:
+          tradingViewUser,
 
-            currency:
-              session.currency,
+        amount_total:
+          session.amount_total,
 
-            payment_status:
-              session.payment_status,
+        currency:
+          session.currency,
 
-           terms_accepted:
-  termsAccepted,
+        payment_status:
+          session.payment_status,
 
-terms_version:
-  termsVersion,
+        terms_accepted:
+          termsAccepted,
 
-checkout_terms_accepted_at:
-  termsAcceptedAt,
+        terms_version:
+          termsVersion,
 
-digital_content_consent:
-  digitalContentConsent,
+        checkout_terms_accepted_at:
+          termsAcceptedAt,
 
-digital_content_consent_version:
-  digitalContentConsentVersion,
+        digital_content_consent:
+          digitalContentConsent,
 
-digital_content_consent_at:
-  digitalContentConsentAt,
+        digital_content_consent_version:
+          digitalContentConsentVersion,
 
-support_until:
-  supportUntil.toISOString(),
-          },
-          {
-            onConflict:
-              "stripe_session_id",
-          }
-        )
+        digital_content_consent_at:
+          digitalContentConsentAt,
 
-    if (purchaseError) {
-      console.error(
-        "❌ Error guardando compra en Supabase:",
-        purchaseError
-      )
-
-      return new Response(
-        "Error guardando compra",
-        { status: 500 }
-      )
-    }
-
-
-    console.log(
-      "✅ Compra guardada en academy_purchases:",
-      session.id
+        support_until:
+          supportUntil.toISOString(),
+      },
+      {
+        onConflict:
+          "stripe_session_id",
+      }
     )
+    .select("id")
+    .single()
+
+if (purchaseError || !savedPurchase) {
+  console.error(
+    "❌ Error guardando compra en Supabase:",
+    purchaseError
+  )
+
+  return new Response(
+    "Error guardando compra",
+    { status: 500 }
+  )
+}
+
+console.log(
+  "✅ Compra guardada en academy_purchases:",
+  session.id
+)
+
+/*
+ * CREAR LICENCIA DEL INDICADOR
+ */
+
+const {
+  data: indicatorLicense,
+  error: indicatorLicenseError,
+} =
+  await supabaseAdmin
+    .from("indicator_licenses")
+    .upsert(
+      {
+        purchase_id:
+          savedPurchase.id,
+      },
+      {
+        onConflict:
+          "purchase_id",
+      }
+    )
+    .select(
+      "id, signing_token, status"
+    )
+    .single()
+
+if (
+  indicatorLicenseError ||
+  !indicatorLicense
+) {
+  console.error(
+    "❌ Error creando licencia del indicador:",
+    indicatorLicenseError
+  )
+
+  return new Response(
+    "Error creando licencia del indicador",
+    { status: 500 }
+  )
+}
+
+console.log(
+  "✅ Licencia del indicador preparada:",
+  {
+    licenseId:
+      indicatorLicense.id,
+    status:
+      indicatorLicense.status,
+  }
+)
 
     /*
      * BUSCAR USUARIO EXISTENTE EN SUPABASE AUTH
@@ -537,12 +592,12 @@ const purchaseAccessStart =
       "✅ Acceso a Trader Run Academy activado:",
       academyUser.id
     )
-    /*
+   /*
  * ENVIAR EMAIL DE BIENVENIDA
  */
 
 const {
-  data: purchase,
+  data: emailPurchase,
   error: purchaseLookupError,
 } =
   await supabaseAdmin
@@ -554,7 +609,7 @@ const {
     )
     .single()
 
-if (purchaseLookupError) {
+if (purchaseLookupError || !emailPurchase) {
   console.error(
     "❌ Error comprobando email de bienvenida:",
     purchaseLookupError
@@ -566,39 +621,43 @@ if (purchaseLookupError) {
   )
 }
 
-if (!purchase.welcome_email_sent_at) {
-  const welcomeEmail =
-    buildAcademyWelcomeEmail({
-      name,
-      supportUntil,
-    })
+if (!emailPurchase.welcome_email_sent_at) {
+  const indicatorLicenseUrl =
+  `https://www.traderrun.com/licencia-indicador/${indicatorLicense.signing_token}`
+
+const welcomeEmail =
+  buildAcademyWelcomeEmail({
+    name,
+    supportUntil,
+    indicatorLicenseUrl,
+  })
 
   const {
-  data: emailData,
-  error: emailError,
-} =
-  await resend.emails.send(
-    {
-      from:
-        "Trader Run Academy <no-reply@traderrun.com>",
+    data: emailData,
+    error: emailError,
+  } =
+    await resend.emails.send(
+      {
+        from:
+          "Trader Run Academy <no-reply@traderrun.com>",
 
-      to:
-        email,
+        to:
+          email,
 
-      replyTo:
-        "soporte@traderrun.com",
+        replyTo:
+          "soporte@traderrun.com",
 
-      subject:
-        welcomeEmail.subject,
+        subject:
+          welcomeEmail.subject,
 
-      html:
-        welcomeEmail.html,
-    },
-    {
-      idempotencyKey:
-        `academy-welcome/${session.id}`,
-    }
-  )
+        html:
+          welcomeEmail.html,
+      },
+      {
+        idempotencyKey:
+          `academy-welcome/${session.id}`,
+      }
+    )
 
   if (emailError) {
     console.error(
@@ -651,7 +710,7 @@ if (!purchase.welcome_email_sent_at) {
     session.id
   )
 }
-  }
+}
 
 /*
  * PROCESAR REEMBOLSOS
@@ -678,112 +737,110 @@ if (event.type === "charge.refunded") {
   }
 
    const {
-    data: purchase,
-    error: purchaseError,
-  } =
-    await supabaseAdmin
-      .from("academy_purchases")
-      .select(
-        "id, user_id, amount_total, stripe_session_id"
-      )
-      .eq(
-        "stripe_payment_intent_id",
-        paymentIntentId
-      )
-      .maybeSingle()
-
-  if (purchaseError) {
-    console.error(
-      "Error buscando compra para reembolso:",
-      purchaseError
+  data: purchase,
+  error: purchaseError,
+} =
+  await supabaseAdmin
+    .from("academy_purchases")
+    .select(
+      "id, user_id, amount_total, stripe_session_id"
     )
-
-    return new Response(
-      "Error buscando compra",
-      { status: 500 }
-    )
-  }
-
-  if (!purchase) {
-    console.log(
-      "Reembolso sin compra Academy asociada:",
+    .eq(
+      "stripe_payment_intent_id",
       paymentIntentId
     )
+    .maybeSingle()
 
-    return new Response("ok", {
-      status: 200,
+if (purchaseError) {
+  console.error(
+    "Error buscando compra para reembolso:",
+    purchaseError
+  )
+
+  return new Response(
+    "Error buscando compra",
+    { status: 500 }
+  )
+}
+
+if (!purchase) {
+  console.log(
+    "Reembolso sin compra Academy asociada:",
+    paymentIntentId
+  )
+
+  return new Response("ok", {
+    status: 200,
+  })
+}
+
+const isFullRefund =
+  charge.amount_refunded >=
+  purchase.amount_total
+
+const {
+  error: refundUpdateError,
+} =
+  await supabaseAdmin
+    .from("academy_purchases")
+    .update({
+      refunded_at:
+        new Date().toISOString(),
+
+      refund_amount:
+        charge.amount_refunded,
+
+      refund_status:
+        isFullRefund
+          ? "full"
+          : "partial",
     })
-  }
-
-
-  const isFullRefund =
-    charge.amount_refunded >=
-    purchase.amount_total
-
-  const {
-    error: refundUpdateError,
-  } =
-    await supabaseAdmin
-      .from("academy_purchases")
-      .update({
-        refunded_at:
-          new Date().toISOString(),
-
-        refund_amount:
-          charge.amount_refunded,
-
-        refund_status:
-          isFullRefund
-            ? "full"
-            : "partial",
-      })
-      .eq(
-        "id",
-        purchase.id
-      )
-
-  if (refundUpdateError) {
-    console.error(
-      "Error registrando reembolso:",
-      refundUpdateError
+    .eq(
+      "id",
+      purchase.id
     )
 
-    return new Response(
-      "Error registrando reembolso",
-      { status: 500 }
-    )
-  }
+if (refundUpdateError) {
+  console.error(
+    "Error registrando reembolso:",
+    refundUpdateError
+  )
 
+  return new Response(
+    "Error registrando reembolso",
+    { status: 500 }
+  )
+}
 
-  if (!isFullRefund) {
-    console.log(
-      "Reembolso parcial registrado. Se mantiene acceso Academy:",
-      {
-        sessionId:
-          purchase.stripe_session_id,
-        amountRefunded:
-          charge.amount_refunded,
-        amountTotal:
-          purchase.amount_total,
-      }
-    )
+if (!isFullRefund) {
+  console.log(
+    "Reembolso parcial registrado. Se mantiene acceso Academy:",
+    {
+      sessionId:
+        purchase.stripe_session_id,
+      amountRefunded:
+        charge.amount_refunded,
+      amountTotal:
+        purchase.amount_total,
+    }
+  )
 
-    return new Response("ok", {
-      status: 200,
-    })
-  }
+  return new Response("ok", {
+    status: 200,
+  })
+}
 
-  if (!purchase.user_id) {
-    console.error(
-      "Reembolso total sin user_id asociado:",
-      purchase.stripe_session_id
-    )
+if (!purchase.user_id) {
+  console.error(
+    "Reembolso total sin user_id asociado:",
+    purchase.stripe_session_id
+  )
 
-    return new Response(
-      "Compra sin usuario asociado",
-      { status: 500 }
-    )
-  }
+  return new Response(
+    "Compra sin usuario asociado",
+    { status: 500 }
+  )
+}
 
   /*
    * COMPROBAR SI EL USUARIO TIENE

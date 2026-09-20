@@ -1,11 +1,13 @@
 type AcademyWelcomeEmailParams = {
   name: string
   supportUntil: Date
+  indicatorLicenseUrl: string
 }
 
-export function buildAcademyWelcomeEmail({
+ export function buildAcademyWelcomeEmail({
   name,
   supportUntil,
+  indicatorLicenseUrl,
 }: AcademyWelcomeEmailParams) {
   const formattedSupportUntil =
     new Intl.DateTimeFormat("es-ES", {
@@ -93,19 +95,41 @@ export function buildAcademyWelcomeEmail({
   detalle posible y adjunta capturas de pantalla cuando sean útiles.
 </p>
 
-          <div style="border-top:1px solid #24372c;padding-top:24px;">
-            <div style="font-size:17px;font-weight:700;color:#ffffff;margin-bottom:10px;">
-              Indicador Trader Run
-            </div>
+         <div style="border-top:1px solid #24372c;padding-top:24px;">
+  <div style="font-size:17px;font-weight:700;color:#ffffff;margin-bottom:10px;">
+    Indicador Trader Run
+  </div>
 
-            <p style="margin:0 0 24px;font-size:15px;line-height:1.7;color:#b9c8be;">
-  El Indicador Trader Run para TradingView está incluido con tu
-  compra del curso de Oferta y Demanda. Revisaremos el usuario de
-  TradingView que indicaste durante la compra para gestionar tu acceso.
-  Una vez concedido, el acceso al indicador no tiene una fecha de
-  caducidad predeterminada.
-</p>
-          </div>
+  <p style="margin:0 0 16px;font-size:15px;line-height:1.7;color:#b9c8be;">
+    El Indicador Trader Run para TradingView está incluido con tu
+    compra del curso de Oferta y Demanda.
+  </p>
+
+  <p style="margin:0 0 20px;font-size:15px;line-height:1.7;color:#ffffff;">
+    Para gestionar tu acceso al indicador, primero debes completar
+    y firmar tu licencia personal de uso.
+  </p>
+
+  <div style="margin:0 0 20px;">
+    <a
+      href="${indicatorLicenseUrl}"
+      style="display:inline-block;background:#35d06f;color:#07110c;text-decoration:none;font-size:15px;font-weight:700;padding:14px 22px;border-radius:10px;"
+    >
+      Firmar licencia del indicador
+    </a>
+  </div>
+
+  <p style="margin:0 0 24px;font-size:13px;line-height:1.7;color:#8fa098;">
+    Este enlace es personal. No lo compartas con terceros.
+  </p>
+
+  <p style="margin:0 0 24px;font-size:15px;line-height:1.7;color:#b9c8be;">
+    Una vez completada la firma, podremos gestionar el acceso para
+    el usuario de TradingView indicado durante la compra. Una vez
+    concedido, el acceso al indicador no tiene una fecha de
+    caducidad predeterminada.
+  </p>
+</div>
 
           <div style="border-top:1px solid #24372c;padding-top:24px;">
             <p style="margin:0 0 14px;font-size:15px;line-height:1.7;color:#c5d1c9;">
