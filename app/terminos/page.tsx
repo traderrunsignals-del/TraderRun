@@ -211,10 +211,12 @@ export default function TerminosPage() {
             </p>
 
             <p className="mt-3">
-              La compra incluye los elementos que se indiquen expresamente en
-              la oferta y, en las condiciones actuales del curso, comprende el
-              acceso a los 10 módulos, el Indicador Trader Run asociado al
-              curso y dos meses de soporte y acompañamiento.
+             La compra incluye los elementos que se indiquen expresamente en
+la oferta y, en las condiciones actuales del curso, comprende el
+acceso a los 10 módulos, el Indicador Trader Run asociado al
+curso, dos meses de soporte y acompañamiento y el acceso durante
+dicho periodo al grupo privado de Telegram, en el que podrán
+compartirse ejemplos prácticos relacionados con la formación.
             </p>
           </section>
 

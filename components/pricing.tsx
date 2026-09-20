@@ -416,19 +416,32 @@ export function Pricing() {
 </div>
 
 <div className="mt-auto pt-6">
-              <Button
-                variant="outline"
-                className="h-12 w-full rounded-xl font-semibold"
-                onClick={() => setShowCourseInfo(true)}
-              >
-                Descubrir la Academy
-                <ArrowRight className="ml-2 size-4" />
-              </Button>
+  <Button
+    nativeButton={false}
+    className="h-12 w-full rounded-xl font-semibold"
+    render={<a href="/checkout-academy" />}
+  >
+    Comprar curso — 825 €
+    <ArrowRight className="ml-2 size-4" />
+  </Button>
 
-              <p className="mt-3 text-center text-[10px] text-muted-foreground">
-                Precio especial de lanzamiento
-              </p>
-            </div>
+  <Button
+    variant="outline"
+    className="mt-3 h-11 w-full rounded-xl font-semibold"
+    onClick={() => setShowCourseInfo(true)}
+  >
+    Ver programa completo
+  </Button>
+
+  <p className="mt-3 text-center text-[10px] text-muted-foreground">
+    Pago único · Precio especial de lanzamiento
+  </p>
+
+  <p className="mt-2 text-center text-[9px] leading-4 text-muted-foreground/70">
+    Formación educativa. El trading implica riesgo de pérdida.
+    Los resultados pasados no garantizan resultados futuros.
+  </p>
+</div>
           </article>
         </div>
 
@@ -723,10 +736,12 @@ export function Pricing() {
 
                   <div className="flex flex-col gap-2 sm:items-end">
                     <Button
+  nativeButton={false}
   className="h-12 px-8 font-semibold"
-  disabled
+  render={<a href="/checkout-academy" />}
 >
-  Acceder al curso
+  Comprar curso — 825 €
+  <ArrowRight className="ml-2 size-4" />
 </Button>
 
                     <span className="text-[10px] text-muted-foreground">

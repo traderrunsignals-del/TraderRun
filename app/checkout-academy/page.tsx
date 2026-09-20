@@ -91,12 +91,13 @@ export default function CheckoutAcademyPage() {
 
 <div className="mt-10 space-y-4">
   {[
-    "Curso de Oferta y Demanda · 10 módulos",
-    "3 meses de acceso al curso desde la primera activación",
-    "Primera activación disponible durante 30 días desde la compra",
-    "Indicador Trader Run para TradingView sin caducidad predeterminada una vez concedido",
-    "2 meses de soporte y acompañamiento desde la fecha de compra",
-  ].map((item) => (
+  "Curso de Oferta y Demanda · 10 módulos",
+  "3 meses de acceso al curso desde la primera activación",
+  "Primera activación disponible durante 30 días desde la compra",
+  "Indicador Trader Run para TradingView sin caducidad predeterminada una vez concedido",
+  "2 meses de soporte y acompañamiento desde la fecha de compra",
+  "Grupo privado de Telegram con ejemplos reales durante los 2 meses de soporte",
+].map((item) => (
     <div
       key={item}
       className="flex items-start gap-3"
@@ -129,6 +130,10 @@ export default function CheckoutAcademyPage() {
 
             <p className="mt-3 text-sm text-muted-foreground">
   Pago único · Precio final: 825 €
+</p>
+<p className="mt-3 max-w-xl text-xs leading-5 text-muted-foreground">
+  Formación educativa sobre trading. Operar en los mercados financieros implica
+  riesgo de pérdida. Los resultados pasados no garantizan resultados futuros.
 </p>
           </div>
         </section>
