@@ -63,6 +63,7 @@ export function Cta() {
 
             <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <Button
+              nativeButton={false}
                 size="lg"
                 className="h-12 w-full px-7 text-sm font-semibold sm:w-auto"
                 render={<a href="#precios" />}
@@ -72,6 +73,7 @@ export function Cta() {
               </Button>
 
               <Button
+              nativeButton={false}
                 size="lg"
                 variant="outline"
                 className="h-12 w-full px-7 text-sm font-semibold sm:w-auto"

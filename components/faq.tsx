@@ -198,6 +198,7 @@ export function Faq() {
           </div>
 
           <Button
+          nativeButton={false}
             variant="outline"
             className="h-10 shrink-0 px-5 text-xs font-semibold"
             render={

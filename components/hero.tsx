@@ -92,15 +92,15 @@ export function Hero() {
             {/* CTA */}
 
             <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center lg:justify-start">
-              <Button
-                size="lg"
-                className="h-13 min-w-[220px] rounded-xl px-7 text-sm font-semibold shadow-xl shadow-primary/20 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-2xl hover:shadow-primary/25"
-                render={<a href="#academia" />}
-              >
-                Descubre la Academia
-                <ArrowRight className="ml-1.5 size-4" />
-              </Button>
-
+             <Button
+  nativeButton={false}
+  size="lg"
+  className="h-13 min-w-[220px] rounded-xl px-7 text-sm font-semibold shadow-xl shadow-primary/20 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-2xl hover:shadow-primary/25"
+  render={<a href="#academia" />}
+>
+  Descubre la Academia
+  <ArrowRight className="ml-1.5 size-4" />
+</Button>
               <a
                 href="#metodologia"
                 className="inline-flex h-13 min-w-[190px] items-center justify-center rounded-xl border border-border/60 bg-background/50 px-6 text-sm font-medium text-muted-foreground backdrop-blur-sm transition-all duration-300 hover:border-primary/30 hover:text-foreground"

@@ -233,6 +233,7 @@ export function Pricing() {
 
             <div className="mt-auto pt-8">
               <Button
+              nativeButton={false}
                 variant="outline"
                 className="h-12 w-full rounded-xl font-semibold"
                 render={
@@ -319,6 +320,7 @@ export function Pricing() {
 
             <div className="relative mt-auto pt-6">
               <Button
+              nativeButton={false}
                 className="h-12 w-full rounded-xl font-semibold"
                 render={
                   <a
@@ -450,6 +452,7 @@ export function Pricing() {
           </div>
 
           <Button
+          nativeButton={false}
             variant="outline"
             className="h-10 shrink-0 px-5 text-xs font-semibold"
             render={<a href="mailto:soporte@traderrun.com" />}
