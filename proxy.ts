@@ -2,7 +2,7 @@ import { NextResponse } from "next/server"
 import type { NextRequest } from "next/server"
 import { updateSupabaseSession } from "@/lib/supabase-proxy"
 
-const MANTENIMIENTO = true
+const MANTENIMIENTO = false
 
 export async function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl
