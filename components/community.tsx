@@ -7,6 +7,7 @@ import {
   LineChart,
   MessageSquare,
   Newspaper,
+  Play,
   Send,
   TrendingUp,
   Users,
@@ -363,6 +364,72 @@ export function Community() {
               render={<a href="#academia" />}
             >
               Ver la Academy
+              <ArrowRight className="ml-2 size-4" />
+            </Button>
+          </div>
+        </div>
+
+        {/* =====================================================
+            YOUTUBE
+        ===================================================== */}
+
+        <div className="relative mt-6 overflow-hidden rounded-[30px] border border-border/60 bg-card/40 p-7 sm:p-9">
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute left-0 top-1/2 size-[350px] -translate-y-1/2 rounded-full bg-primary/[0.045] blur-[110px]"
+          />
+
+          <div className="relative grid gap-8 lg:grid-cols-[1fr_auto] lg:items-center">
+            <div className="max-w-3xl">
+              <div className="flex flex-wrap items-center gap-3">
+                <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-primary">
+                  Trader Run en YouTube
+                </span>
+
+                <span className="rounded-full border border-primary/20 bg-primary/[0.06] px-3 py-1 text-[9px] font-semibold text-primary">
+                  Contenido gratuito
+                </span>
+              </div>
+
+              <h3 className="mt-4 font-display text-2xl font-semibold tracking-tight sm:text-3xl">
+                Vídeos de análisis y metodología, gratis en nuestro canal.
+              </h3>
+
+              <p className="mt-3 max-w-2xl text-sm leading-7 text-muted-foreground sm:text-base">
+                Análisis de mercado, explicaciones de la metodología Trader Run
+                y contenido educativo en vídeo, disponible de forma gratuita
+                para toda la comunidad.
+              </p>
+
+              <div className="mt-6 flex flex-wrap gap-2">
+                <span className="rounded-full border border-border/60 bg-background/30 px-3 py-1.5 text-[10px] font-medium">
+                  Análisis de mercado
+                </span>
+
+                <span className="rounded-full border border-border/60 bg-background/30 px-3 py-1.5 text-[10px] font-medium">
+                  Metodología Trader Run
+                </span>
+
+                <span className="rounded-full border border-border/60 bg-background/30 px-3 py-1.5 text-[10px] font-medium">
+                  Contenido educativo
+                </span>
+              </div>
+            </div>
+
+            <Button
+              size="lg"
+              variant="outline"
+              className="h-12 shrink-0 rounded-xl px-7"
+              render={
+                <a
+                  href="https://www.youtube.com/@Trader_run"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                />
+              }
+            >
+              <Play className="mr-2 size-4" />
+              Ver canal de YouTube
               <ArrowRight className="ml-2 size-4" />
             </Button>
           </div>

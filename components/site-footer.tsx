@@ -1,6 +1,7 @@
 import {
   GraduationCap,
   Mail,
+  Play,
   Send,
   TrendingUp,
 } from "lucide-react"
@@ -21,6 +22,11 @@ const columns = [
       {
         label: "Telegram gratuito",
         href: "https://t.me/tradingproNQ",
+        external: true,
+      },
+      {
+        label: "YouTube",
+        href: "https://www.youtube.com/@Trader_run",
         external: true,
       },
       { label: "Trader Run VIP", href: "/#precios" },
@@ -129,6 +135,19 @@ export function SiteFooter() {
 
                 <span>
                   Comunidad gratuita en Telegram
+                </span>
+              </a>
+
+              <a
+                href="https://www.youtube.com/@Trader_run"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex w-fit items-center gap-2.5 text-xs text-muted-foreground transition-colors hover:text-foreground"
+              >
+                <Play className="size-3.5 text-primary" />
+
+                <span>
+                  Canal de YouTube
                 </span>
               </a>
             </div>
