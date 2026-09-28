@@ -3,6 +3,7 @@ import { Hero } from "@/components/hero"
 import { ImpactStatement } from "@/components/impact-statement"
 import { Methodology } from "@/components/methodology"
 import { AcademyPreview } from "@/components/academy-preview"
+import { Community } from "@/components/community"
 import { Results } from "@/components/results"
 import { Testimonials } from "@/components/testimonials"
 import { AboutUs } from "@/components/about-us"
@@ -21,6 +22,7 @@ export default function HomePage() {
         <ImpactStatement />
         <Methodology />
         <AcademyPreview />
+        <Community />
         <Results />
         <Testimonials />
         <Pricing />
