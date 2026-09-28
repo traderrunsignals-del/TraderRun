@@ -10,9 +10,11 @@ import {
   Check,
   Crown,
   GraduationCap,
+  Instagram,
   LineChart,
   MessageCircle,
   Newspaper,
+  Radio,
   Send,
   Target,
   TrendingUp,
@@ -89,6 +91,25 @@ const freeFeatures = [
   },
 ]
 
+const instagramFeatures = [
+  {
+    icon: Newspaper,
+    text: "Contenido privado: posts e historias con análisis técnicos que no verás en el feed público",
+  },
+  {
+    icon: TrendingUp,
+    text: "Observaciones actualizadas sobre el mercado y las operaciones",
+  },
+  {
+    icon: BarChart3,
+    text: "Data exclusiva: métricas y reportes de mercado de alta relevancia",
+  },
+  {
+    icon: Radio,
+    text: "Directos cada día para desglosar el mercado y resolver dudas",
+  },
+]
+
 const vipFeatures = [
   {
     icon: LineChart,
@@ -160,7 +181,7 @@ export function Pricing() {
           </div>
 
           <h2 className="mt-6 text-balance font-display text-4xl font-semibold leading-[1.03] tracking-[-0.04em] sm:text-5xl lg:text-6xl">
-            Tres formas de
+            Varias formas de
             <span className="block text-muted-foreground">
               formar parte de Trader Run.
             </span>
@@ -176,7 +197,7 @@ export function Pricing() {
             TRES OPCIONES
         ===================================================== */}
 
-        <div className="mt-16 grid gap-5 lg:grid-cols-3">
+        <div className="mt-16 grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
           {/* ===================================================
               GRATIS
           =================================================== */}
@@ -251,6 +272,88 @@ export function Pricing() {
 
               <p className="mt-3 text-center text-[10px] text-muted-foreground">
                 Acceso mediante Telegram
+              </p>
+            </div>
+          </article>
+
+          {/* ===================================================
+              INSTAGRAM
+          =================================================== */}
+
+          <article className="flex flex-col rounded-[28px] border border-border/60 bg-card/45 p-7">
+            <div className="flex items-start justify-between">
+              <div className="flex size-11 items-center justify-center rounded-xl border border-border/60 bg-secondary/30">
+                <Instagram className="size-5 text-primary" />
+              </div>
+
+              <span className="rounded-full border border-border/60 bg-secondary/20 px-3 py-1 text-[9px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">
+                Instagram
+              </span>
+            </div>
+
+            <div className="mt-7">
+              <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+                @trader_run
+              </p>
+
+              <div className="mt-2 flex items-end gap-1.5">
+                <span className="font-display text-4xl font-semibold">
+                  3,99 €
+                </span>
+
+                <span className="mb-1 text-xs text-muted-foreground">
+                  / mes
+                </span>
+              </div>
+
+              <p className="mt-4 min-h-[72px] text-sm leading-6 text-muted-foreground">
+                Contenido privado y directos diarios para seguir el mercado y
+                las operaciones desde dentro, directamente en Instagram.
+              </p>
+            </div>
+
+            <div className="my-6 h-px bg-border/60" />
+
+            <div className="space-y-4">
+              {instagramFeatures.map((feature) => {
+                const Icon = feature.icon
+
+                return (
+                  <div
+                    key={feature.text}
+                    className="flex items-start gap-3"
+                  >
+                    <div className="flex size-7 shrink-0 items-center justify-center rounded-lg bg-primary/10">
+                      <Icon className="size-3.5 text-primary" />
+                    </div>
+
+                    <span className="pt-1 text-xs leading-5 text-muted-foreground">
+                      {feature.text}
+                    </span>
+                  </div>
+                )
+              })}
+            </div>
+
+            <div className="mt-auto pt-8">
+              <Button
+              nativeButton={false}
+                variant="outline"
+                className="h-12 w-full rounded-xl font-semibold"
+                render={
+                  <a
+                    href="https://www.instagram.com/trader_run?utm_source=ig_web_button_share_sheet&stkn=ZDNlZDc0MzIxNw=="
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  />
+                }
+              >
+                Suscribirme en Instagram
+                <ArrowRight className="ml-2 size-4" />
+              </Button>
+
+              <p className="mt-3 text-center text-[10px] leading-4 text-muted-foreground">
+                Suscripción mensual · Cancela cuando quieras
               </p>
             </div>
           </article>
