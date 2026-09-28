@@ -7,10 +7,10 @@ import {
   BarChart3,
   BellRing,
   Brain,
+  Camera,
   Check,
   Crown,
   GraduationCap,
-  Instagram,
   LineChart,
   MessageCircle,
   Newspaper,
@@ -283,7 +283,7 @@ export function Pricing() {
           <article className="flex flex-col rounded-[28px] border border-border/60 bg-card/45 p-7">
             <div className="flex items-start justify-between">
               <div className="flex size-11 items-center justify-center rounded-xl border border-border/60 bg-secondary/30">
-                <Instagram className="size-5 text-primary" />
+                <Camera className="size-5 text-primary" />
               </div>
 
               <span className="rounded-full border border-border/60 bg-secondary/20 px-3 py-1 text-[9px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">
