@@ -428,7 +428,7 @@ export function Pricing() {
                 className="h-12 w-full rounded-xl font-semibold"
                 render={
                   <a
-                    href="https://buy.stripe.com/3cIaEQ7hMdL00Kr3Qg8so05"
+                    href="https://buy.stripe.com/5kQ8wIgSm8qGgJp9aA8so07"
                     target="_blank"
                     rel="noopener noreferrer"
                   />
